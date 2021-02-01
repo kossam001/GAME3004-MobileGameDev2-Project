@@ -32,6 +32,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Respawn()
     {
+        // NOTE: Because of the current hierarchy/layout of the enemy prefab. The capsule child will likely be offset with the parent. This will likely need to be changed.
         transform.position = new Vector3(13, 2, transform.position.z);
     }
 }

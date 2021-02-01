@@ -20,7 +20,9 @@ public class TowerBehaviour : MonoBehaviour
             EnemyBehaviour.numEnemiesDefeated++;
 
             StartCoroutine(Fired());
-            
+
+            other.gameObject.GetComponentInParent<Health>().ModifyHealth(-10);
+            //other.gameObject.GetComponent<Health>().ModifyHealth(-10);
             other.gameObject.GetComponent<EnemyBehaviour>().Respawn();
         }
     }
