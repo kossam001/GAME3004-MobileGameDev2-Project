@@ -21,8 +21,7 @@ public class TowerBehaviour : MonoBehaviour
 
             StartCoroutine(Fired());
 
-            other.gameObject.GetComponentInParent<Health>().ModifyHealth(-10);
-            //other.gameObject.GetComponent<Health>().ModifyHealth(-10);
+            other.gameObject.GetComponent<Health>().ModifyHealth(-10);
             other.gameObject.GetComponent<EnemyBehaviour>().Respawn();
         }
     }
@@ -30,14 +29,14 @@ public class TowerBehaviour : MonoBehaviour
     IEnumerator Fired()
     {
         // "Disable" Tower
-        this.gameObject.transform.parent.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+        this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
         this.GetComponent<SphereCollider>().enabled = false;
         Debug.Log("Tower can't shoot");
 
         yield return new WaitForSeconds(2);
 
         // "Re-enable" Tower
-        this.gameObject.transform.parent.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+        this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
         this.GetComponent<SphereCollider>().enabled = true;
         Debug.Log("Tower can shoot");
     }
