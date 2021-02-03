@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/MainMenuScreen.unity
+    guid: 35ed962b8919a194392b378a5502c93e
+  - enabled: 1
+    path: Assets/_Scenes/OptionsScreen.unity
+    guid: dd8a8fb7f3ddd66449cbba403c053a6b
+  - enabled: 1
+    path: Assets/_Scenes/DespawnEnemyViaTowerScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/_Scenes/GameOverScreen.unity
+    guid: 006d840d3bb99874d883f4a9e13b0c7a
   m_configObjects: {}
