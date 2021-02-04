@@ -2472,11 +2472,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &539827289 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2266446748858710290, guid: 4d496d40170124447b04b88033886db4, type: 3}
-  m_PrefabInstance: {fileID: 2266446747406487219}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &560979020
 GameObject:
   m_ObjectHideFlags: 0
@@ -5335,75 +5330,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652029879}
   m_CullTransparentMesh: 1
---- !u!1001 &1696855363
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 539827289}
-    m_Modifications:
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 445832843306975299, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 964960229205973753, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
-      propertyPath: m_Name
-      value: RabbitCharacter
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2049eab92a487ca428e3e4c1d5d53edd, type: 3}
 --- !u!1 &1702848762
 GameObject:
   m_ObjectHideFlags: 0
@@ -6770,10 +6696,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2266446748858710290, guid: 4d496d40170124447b04b88033886db4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266446748858710316, guid: 4d496d40170124447b04b88033886db4, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2266446748858710319, guid: 4d496d40170124447b04b88033886db4, type: 3}
