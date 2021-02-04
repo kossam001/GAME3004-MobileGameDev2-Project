@@ -15,6 +15,7 @@ public class Healthbar : MonoBehaviour
     private void Awake()
     {
         GetComponentInParent<Health>().OnHealthPctChanged += HandleHealthChanged;
+        transform.Rotate(0, 45, 0);
     }
 
     private void HandleHealthChanged(float pct)
@@ -40,7 +41,7 @@ public class Healthbar : MonoBehaviour
     private void LateUpdate()
     {
         // Make canvas face camera
-        transform.LookAt(Camera.main.transform);
-        transform.Rotate(0, 180, 0);
+        //transform.LookAt(Camera.main.transform);
+        //transform.Rotate(0, 180, 0);
     }
 }
