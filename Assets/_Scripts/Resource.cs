@@ -23,7 +23,7 @@ public class Resource : InteractableObject
         {
             Mathf.Clamp(resourcePoints += (int)(growthSpeed * Time.deltaTime), 0, maxResource);
 
-            uiResourceAmountIndicator.fillAmount = (float) resourcePoints / (float)maxResource;
+            //uiResourceAmountIndicator.fillAmount = (float) resourcePoints / (float)maxResource;
         }
     }
 }

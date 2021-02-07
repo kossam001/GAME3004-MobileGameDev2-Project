@@ -45,4 +45,11 @@ public class InventoryUI : MonoBehaviour
     {
         this.gameObject.SetActive(false);
     }
+
+    public void PlantCarrotButton()
+    {
+        CloseInventoryButton();
+        PlantManager.PlantingOn();
+
+    }
 }
