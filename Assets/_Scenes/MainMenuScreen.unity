@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 301232383}
   - component: {fileID: 301232382}
   m_Layer: 0
-  m_Name: PlayerPrefsAudio
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -563,11 +563,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 301232381}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e123e118e196d4f8de080d7e86d085, type: 3}
+  m_Script: {fileID: 11500000, guid: f3cd296a8d851f547a5b4654d59b0ccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 12acd8a44b659cd49bfff43add819587, type: 2}
-  musicAudioSource: {fileID: 1477513097}
 --- !u!4 &301232383
 Transform:
   m_ObjectHideFlags: 0

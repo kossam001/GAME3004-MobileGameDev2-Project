@@ -6,18 +6,21 @@ using UnityEngine.UI;
 
 public class MusicSlider : MonoBehaviour
 {
-    public AudioMixer audioMixer;
-    public Slider slider;
+    //public Slider slider;
 
     private void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        Slider slider = GetComponent<Slider>();
+
+        slider.value = PlayerPrefs.GetFloat("MusicSliderValue", 0.75f);
     }
 
     public void SetMusicVolume(float sliderValue)
     {
-        audioMixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 20.0f);
+        // NOTE: Because of the way AudioMixers use a logarithmic scale, we need to store seperate values
+        PlayerPrefs.SetFloat("MusicSliderValue", sliderValue);
+        PlayerPrefs.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 20.0f);
 
-        PlayerPrefs.SetFloat("MusicVolume", sliderValue);
+        AudioManager.instance.AdjustMusicVolume(Mathf.Log10(sliderValue) * 20.0f);
     }
 }
