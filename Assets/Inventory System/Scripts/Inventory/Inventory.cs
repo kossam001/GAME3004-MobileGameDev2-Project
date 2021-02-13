@@ -45,7 +45,7 @@ public class Inventory : MonoBehaviour, ISaveHandler
     private void InitItemSlots()
     {
         Assert.IsTrue(itemSlots.Count > 0, "itemSlots was empty");
-        Assert.IsNotNull(itemSlots[0], "Inventory is missing a prefab for itemSlots. Add it as the first element of its itemSlot list");
+        Assert.IsNotNull(itemSlots[0], "Inventory is the first itemslot. Add it as the first element of its itemSlot list from the scene");
 
         // init item slots
         for (int i = 1; i < itemSlots.Count; i++)
