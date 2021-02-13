@@ -8,19 +8,18 @@ public class Inventory : MonoBehaviour, ISaveHandler
 {
     [Tooltip("Reference to the master item table")]
     [SerializeField]
-    private ItemTable masterItemTable;
+    protected ItemTable masterItemTable;
 
     [Tooltip("The object which will hold Item Slots as its direct children")]
     [SerializeField]
-    private GameObject inventoryPanel;
+    protected GameObject inventoryPanel;
 
     [Tooltip("List size determines how many slots there will be. Contents will replaced by copies of the first element")]
-    [SerializeField]
-    private List<ItemSlot> itemSlots;
+    public List<ItemSlot> itemSlots;
 
     [Tooltip("Items to add on Start for testing purposes")]
     [SerializeField]
-    private List<Item> startingItems;
+    protected List<Item> startingItems;
 
     /// <summary>
     /// Private key used for saving with playerprefs
@@ -42,7 +41,7 @@ public class Inventory : MonoBehaviour, ISaveHandler
         }
     }
 
-    private void InitItemSlots()
+    protected void InitItemSlots()
     {
         Assert.IsTrue(itemSlots.Count > 0, "itemSlots was empty");
         Assert.IsNotNull(itemSlots[0], "Inventory is the first itemslot. Add it as the first element of its itemSlot list from the scene");

@@ -138,18 +138,24 @@ public class ItemSlot : MonoBehaviour
     }
 
     // Add to number of items without necessarily changing item type
-    public void AddItems(Item item, int count)
+    public bool AddItems(Item item, int count)
     {
         if (ItemInSlot == null)
         {
             ItemInSlot = item;
             ItemCount = count;
             b_needsUpdate = true;
+
+            return true;
         }
         else if (ItemInSlot != null)
         {
             ItemCount += count;
             b_needsUpdate = true;
+
+            return true;
         }
+
+        return false;
     }
 }

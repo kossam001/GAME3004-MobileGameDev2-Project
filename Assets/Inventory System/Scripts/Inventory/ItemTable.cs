@@ -7,8 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item Table", menuName = "ScriptableObjects/ItemTable", order = 2)]
 public class ItemTable : ScriptableObject
 {
-    [SerializeField]
-    private Item[] items;
+    public Item[] items;
     public Item GetItem(int id)
     {
         return items[id];

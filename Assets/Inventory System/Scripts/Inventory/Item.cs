@@ -60,6 +60,13 @@ public class Item : ScriptableObject
         private set { }
     }
 
+    [SerializeField]
+    private ItemType type;
+    public ItemType Type
+    {
+        get { return type; }
+        private set { }
+    }
 
     public void Use()
     {
