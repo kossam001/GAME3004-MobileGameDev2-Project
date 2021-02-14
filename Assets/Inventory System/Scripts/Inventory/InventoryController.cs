@@ -78,6 +78,8 @@ public class InventoryController : MonoBehaviour
                     }
                     break; // No point in checking the other results
                 }
+
+                Cancel();
             }
         }
 
@@ -225,5 +227,11 @@ public class InventoryController : MonoBehaviour
                 PickUpOne(itemSlot);
             }
         }
+    }
+
+    public void Cancel()
+    {
+        cursorIcon.TryRemoveItems(cursorIcon.ItemCount);
+        currentlyMovingItem = false;
     }
 }

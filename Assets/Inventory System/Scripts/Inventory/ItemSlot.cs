@@ -148,7 +148,7 @@ public class ItemSlot : MonoBehaviour
 
             return true;
         }
-        else if (ItemInSlot != null)
+        else if (ItemInSlot != null && ItemInSlot.ItemID == item.ItemID)
         {
             ItemCount += count;
             b_needsUpdate = true;

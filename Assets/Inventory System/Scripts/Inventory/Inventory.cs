@@ -59,22 +59,23 @@ public class Inventory : MonoBehaviour, ISaveHandler
             item.onItemUse.AddListener(OnItemUsed);
         }
     }
+
     private void InitSaveInfo()
     {
-        // init save info
-        //assert only one object with the same name, or else we can have key collisions on PlayerPrefs
-        Assert.AreEqual(
-            Resources.FindObjectsOfTypeAll(typeof(GameObject)).Where(gameObArg => gameObArg.name == gameObject.name).Count(),
-            1,
-            "More than one gameObject have the same name, therefore there may be save key collisions in PlayerPrefs"
-            );
+        //// init save info
+        ////assert only one object with the same name, or else we can have key collisions on PlayerPrefs
+        //Assert.AreEqual(
+        //    Resources.FindObjectsOfTypeAll(typeof(GameObject)).Where(gameObArg => gameObArg.name == gameObject.name).Count(),
+        //    1,
+        //    "More than one gameObject have the same name, therefore there may be save key collisions in PlayerPrefs"
+        //    );
 
-        // set a key to use for saving/loading
-        saveKey = gameObject.name + this.GetType().Name;
+        //// set a key to use for saving/loading
+        //saveKey = gameObject.name + this.GetType().Name;
 
-        //Subscribe to save events on start so we are listening
-        GameSaver.OnLoad.AddListener(OnLoad);
-        GameSaver.OnSave.AddListener(OnSave);
+        ////Subscribe to save events on start so we are listening
+        //GameSaver.OnLoad.AddListener(OnLoad);
+        //GameSaver.OnSave.AddListener(OnSave);
     }
 
     private void OnDestroy()

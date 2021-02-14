@@ -5,13 +5,20 @@ using System;
 
 public class ShopSlot : ItemSlot
 {
-    public Inventory playerInventory;
+    public Shop shop;
+
+    /* Gets a reference to the item that is to be bought and 
+     * shop takes the reference and determines which inventory to send
+     * the item to.
+     *
+     * Keeps the references in one place, so the items do not all need
+     * access to inventory reference.
+     * 
+     * Shop genereates the items itself, so it can set up the Shop reference itself.
+     */ 
 
     public void Buy()
     {
-        foreach (ItemSlot itemSlot in playerInventory.itemSlots)
-        {
-            if (itemSlot.AddItems(this.ItemInSlot, 1)) return;
-        }
+        shop.SellItem(ItemInSlot);
     }
 }

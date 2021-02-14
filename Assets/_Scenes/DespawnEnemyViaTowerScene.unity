@@ -2149,7 +2149,7 @@ GameObject:
   - component: {fileID: 266082739}
   - component: {fileID: 266082738}
   m_Layer: 5
-  m_Name: SeedContent
+  m_Name: ShopSeedInventoryContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3529,8 +3529,6 @@ GameObject:
   - component: {fileID: 595351538}
   - component: {fileID: 595351537}
   - component: {fileID: 595351539}
-  - component: {fileID: 595351540}
-  - component: {fileID: 595351541}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3560,7 +3558,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.1770234, y: 19.410795, z: -22.129711}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 853022531}
+  - {fileID: 973834596}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3577,46 +3577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorIcon: {fileID: 1360658167}
---- !u!114 &595351540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595351536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91fa7f82a080eff4fb35c4cec3e81ebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterItemTable: {fileID: 0}
-  inventoryPanel: {fileID: 1786982280}
-  itemSlots:
-  - {fileID: 1871348997}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  startingItems: []
---- !u!114 &595351541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595351536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91fa7f82a080eff4fb35c4cec3e81ebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterItemTable: {fileID: 0}
-  inventoryPanel: {fileID: 1287461785}
-  itemSlots:
-  - {fileID: 3691851272039425061}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  startingItems: []
 --- !u!4 &599560652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: be95f3aa5b3a47e4ca6a076ee4c26dfc, type: 3}
@@ -3760,7 +3720,7 @@ GameObject:
   - component: {fileID: 664711025}
   - component: {fileID: 664711024}
   m_Layer: 5
-  m_Name: TowerContent
+  m_Name: ShopTowerInventoryContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3784,7 +3744,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -0.00003159046, y: 0}
-  m_SizeDelta: {x: 0, y: 539.16}
+  m_SizeDelta: {x: 518.4, y: 539.16}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &664711024
 MonoBehaviour:
@@ -4392,6 +4352,57 @@ Transform:
   m_Father: {fileID: 1171871650}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &853022530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 853022531}
+  - component: {fileID: 853022532}
+  m_Layer: 0
+  m_Name: TowerInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &853022531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853022530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 595351538}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &853022532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853022530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fa7f82a080eff4fb35c4cec3e81ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterItemTable: {fileID: 11400000, guid: 61b2a9c5007be994aab8ab681d6f604f, type: 2}
+  inventoryPanel: {fileID: 1786982280}
+  itemSlots:
+  - {fileID: 1871348997}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  startingItems: []
 --- !u!1001 &868882521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5060,6 +5071,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 13407020f5064bd4caa6667046874e11, type: 3}
   m_PrefabInstance: {fileID: 1884407430}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &973834595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 973834596}
+  - component: {fileID: 973834597}
+  m_Layer: 0
+  m_Name: SeedInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &973834596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973834595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 595351538}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973834597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973834595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fa7f82a080eff4fb35c4cec3e81ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterItemTable: {fileID: 11400000, guid: 61b2a9c5007be994aab8ab681d6f604f, type: 2}
+  inventoryPanel: {fileID: 1287461785}
+  itemSlots:
+  - {fileID: 3691851272039425061}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  startingItems: []
 --- !u!1 &984043628
 GameObject:
   m_ObjectHideFlags: 0
@@ -5272,9 +5334,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -17}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1046980094
 MonoBehaviour:
@@ -6362,6 +6424,34 @@ PrefabInstance:
     - target: {fileID: 450552446725318494, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
       propertyPath: m_Name
       value: SeedShopSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 528231741}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Buy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopSlot, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6451842076462700758, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
       propertyPath: m_Pivot.x
@@ -8349,7 +8439,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10284,7 +10374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2063676824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10378,9 +10468,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterItemTable: {fileID: 11400000, guid: 61b2a9c5007be994aab8ab681d6f604f, type: 2}
+  towerInventory: {fileID: 853022532}
   towerInventoryPanel: {fileID: 664711022}
   towerItemSlots:
   - {fileID: 5825399428683149179}
+  seedInventory: {fileID: 973834597}
   seedInventoryPanel: {fileID: 266082736}
   seedItemSlots:
   - {fileID: 528231741}
@@ -11127,7 +11219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8524326285238307025, guid: 3960337b8ff898d4291dfe5a66395a44, type: 3}
       propertyPath: m_Name
-      value: TowerContent
+      value: PlayerTowerInventoryContent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3960337b8ff898d4291dfe5a66395a44, type: 3}
@@ -11292,7 +11384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8524326285238307025, guid: 3960337b8ff898d4291dfe5a66395a44, type: 3}
       propertyPath: m_Name
-      value: SeedContent
+      value: PlayerSeedInventoryContent
       objectReference: {fileID: 0}
     - target: {fileID: 8876725221584893218, guid: 3960337b8ff898d4291dfe5a66395a44, type: 3}
       propertyPath: m_text
@@ -11413,6 +11505,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerShopSlot
       objectReference: {fileID: 0}
+    - target: {fileID: 2184442665435855563, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5825399428683149179}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Buy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopSlot, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623754293499314450, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6451842076462700758, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -11431,7 +11555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6451842076462700758, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6451842076462700758, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
       propertyPath: m_AnchorMin.x
@@ -11439,7 +11563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6451842076462700758, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6451842076462700758, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
       propertyPath: m_SizeDelta.x
@@ -11479,11 +11603,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6451842076462700758, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 6451842076462700758, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 6451842076462700758, guid: 76c136e74252fe649bbe45e89871cabe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -10,12 +10,14 @@ public class Shop : MonoBehaviour
     protected ItemTable masterItemTable;
 
     [Header("Tower Shop")]
+    [SerializeField] private Inventory towerInventory;
     [SerializeField] private GameObject towerInventoryPanel;
-    [SerializeField] protected List<ItemSlot> towerItemSlots;
+    [SerializeField] protected List<ShopSlot> towerItemSlots;
 
     [Header("Seed Shop")]
+    [SerializeField] private Inventory seedInventory;
     [SerializeField] private GameObject seedInventoryPanel;
-    [SerializeField] protected List<ItemSlot> seedItemSlots;
+    [SerializeField] protected List<ShopSlot> seedItemSlots;
 
     // Start is called before the first frame update
     void Start()
@@ -45,15 +47,15 @@ public class Shop : MonoBehaviour
         }
     }
 
-    private void SetupSlot(Item item, GameObject parentPanel, List<ItemSlot> slots, int slotCount)
+    private void SetupSlot(Item item, GameObject parentPanel, List<ShopSlot> slots, int slotCount)
     {
-        ItemSlot slot;
+        ShopSlot slot;
 
         // Generate more slots as needed
         if (slotCount > slots.Count)
         {
             GameObject newObject = Instantiate(slots[0].gameObject, parentPanel.transform);
-            slot = newObject.GetComponent<ItemSlot>();
+            slot = newObject.GetComponent<ShopSlot>();
             slots.Add(slot);
         }
         else
@@ -61,12 +63,27 @@ public class Shop : MonoBehaviour
             slot = slots[slotCount - 1];
         }
 
+        slot.shop = this;
         slot.SetContents(item, 1);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SellItem(Item item)
     {
-        
+        Inventory playerInventory = null;
+
+        switch (item.Type)
+        {
+            case ItemType.SEED:
+                playerInventory = seedInventory;
+                break;
+            case ItemType.TOWER:
+                playerInventory = towerInventory;
+                break;
+        }
+
+        foreach (ItemSlot itemSlot in playerInventory.itemSlots)
+        {
+            if (itemSlot.AddItems(item, 1)) return;
+        }
     }
 }
