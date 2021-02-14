@@ -5,25 +5,33 @@ using UnityEngine.UI;
 
 public class Resource : InteractableObject
 {
-    public int resourcePoints;
-    public int growthSpeed;
+    private float accumulatedResourcePoints;
 
-    public int maxResource;
+    public float growthSpeed;
+
+    public int maxResourceYield1;
+    public int maxResourceYield2;
+    public int maxResourceYield3;
+
     public Image uiResourceAmountIndicator;
 
     public override void Use()
     {
-        Debug.Log(resourcePoints);
-        resourcePoints = 0;
+        int yield1 = (int) (uiResourceAmountIndicator.fillAmount * (float) maxResourceYield1);
+        int yield2 = (int) (uiResourceAmountIndicator.fillAmount * (float) maxResourceYield2);
+        int yield3 = (int) (uiResourceAmountIndicator.fillAmount * (float) maxResourceYield3);
+
+        GameStats.Instance.AddResources(yield1, yield2, yield3);
+        accumulatedResourcePoints = 0;
     }
 
     private void Update()
     {
-        if (resourcePoints <= maxResource)
+        if (accumulatedResourcePoints <= 100.0f)
         {
-            Mathf.Clamp(resourcePoints += (int)(growthSpeed * Time.deltaTime), 0, maxResource);
+            Mathf.Clamp(accumulatedResourcePoints += growthSpeed * Time.deltaTime, 0, 100.0f);
 
-            uiResourceAmountIndicator.fillAmount = (float) resourcePoints / (float)maxResource;
+            uiResourceAmountIndicator.fillAmount = (float)accumulatedResourcePoints / 100.0f;
         }
     }
 }

@@ -70,6 +70,6 @@ public class Item : ScriptableObject
 
     public void Use()
     {
-        //Debug.Log("Used item " + name);
+
     }
 }

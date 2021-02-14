@@ -101,16 +101,16 @@ public class ItemSlot : MonoBehaviour
     // Temporarily removed since it uses left-click
     public void UseItem()
     {
-        //if(ItemInSlot != null)
-        //{
-        //    if(ItemCount >= 1)
-        //    {
-        //        ItemInSlot.Use();
-        //        onItemUse.Invoke(ItemInSlot);
-        //        ItemCount--;
-        //        b_needsUpdate = true;
-        //    }
-        //}
+        if (ItemInSlot != null)
+        {
+            if (ItemCount >= 1)
+            {
+                ItemInSlot.Use();
+                onItemUse.Invoke(ItemInSlot);
+                ItemCount--;
+                b_needsUpdate = true;
+            }
+        }
     }
 
     /// <summary>

@@ -79,7 +79,7 @@ public class InventoryController : MonoBehaviour
                     break; // No point in checking the other results
                 }
 
-                Cancel();
+                DragAndUse();
             }
         }
 
@@ -233,5 +233,15 @@ public class InventoryController : MonoBehaviour
     {
         cursorIcon.TryRemoveItems(cursorIcon.ItemCount);
         currentlyMovingItem = false;
+    }
+
+    public void DragAndUse()
+    {
+        if (cursorIcon.HasItem())
+        {
+            cursorIcon.UseItem();
+
+            GameStats.Instance.UseResources(1000, 2000, 500);
+        }
     }
 }
