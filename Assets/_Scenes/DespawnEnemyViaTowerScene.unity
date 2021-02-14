@@ -11549,6 +11549,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -16
       objectReference: {fileID: 0}
+    - target: {fileID: 6628391249930508917, guid: 3960337b8ff898d4291dfe5a66395a44, type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8524326285238307025, guid: 3960337b8ff898d4291dfe5a66395a44, type: 3}
       propertyPath: m_Name
       value: PlayerTowerInventoryContent
@@ -11717,6 +11721,10 @@ PrefabInstance:
     - target: {fileID: 6505333793056840639, guid: 3960337b8ff898d4291dfe5a66395a44, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628391249930508917, guid: 3960337b8ff898d4291dfe5a66395a44, type: 3}
+      propertyPath: m_IsOn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8524326285238307025, guid: 3960337b8ff898d4291dfe5a66395a44, type: 3}
       propertyPath: m_Name
