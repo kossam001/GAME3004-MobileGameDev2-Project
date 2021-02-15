@@ -240,7 +240,7 @@ public class InventoryController : MonoBehaviour
         if (cursorIcon.HasItem())
         {
             cursorIcon.UseItem();
-
+            currentlyMovingItem = false;
             GameStats.Instance.UseResources(1000, 2000, 500);
         }
     }
