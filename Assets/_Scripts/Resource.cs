@@ -12,8 +12,10 @@ public class Resource : InteractableObject
     public int maxResourceYield1;
     public int maxResourceYield2;
     public int maxResourceYield3;
+    public int maxSeeds;
 
     public Image uiResourceAmountIndicator;
+    public Item seed;
 
     public override void Use()
     {
@@ -23,6 +25,10 @@ public class Resource : InteractableObject
 
         GameStats.Instance.AddResources(yield1, yield2, yield3);
         accumulatedResourcePoints = 0;
+
+        int seedsGenerated = (int) (uiResourceAmountIndicator.fillAmount * (float) maxSeeds);
+
+        InventoryController.Instance.AddToInventory(Instantiate(seed), seedsGenerated);
     }
 
     private void Update()

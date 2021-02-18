@@ -10,12 +10,10 @@ public class Shop : MonoBehaviour
     protected ItemTable masterItemTable;
 
     [Header("Tower Shop")]
-    [SerializeField] private Inventory towerInventory;
     [SerializeField] private GameObject towerInventoryPanel;
     [SerializeField] protected List<ShopSlot> towerItemSlots;
 
     [Header("Seed Shop")]
-    [SerializeField] private Inventory seedInventory;
     [SerializeField] private GameObject seedInventoryPanel;
     [SerializeField] protected List<ShopSlot> seedItemSlots;
 
@@ -69,21 +67,6 @@ public class Shop : MonoBehaviour
 
     public void SellItem(Item item)
     {
-        Inventory playerInventory = null;
-
-        switch (item.Type)
-        {
-            case ItemType.SEED:
-                playerInventory = seedInventory;
-                break;
-            case ItemType.TOWER:
-                playerInventory = towerInventory;
-                break;
-        }
-
-        foreach (ItemSlot itemSlot in playerInventory.itemSlots)
-        {
-            if (itemSlot.AddItems(item, 1)) return;
-        }
+        InventoryController.Instance.AddToInventory(item);
     }
 }

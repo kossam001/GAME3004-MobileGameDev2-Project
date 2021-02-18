@@ -8,7 +8,7 @@ using System;
 
 public class InventoryController : MonoBehaviour
 {
-    public static InventoryController instance;
+    private static InventoryController instance;
     public static InventoryController Instance { get { return instance; } }
 
     // Item movement variables
@@ -19,6 +19,12 @@ public class InventoryController : MonoBehaviour
     GraphicRaycaster m_Raycaster;
     PointerEventData m_PointerEventData;
     EventSystem m_EventSystem;
+
+    [Header("Tower Shop")]
+    [SerializeField] private Inventory towerInventory;
+
+    [Header("Seed Shop")]
+    [SerializeField] private Inventory seedInventory;
 
     private void Awake()
     {
@@ -54,11 +60,11 @@ public class InventoryController : MonoBehaviour
             EventSystem.current.RaycastAll(m_PointerEventData, results);
 
             //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
-            foreach (RaycastResult result in results)
+            for (int i = 0; i < results.Count; i++)
             {
-                if (result.gameObject.tag == "ItemSlot")
+                if (results[i].gameObject.tag == "ItemSlot")
                 {
-                    ItemSlot itemSlot = result.gameObject.GetComponent<ItemSlot>();
+                    ItemSlot itemSlot = results[i].gameObject.GetComponent<ItemSlot>();
 
                     if (Input.GetKey(KeyCode.LeftAlt))
                     {
@@ -78,12 +84,35 @@ public class InventoryController : MonoBehaviour
                     }
                     break; // No point in checking the other results
                 }
+            }
 
+            if (results.Count == 0)
+            {
                 DragAndUse();
             }
         }
 
         cursorIcon.transform.position = Input.mousePosition;
+    }
+
+    public void AddToInventory(Item item, int amount = 1)
+    {
+        Inventory playerInventory = null;
+
+        switch (item.Type)
+        {
+            case ItemType.SEED:
+                playerInventory = seedInventory;
+                break;
+            case ItemType.TOWER:
+                playerInventory = towerInventory;
+                break;
+        }
+
+        foreach (ItemSlot itemSlot in playerInventory.itemSlots)
+        {
+            if (itemSlot.AddItems(item, amount)) return;
+        }
     }
 
     // Allows player to pickup one item at a time.
