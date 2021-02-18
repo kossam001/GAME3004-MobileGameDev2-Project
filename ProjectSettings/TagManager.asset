@@ -8,6 +8,8 @@ TagManager:
   - Tower
   - NormalTower
   - DelayTower
+  - ItemSlot
+  - Waypoint
   layers:
   - Default
   - TransparentFX

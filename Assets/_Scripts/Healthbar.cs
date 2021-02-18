@@ -12,10 +12,21 @@ public class Healthbar : MonoBehaviour
     [SerializeField]
     private float updateSpeedSeconds = 0.5f;
 
+    Quaternion rotation;
+    Vector3 positionOffset;
+
     private void Awake()
     {
         GetComponentInParent<Health>().OnHealthPctChanged += HandleHealthChanged;
-        transform.Rotate(0, 45, 0);
+        //transform.Rotate(0, 0, 0);
+        rotation = transform.parent.rotation;
+        positionOffset = transform.localPosition;
+    }
+
+    private void OnDisable()
+    {
+        // When the Gameobject gets disabled, reset the healthbar fill amount to full.
+        foregroundImage.fillAmount = 1;
     }
 
     private void HandleHealthChanged(float pct)
@@ -43,5 +54,7 @@ public class Healthbar : MonoBehaviour
         // Make canvas face camera
         //transform.LookAt(Camera.main.transform);
         //transform.Rotate(0, 180, 0);
+        transform.rotation = rotation;
+        transform.position = transform.parent.position + positionOffset;
     }
 }

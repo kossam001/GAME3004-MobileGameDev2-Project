@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     [SerializeField]
     private int maxHealth = 100;
 
-    private int currentHealth;
+    public int currentHealth;
 
     public event Action<float> OnHealthPctChanged = delegate { };
 
@@ -28,8 +28,13 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
+    }
+
+    private void OnDisable()
+    {
+        currentHealth = 0;
     }
 
     // Update is called once per frame

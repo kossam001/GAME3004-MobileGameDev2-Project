@@ -12,17 +12,17 @@ public class TowerBehaviour : MonoBehaviour
         {
             Debug.Log("Enemy Detected");
 
-            other.gameObject.GetComponent<EnemyBehaviour>().Respawn();
+            //other.gameObject.GetComponent<EnemyBehaviour>().Respawn();
         }
         else if (other.gameObject.tag == "Enemy" && this.gameObject.tag == "DelayTower")
         {
             Debug.Log("Enemy Detected");
-            EnemyBehaviour.numEnemiesDefeated++;
+            //EnemyBehaviour.numEnemiesDefeated++;
 
             StartCoroutine(Fired());
 
-            other.gameObject.GetComponent<Health>().ModifyHealth(-10);
-            other.gameObject.GetComponent<EnemyBehaviour>().Respawn();
+            other.gameObject.GetComponent<Health>().ModifyHealth(-90);
+            //other.gameObject.GetComponent<EnemyBehaviour>().Respawn();
         }
     }
 
