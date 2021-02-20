@@ -6,12 +6,21 @@ public class AttackTowerBehaviour : MonoBehaviour
 {
 
     private Transform target;
+
+    [Header("Attributes")]
     public float range = 10.0f;
+    public float fireRate = 1.0f;
+    private float fireCountDown = 0.0f;
 
+    [Header("Unity Setup")]
     public string enemyTag = "Enemy";
-
     public Transform partToRotate;
     public float turnSpeed = 10.0f;
+
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +68,27 @@ public class AttackTowerBehaviour : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0.0f, rotation.y, 0.0f);
+
+        if(fireCountDown <= 0)
+        {
+            Shoot();
+            fireCountDown = 1.0f / fireRate;
+        }
+
+        fireCountDown -= Time.deltaTime;
+    }
+
+    private void Shoot()
+    {
+        Debug.Log("Shooting");
+        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+        BulletBehaviour bullet = bulletGO.GetComponent<BulletBehaviour>();
+
+        if(bullet != null)
+        {
+            bullet.Seek(target);
+        }
     }
 
     private void OnDrawGizmosSelected()
