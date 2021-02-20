@@ -31,7 +31,15 @@ public class OptionButtonBehaviour : MonoBehaviour
 
     public void OnOptionButtonPressed()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         Debug.Log("Game Play!");
-        SceneManager.LoadScene("OptionsScreen");
+        StartCoroutine(LoadLevel("OptionsScreen", 0.3f));
+    }
+
+    // Waiting for _delay seconds to load new scene
+    IEnumerator LoadLevel(string _name, float _delay)
+    {
+        yield return new WaitForSeconds(_delay);
+        SceneManager.LoadScene(_name);
     }
 }

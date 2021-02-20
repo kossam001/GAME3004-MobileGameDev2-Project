@@ -567,6 +567,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 12acd8a44b659cd49bfff43add819587, type: 2}
+  sounds:
+  - name: click
+    clip: {fileID: 8300000, guid: 5983d97a4345c8644865627386405afe, type: 3}
+    volume: 1
+    pitch: 0.7
+    source: {fileID: 0}
+  - name: click2
+    clip: {fileID: 8300000, guid: 7977ed14a97c2dc459197f6667a0cd19, type: 3}
+    volume: 1
+    pitch: 0.7
+    source: {fileID: 0}
+  - name: shooting1
+    clip: {fileID: 8300000, guid: e52089f821edf054fa29a5db4ef3e200, type: 3}
+    volume: 1
+    pitch: 0.7
+    source: {fileID: 0}
+  - name: collision
+    clip: {fileID: 8300000, guid: 9912016802570454f842f21a4367ae31, type: 3}
+    volume: 0.4
+    pitch: 0.7
+    source: {fileID: 0}
 --- !u!4 &301232383
 Transform:
   m_ObjectHideFlags: 0
@@ -575,7 +596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301232381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.645848, y: 16.230843, z: -21.001389}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

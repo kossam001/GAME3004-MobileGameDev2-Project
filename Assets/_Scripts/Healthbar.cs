@@ -12,12 +12,15 @@ public class Healthbar : MonoBehaviour
     [SerializeField]
     private float updateSpeedSeconds = 0.5f;
 
+    public Health health;
+
     Quaternion rotation;
     Vector3 positionOffset;
 
     private void Awake()
     {
-        GetComponentInParent<Health>().OnHealthPctChanged += HandleHealthChanged;
+        health = GetComponentInParent<Health>();
+        health.OnHealthPctChanged += HandleHealthChanged;
         //transform.Rotate(0, 0, 0);
         rotation = transform.parent.rotation;
         positionOffset = transform.localPosition;
@@ -25,13 +28,14 @@ public class Healthbar : MonoBehaviour
 
     private void OnDisable()
     {
+        health.OnHealthPctChanged -= HandleHealthChanged;
         // When the Gameobject gets disabled, reset the healthbar fill amount to full.
         foregroundImage.fillAmount = 1;
     }
 
     private void HandleHealthChanged(float pct)
     {
-        StartCoroutine(ChangeToPct(pct));
+            StartCoroutine(ChangeToPct(pct));    
     }
 
     private IEnumerator ChangeToPct(float pct)

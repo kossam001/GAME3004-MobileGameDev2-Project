@@ -31,6 +31,7 @@ public class LoadButtonBehaviour : MonoBehaviour
 
     public void OnLoadButtonPressed()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         Debug.Log("Load Button Pressed!");
     }
 }
