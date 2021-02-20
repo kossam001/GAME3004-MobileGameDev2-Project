@@ -31,7 +31,15 @@ public class PlayAgainButtonBehaviour : MonoBehaviour
 
     public void OnPlayAgainButtonPressed()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         Debug.Log("Main Menu!");
-        SceneManager.LoadScene("DespawnEnemyViaTowerScene");
+        StartCoroutine(LoadLevel("DespawnEnemyViaTowerScene", 0.3f));
+    }
+
+    // Waiting for _delay seconds to load new scene
+    IEnumerator LoadLevel(string _name, float _delay)
+    {
+        yield return new WaitForSeconds(_delay);
+        SceneManager.LoadScene(_name);
     }
 }

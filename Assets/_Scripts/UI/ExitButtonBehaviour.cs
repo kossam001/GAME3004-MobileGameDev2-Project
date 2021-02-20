@@ -30,7 +30,15 @@ public class ExitButtonBehaviour : MonoBehaviour
 
     public void OnExitButtonPressed()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         Debug.Log("Exit!");
+        StartCoroutine(DelayExit(0.3f));
+    }
+
+    // Waiting for _delay seconds to load new scene
+    IEnumerator DelayExit(float _delay)
+    {
+        yield return new WaitForSeconds(_delay);
         Application.Quit();
     }
 }

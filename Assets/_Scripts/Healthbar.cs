@@ -11,12 +11,16 @@ public class Healthbar : MonoBehaviour
     private Image foregroundImage;
     [SerializeField]
     private float updateSpeedSeconds = 0.5f;
+    [SerializeField]
+    private Canvas healthbarCanvas;
 
     Quaternion rotation;
     Vector3 positionOffset;
 
     private void Awake()
     {
+        healthbarCanvas = GetComponent<Canvas>();
+
         GetComponentInParent<Health>().OnHealthPctChanged += HandleHealthChanged;
         //transform.Rotate(0, 0, 0);
         rotation = transform.parent.rotation;
@@ -31,7 +35,10 @@ public class Healthbar : MonoBehaviour
 
     private void HandleHealthChanged(float pct)
     {
-        StartCoroutine(ChangeToPct(pct));
+        if(healthbarCanvas != null)
+        {
+            StartCoroutine(ChangeToPct(pct));
+        }      
     }
 
     private IEnumerator ChangeToPct(float pct)

@@ -31,7 +31,15 @@ public class BackButtonBehaviour : MonoBehaviour
 
     public void OnBackButtonPressed()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         Debug.Log("Main Menu!");
-        SceneManager.LoadScene("MainMenuScreen");
+        StartCoroutine(LoadLevel("MainMenuScreen", 0.3f));
+    }
+
+    // Waiting for _delay seconds to load new scene
+    IEnumerator LoadLevel(string _name, float _delay)
+    {
+        yield return new WaitForSeconds(_delay);
+        SceneManager.LoadScene(_name);
     }
 }
