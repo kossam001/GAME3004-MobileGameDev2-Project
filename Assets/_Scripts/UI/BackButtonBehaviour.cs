@@ -17,21 +17,8 @@ using UnityEngine.SceneManagement;
 
 public class BackButtonBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnBackButtonPressed()
     {
-        FindObjectOfType<AudioManager>().Play("click");
         Debug.Log("Main Menu!");
         StartCoroutine(LoadLevel("MainMenuScreen", 0.3f));
     }

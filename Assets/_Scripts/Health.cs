@@ -28,6 +28,8 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            // Maybe play a sound here??
+
             this.gameObject.SetActive(false);
         }
     }
@@ -35,14 +37,5 @@ public class Health : MonoBehaviour
     private void OnDisable()
     {
         currentHealth = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    ModifyHealth(-10);
-        //}
     }
 }

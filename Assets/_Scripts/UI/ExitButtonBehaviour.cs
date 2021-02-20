@@ -16,21 +16,8 @@ using UnityEngine;
 
 public class ExitButtonBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnExitButtonPressed()
     {
-        FindObjectOfType<AudioManager>().Play("click");
         Debug.Log("Exit!");
         StartCoroutine(DelayExit(0.3f));
     }

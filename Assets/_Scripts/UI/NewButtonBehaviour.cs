@@ -17,21 +17,8 @@ using UnityEngine.SceneManagement;
 
 public class NewButtonBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnNewButtonPressed()
     {
-        FindObjectOfType<AudioManager>().Play("click");
         Debug.Log("Game Play!");
         StartCoroutine(LoadLevel("DespawnEnemyViaTowerScene", 0.3f));
     }
