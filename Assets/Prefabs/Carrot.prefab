@@ -97,8 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f76847a201e5f499f481bf26b5d233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcePoints: 0
   growthSpeed: 100
+  maxResourceYield1: 0
+  maxResourceYield2: 0
+  maxResourceYield3: 0
+  uiResourceAmountIndicator: {fileID: 0}
+  seed: {fileID: 11400000, guid: 7ca493bf2fa31724592cf92924671357, type: 2}
 --- !u!65 &7625127493920411286
 BoxCollider:
   m_ObjectHideFlags: 0

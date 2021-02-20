@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
 --- !u!114 &5905224785583719947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +132,7 @@ MonoBehaviour:
   maxResourceYield2: 1000
   maxResourceYield3: 100
   uiResourceAmountIndicator: {fileID: 5905224784822986503}
+  seed: {fileID: 11400000, guid: 7ca493bf2fa31724592cf92924671357, type: 2}
 --- !u!1 &1192214140314820426
 GameObject:
   m_ObjectHideFlags: 0
