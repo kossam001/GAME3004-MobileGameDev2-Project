@@ -12,14 +12,6 @@ public class BulletBehaviour : MonoBehaviour
 
     public int damage = 0;
 
-    private AudioManager audioManager;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        audioManager = FindObjectOfType<AudioManager>();
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -45,11 +37,7 @@ public class BulletBehaviour : MonoBehaviour
 
     private void HitTarget()
     {
-        Debug.Log("Hitting Target!");
-        if(audioManager != null)
-        {
-            audioManager.Play("collision");
-        }
+        target.GetComponent<EnemyBehaviour>().PlayCollisionSound();
 
         Health enemyHealth = target.GetComponent<Health>();
         enemyHealth.ModifyHealth(-damage);

@@ -17,6 +17,14 @@ public class Resource : InteractableObject
     public Image uiResourceAmountIndicator;
     public Item seed;
 
+    // Maybe AudioClip array can be added in the future to add additional sounds...
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public override void Use()
     {
         int yield1 = (int) (uiResourceAmountIndicator.fillAmount * (float) maxResourceYield1);
@@ -25,6 +33,8 @@ public class Resource : InteractableObject
 
         GameStats.Instance.AddResources(yield1, yield2, yield3);
         accumulatedResourcePoints = 0;
+
+        audioSource.Play();
 
         int seedsGenerated = (int) (uiResourceAmountIndicator.fillAmount * (float) maxSeeds);
 

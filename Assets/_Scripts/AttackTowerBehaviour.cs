@@ -20,16 +20,16 @@ public class AttackTowerBehaviour : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
-    private AudioManager audioManager;
+    private AudioSource audioSource;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0.0f, 0.5f);
+        audioSource = GetComponent<AudioSource>();
 
-        audioManager = FindObjectOfType<AudioManager>();
+        InvokeRepeating("UpdateTarget", 0.0f, 0.5f);
     }
 
     void UpdateTarget()
@@ -85,10 +85,7 @@ public class AttackTowerBehaviour : MonoBehaviour
     private void Shoot()
     {
         Debug.Log("Shooting");
-        if (audioManager != null)
-        {
-            audioManager.Play("shooting1");
-        }
+        audioSource.Play();
 
         GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 

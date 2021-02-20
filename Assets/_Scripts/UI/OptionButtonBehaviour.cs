@@ -17,21 +17,8 @@ using UnityEngine.SceneManagement;
 
 public class OptionButtonBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnOptionButtonPressed()
     {
-        FindObjectOfType<AudioManager>().Play("click");
         Debug.Log("Game Play!");
         StartCoroutine(LoadLevel("OptionsScreen", 0.3f));
     }
