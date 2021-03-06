@@ -15,6 +15,7 @@ public class InventoryController : MonoBehaviour
     private bool currentlyMovingItem = false; // Whether or not we are in the process of moving an item
     public ItemSlot cursorIcon; // Visual for moving item
     public GameObject itemObject;
+    public SpawnCollider objectSpawnRadius;
     public LayerMask rayLayer;
 
     // Graphic Raycaster code from https://docs.unity3d.com/2017.3/Documentation/ScriptReference/UI.GraphicRaycaster.Raycast.html
@@ -86,7 +87,7 @@ public class InventoryController : MonoBehaviour
         {
             itemObject.transform.position = hit.point;
 
-            Debug.Log(hit.point);
+            objectSpawnRadius.transform.position = hit.point;
         }
     }
 
@@ -170,6 +171,7 @@ public class InventoryController : MonoBehaviour
             cursorIcon.AddItems(itemSlot.ItemInSlot, 1);
 
             SpawnTower(itemSlot.ItemInSlot);
+            objectSpawnRadius.spawnInObject = itemObject;
 
             // Decrease items in slot by 1
             itemSlot.TryRemoveItems(1);
@@ -226,6 +228,7 @@ public class InventoryController : MonoBehaviour
                 {
                     itemSlot.AddItems(cursorIcon.ItemInSlot, 1);
                     itemObject.SetActive(false);
+                    objectSpawnRadius.spawnInObject = null;
                 }
                 if (cursorIcon.ItemCount <= 0)
                 {
@@ -311,11 +314,24 @@ public class InventoryController : MonoBehaviour
 
     public void DragAndUse()
     {
-        if (cursorIcon.HasItem())
+        if (cursorIcon.HasItem() && !objectSpawnRadius.isObstructed)
         {
             cursorIcon.UseItem();
             currentlyMovingItem = false;
             itemObject = null;
+            objectSpawnRadius.spawnInObject = null;
+        }
+        else if (cursorIcon.HasItem())
+        {
+            AddToInventory(cursorIcon.ItemInSlot, 1);
+
+            itemObject.SetActive(false);
+            itemObject = null;
+            objectSpawnRadius.spawnInObject = null;
+            objectSpawnRadius.isObstructed = false;
+
+            currentlyMovingItem = false;
+            cursorIcon.TryRemoveItems(1);
         }
     }
 }
