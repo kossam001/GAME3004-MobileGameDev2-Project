@@ -102,6 +102,6 @@ public class Item : ScriptableObject
 
     public void Use()
     {
-        GameStats.Instance.UseResources(resourceCost1, resourceCost2, resourceCost3);
+        
     }
 }
