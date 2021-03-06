@@ -19,11 +19,11 @@ GameObject:
   - component: {fileID: 1235879184011752956}
   m_Layer: 0
   m_Name: WatchTower
-  m_TagString: DelayTower
+  m_TagString: NormalTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &297854687397974451
 Transform:
   m_ObjectHideFlags: 0
@@ -558,7 +558,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foregroundImage: {fileID: 297854688564553127}
   updateSpeedSeconds: 0.5
-  health: {fileID: 0}
 --- !u!1 &407566648988482048
 GameObject:
   m_ObjectHideFlags: 0

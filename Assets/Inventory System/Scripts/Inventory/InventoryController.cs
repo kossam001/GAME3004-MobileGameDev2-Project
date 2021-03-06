@@ -14,7 +14,7 @@ public class InventoryController : MonoBehaviour
     // Item movement variables
     private bool currentlyMovingItem = false; // Whether or not we are in the process of moving an item
     public ItemSlot cursorIcon; // Visual for moving item
-    public GameObject item;
+    public GameObject itemObject;
     public LayerMask rayLayer;
 
     // Graphic Raycaster code from https://docs.unity3d.com/2017.3/Documentation/ScriptReference/UI.GraphicRaycaster.Raycast.html
@@ -57,6 +57,7 @@ public class InventoryController : MonoBehaviour
         //Check if the left Mouse button is clicked
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+
             clicked = true;
             Click();
         }
@@ -77,13 +78,22 @@ public class InventoryController : MonoBehaviour
 
     private void TowerPlacement()
     {
+        if (itemObject == null) return;
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast( ray, out hit, 1000, rayLayer))
         {
-            if (item != null)
-                item.transform.position = hit.point;
+            itemObject.transform.position = hit.point;
+
+            Debug.Log(hit.point);
         }
+    }
+
+    private void SpawnTower(Item item)
+    {
+        itemObject = ObjectPooling.SharedInstance.GetPooledObject(item.ItemObjectTag);
+        itemObject.SetActive(true);
     }
 
     private void Click()
@@ -101,23 +111,22 @@ public class InventoryController : MonoBehaviour
             {
                 ItemSlot itemSlot = results[i].gameObject.GetComponent<ItemSlot>();
 
-                if (Input.GetKey(KeyCode.LeftAlt))
-                {
-                    PickUpOne(itemSlot);
-                }
-                else if (Input.GetKey(KeyCode.LeftControl))
-                {
-                    DropAll(itemSlot);
-                }
-                else if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    PickUpAll(itemSlot);
-                }
-                else
-                {
-                    if (clicked)
-                        MoveItem(itemSlot);
-                }
+                //if (Input.GetKey(KeyCode.LeftAlt))
+                //{
+                //    PickUpOne(itemSlot);
+                //}
+                //else if (Input.GetKey(KeyCode.LeftControl))
+                //{
+                //    DropAll(itemSlot);
+                //}
+                //else if (Input.GetKey(KeyCode.LeftShift))
+                //{
+                //    PickUpAll(itemSlot);
+                //}
+                //else
+                //{
+                MoveItem(itemSlot);
+                //}
                 break; // No point in checking the other results
             }
         }
@@ -159,6 +168,8 @@ public class InventoryController : MonoBehaviour
 
             // Increase amount being moved by 1
             cursorIcon.AddItems(itemSlot.ItemInSlot, 1);
+
+            SpawnTower(itemSlot.ItemInSlot);
 
             // Decrease items in slot by 1
             itemSlot.TryRemoveItems(1);
@@ -214,6 +225,7 @@ public class InventoryController : MonoBehaviour
                 if (cursorIcon.TryRemoveItems(1) > 0)
                 {
                     itemSlot.AddItems(cursorIcon.ItemInSlot, 1);
+                    itemObject.SetActive(false);
                 }
                 if (cursorIcon.ItemCount <= 0)
                 {
@@ -303,7 +315,7 @@ public class InventoryController : MonoBehaviour
         {
             cursorIcon.UseItem();
             currentlyMovingItem = false;
-            GameStats.Instance.UseResources(1000, 2000, 500);
+            itemObject = null;
         }
     }
 }

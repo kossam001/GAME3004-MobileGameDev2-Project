@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: I_Tower1
   m_EditorClassIdentifier: 
   itemID: 2
-  name: I_Tower
+  name: I_Tower1
   description: 'this is an Tower
 
 '
   category: misc
   icon: {fileID: 21300000, guid: 074d9d348df1c86499f4300b92f704d9, type: 3}
   type: 1
+  itemObjectTag: DelayTower
+  resourceCost1: 200
+  resourceCost2: 200
+  resourceCost3: 200
