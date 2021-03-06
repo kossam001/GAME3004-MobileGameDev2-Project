@@ -14,6 +14,8 @@ public class InventoryController : MonoBehaviour
     // Item movement variables
     private bool currentlyMovingItem = false; // Whether or not we are in the process of moving an item
     public ItemSlot cursorIcon; // Visual for moving item
+    public GameObject item;
+    public LayerMask rayLayer;
 
     // Graphic Raycaster code from https://docs.unity3d.com/2017.3/Documentation/ScriptReference/UI.GraphicRaycaster.Raycast.html
     GraphicRaycaster m_Raycaster;
@@ -25,6 +27,8 @@ public class InventoryController : MonoBehaviour
 
     [Header("Seed Shop")]
     [SerializeField] private Inventory seedInventory;
+
+    private bool clicked = false;
 
     private void Awake()
     {
@@ -53,46 +57,75 @@ public class InventoryController : MonoBehaviour
         //Check if the left Mouse button is clicked
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            // Code from https://forum.unity.com/threads/graphicraycaster-raycast-on-nested-canvases.603436/
-            PointerEventData m_PointerEventData = new PointerEventData(m_EventSystem);
-            m_PointerEventData.position = Input.mousePosition;
-            List<RaycastResult> results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(m_PointerEventData, results);
+            clicked = true;
+            Click();
+        }
 
-            //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
-            for (int i = 0; i < results.Count; i++)
-            {
-                if (results[i].gameObject.tag == "ItemSlot")
-                {
-                    ItemSlot itemSlot = results[i].gameObject.GetComponent<ItemSlot>();
+        if (Input.GetKeyUp(KeyCode.Mouse0) && clicked)
+        {
+            clicked = false;
+            Click();
+        }
 
-                    if (Input.GetKey(KeyCode.LeftAlt))
-                    {
-                        PickUpOne(itemSlot);
-                    }
-                    else if (Input.GetKey(KeyCode.LeftControl))
-                    {
-                        DropAll(itemSlot);
-                    }
-                    else if (Input.GetKey(KeyCode.LeftShift))
-                    {
-                        PickUpAll(itemSlot);
-                    }
-                    else
-                    {
-                        MoveItem(itemSlot);
-                    }
-                    break; // No point in checking the other results
-                }
-            }
-
-            if (results.Count == 0)
-            {
-                DragAndUse();
-            }
+        if (clicked)
+        {
+            TowerPlacement();
         }
 
         cursorIcon.transform.position = Input.mousePosition;
+    }
+
+    private void TowerPlacement()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast( ray, out hit, 1000, rayLayer))
+        {
+            if (item != null)
+                item.transform.position = hit.point;
+        }
+    }
+
+    private void Click()
+    {
+        // Code from https://forum.unity.com/threads/graphicraycaster-raycast-on-nested-canvases.603436/
+        PointerEventData m_PointerEventData = new PointerEventData(m_EventSystem);
+        m_PointerEventData.position = Input.mousePosition;
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(m_PointerEventData, results);
+
+        //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
+        for (int i = 0; i < results.Count; i++)
+        {
+            if (results[i].gameObject.tag == "ItemSlot")
+            {
+                ItemSlot itemSlot = results[i].gameObject.GetComponent<ItemSlot>();
+
+                if (Input.GetKey(KeyCode.LeftAlt))
+                {
+                    PickUpOne(itemSlot);
+                }
+                else if (Input.GetKey(KeyCode.LeftControl))
+                {
+                    DropAll(itemSlot);
+                }
+                else if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    PickUpAll(itemSlot);
+                }
+                else
+                {
+                    if (clicked)
+                        MoveItem(itemSlot);
+                }
+                break; // No point in checking the other results
+            }
+        }
+
+        if (results.Count == 0)
+        {
+            DragAndUse();
+        }
     }
 
     public void AddToInventory(Item item, int amount = 1)
