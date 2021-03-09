@@ -37,10 +37,20 @@ public class BulletBehaviour : MonoBehaviour
 
     private void HitTarget()
     {
-        target.GetComponent<EnemyBehaviour>().PlayCollisionSound();
+        if (target.GetComponent<EnemyBehaviour>())
+        {
+            target.GetComponent<EnemyBehaviour>().PlayCollisionSound();
 
-        Health enemyHealth = target.GetComponent<Health>();
-        enemyHealth.ModifyHealth(-damage);
+            Health enemyHealth = target.GetComponent<Health>();
+            enemyHealth.ModifyHealth(-damage);
+        }
+        else if (target.gameObject.CompareTag("DelayTower"))
+        {
+            // Play collision sound
+
+            Health towerHealth = target.GetComponent<Health>();
+            towerHealth.ModifyHealth(-damage);
+        }
 
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 2.0f);

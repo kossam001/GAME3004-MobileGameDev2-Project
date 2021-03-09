@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-
     // NOTE: These are here right now purely for testing
     public static int numEnemiesWon = 0;
     public static int numEnemiesDefeated = 0;
@@ -37,7 +36,6 @@ public class EnemyBehaviour : MonoBehaviour
         //    gameObject.SetActive(false);
         //}
     }
-
 
     public void Respawn()
     {
