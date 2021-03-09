@@ -10,6 +10,8 @@ TagManager:
   - DelayTower
   - ItemSlot
   - Waypoint
+  - Plant
+  - PlantHealth
   layers:
   - Default
   - TransparentFX
