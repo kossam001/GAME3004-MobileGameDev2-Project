@@ -11,14 +11,15 @@ TagManager:
   - ItemSlot
   - Waypoint
   - Plant
+  - PlantHealth
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Object
+  - 
   - 
   - 
   - 
