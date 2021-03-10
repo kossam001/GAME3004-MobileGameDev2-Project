@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4143206676340713629}
   - component: {fileID: 4108611170559327817}
   - component: {fileID: 4117802090808602305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,9 +98,9 @@ GameObject:
   - component: {fileID: 7853466018981100412}
   - component: {fileID: 7853466018981100411}
   - component: {fileID: 4589028269350006349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WindmillTower
-  m_TagString: DelayTower
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -352,7 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7853466019327852141}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PartToRotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 7853466019491642894}
   - component: {fileID: 7853466019491642893}
   - component: {fileID: 7853466019491642892}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealthBarCanvas
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -491,7 +491,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foregroundImage: {fileID: 7853466020246937076}
   updateSpeedSeconds: 0.5
-  health: {fileID: 0}
 --- !u!1 &7853466019731992847
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7853466019731993072}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +532,7 @@ GameObject:
   - component: {fileID: 7853466020134957201}
   - component: {fileID: 7853466020134957203}
   - component: {fileID: 7853466020134957202}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +607,7 @@ GameObject:
   - component: {fileID: 7853466020190273700}
   - component: {fileID: 7853466020190273702}
   - component: {fileID: 7853466020190273701}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Windmill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +690,7 @@ GameObject:
   - component: {fileID: 7853466020246937075}
   - component: {fileID: 7853466020246937077}
   - component: {fileID: 7853466020246937076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

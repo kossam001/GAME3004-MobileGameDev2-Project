@@ -14,6 +14,9 @@ public class InventoryController : MonoBehaviour
     // Item movement variables
     private bool currentlyMovingItem = false; // Whether or not we are in the process of moving an item
     public ItemSlot cursorIcon; // Visual for moving item
+    public GameObject itemObject;
+    public SpawnCollider objectSpawnRadius;
+    public LayerMask rayLayer;
 
     // Graphic Raycaster code from https://docs.unity3d.com/2017.3/Documentation/ScriptReference/UI.GraphicRaycaster.Raycast.html
     GraphicRaycaster m_Raycaster;
@@ -25,6 +28,8 @@ public class InventoryController : MonoBehaviour
 
     [Header("Seed Shop")]
     [SerializeField] private Inventory seedInventory;
+
+    private bool clicked = false;
 
     private void Awake()
     {
@@ -53,46 +58,84 @@ public class InventoryController : MonoBehaviour
         //Check if the left Mouse button is clicked
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            // Code from https://forum.unity.com/threads/graphicraycaster-raycast-on-nested-canvases.603436/
-            PointerEventData m_PointerEventData = new PointerEventData(m_EventSystem);
-            m_PointerEventData.position = Input.mousePosition;
-            List<RaycastResult> results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(m_PointerEventData, results);
 
-            //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
-            for (int i = 0; i < results.Count; i++)
-            {
-                if (results[i].gameObject.tag == "ItemSlot")
-                {
-                    ItemSlot itemSlot = results[i].gameObject.GetComponent<ItemSlot>();
+            clicked = true;
+            Click();
+        }
 
-                    if (Input.GetKey(KeyCode.LeftAlt))
-                    {
-                        PickUpOne(itemSlot);
-                    }
-                    else if (Input.GetKey(KeyCode.LeftControl))
-                    {
-                        DropAll(itemSlot);
-                    }
-                    else if (Input.GetKey(KeyCode.LeftShift))
-                    {
-                        PickUpAll(itemSlot);
-                    }
-                    else
-                    {
-                        MoveItem(itemSlot);
-                    }
-                    break; // No point in checking the other results
-                }
-            }
+        if (Input.GetKeyUp(KeyCode.Mouse0) && clicked)
+        {
+            clicked = false;
+            Click();
+        }
 
-            if (results.Count == 0)
-            {
-                DragAndUse();
-            }
+        if (clicked)
+        {
+            TowerPlacement();
         }
 
         cursorIcon.transform.position = Input.mousePosition;
+    }
+
+    private void TowerPlacement()
+    {
+        if (itemObject == null) return;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast( ray, out hit, 1000, rayLayer))
+        {
+            itemObject.transform.position = hit.point;
+
+            objectSpawnRadius.transform.position = hit.point;
+        }
+    }
+
+    private void SpawnTower(Item item)
+    {
+        itemObject = ObjectPooling.SharedInstance.GetPooledObject(item.ItemObjectTag);
+        itemObject.SetActive(true);
+    }
+
+    private void Click()
+    {
+        // Code from https://forum.unity.com/threads/graphicraycaster-raycast-on-nested-canvases.603436/
+        PointerEventData m_PointerEventData = new PointerEventData(m_EventSystem);
+        m_PointerEventData.position = Input.mousePosition;
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(m_PointerEventData, results);
+
+        //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
+        for (int i = 0; i < results.Count; i++)
+        {
+            if (results[i].gameObject.tag == "ItemSlot")
+            {
+                ItemSlot itemSlot = results[i].gameObject.GetComponent<ItemSlot>();
+
+                //if (Input.GetKey(KeyCode.LeftAlt))
+                //{
+                //    PickUpOne(itemSlot);
+                //}
+                //else if (Input.GetKey(KeyCode.LeftControl))
+                //{
+                //    DropAll(itemSlot);
+                //}
+                //else if (Input.GetKey(KeyCode.LeftShift))
+                //{
+                //    PickUpAll(itemSlot);
+                //}
+                //else
+                //{
+                MoveItem(itemSlot);
+                //}
+                break; // No point in checking the other results
+            }
+        }
+
+        if (results.Count == 0)
+        {
+            DragAndUse();
+        }
     }
 
     public void AddToInventory(Item item, int amount = 1)
@@ -126,6 +169,9 @@ public class InventoryController : MonoBehaviour
 
             // Increase amount being moved by 1
             cursorIcon.AddItems(itemSlot.ItemInSlot, 1);
+
+            SpawnTower(itemSlot.ItemInSlot);
+            objectSpawnRadius.spawnInObject = itemObject;
 
             // Decrease items in slot by 1
             itemSlot.TryRemoveItems(1);
@@ -181,6 +227,8 @@ public class InventoryController : MonoBehaviour
                 if (cursorIcon.TryRemoveItems(1) > 0)
                 {
                     itemSlot.AddItems(cursorIcon.ItemInSlot, 1);
+                    itemObject.SetActive(false);
+                    objectSpawnRadius.spawnInObject = null;
                 }
                 if (cursorIcon.ItemCount <= 0)
                 {
@@ -266,11 +314,24 @@ public class InventoryController : MonoBehaviour
 
     public void DragAndUse()
     {
-        if (cursorIcon.HasItem())
+        if (cursorIcon.HasItem() && !objectSpawnRadius.isObstructed)
         {
             cursorIcon.UseItem();
             currentlyMovingItem = false;
-            GameStats.Instance.UseResources(1000, 2000, 500);
+            itemObject = null;
+            objectSpawnRadius.spawnInObject = null;
+        }
+        else if (cursorIcon.HasItem())
+        {
+            AddToInventory(cursorIcon.ItemInSlot, 1);
+
+            itemObject.SetActive(false);
+            itemObject = null;
+            objectSpawnRadius.spawnInObject = null;
+            objectSpawnRadius.isObstructed = false;
+
+            currentlyMovingItem = false;
+            cursorIcon.TryRemoveItems(1);
         }
     }
 }

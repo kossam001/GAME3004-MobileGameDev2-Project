@@ -18,3 +18,7 @@ MonoBehaviour:
   category: misc
   icon: {fileID: 21300000, guid: f97e6006b999b4b47b423e244f07047e, type: 3}
   type: 0
+  itemObjectTag: Plant
+  resourceCost1: 0
+  resourceCost2: 0
+  resourceCost3: 0

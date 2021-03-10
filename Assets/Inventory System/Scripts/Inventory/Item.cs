@@ -68,8 +68,40 @@ public class Item : ScriptableObject
         private set { }
     }
 
+    [SerializeField]
+    private string itemObjectTag;
+    public string ItemObjectTag
+    {
+        get { return itemObjectTag; }
+        private set { }
+    }
+
+    [SerializeField]
+    private int resourceCost1;
+    public int ResourceCost1
+    {
+        get { return resourceCost1; }
+        private set { }
+    }
+
+    [SerializeField]
+    private int resourceCost2;
+    public int ResourceCost2
+    {
+        get { return resourceCost2; }
+        private set { }
+    }
+
+    [SerializeField]
+    private int resourceCost3;
+    public int ResourceCost3
+    {
+        get { return resourceCost3; }
+        private set { }
+    }
+
     public void Use()
     {
-
+        
     }
 }
