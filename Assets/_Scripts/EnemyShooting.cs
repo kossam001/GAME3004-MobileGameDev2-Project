@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public float range = 10.0f;
-    public string enemyTag = "DelayTower";
+    public string targetTag = "Tower";
     public float fireRate = 1.0f;
     private float fireCountDown = 0.0f;
 
@@ -26,7 +26,7 @@ public class EnemyShooting : MonoBehaviour
 
     void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
 
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
