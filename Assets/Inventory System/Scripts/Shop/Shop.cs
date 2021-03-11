@@ -91,7 +91,7 @@ public class Shop : MonoBehaviour
 
     public void SellItem(Item item)
     {
-        GameStats.Instance.UseResources(item.ResourceCost1, item.ResourceCost2, item.ResourceCost3);
+        GameStats.Instance.UseResources(item.ResourceCost1, item.ResourceCost2, item.ResourceCost3, item.ResourceCost4);
         InventoryController.Instance.AddToInventory(item);
     }
 }

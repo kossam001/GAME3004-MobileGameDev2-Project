@@ -100,6 +100,14 @@ public class Item : ScriptableObject
         private set { }
     }
 
+    [SerializeField]
+    private int resourceCost4;
+    public int ResourceCost4
+    {
+        get { return resourceCost4; }
+        private set { }
+    }
+
     public void Use()
     {
         

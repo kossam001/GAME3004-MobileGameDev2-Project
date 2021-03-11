@@ -12,6 +12,7 @@ public class Resource : InteractableObject
     public int maxResourceYield1;
     public int maxResourceYield2;
     public int maxResourceYield3;
+    public int maxResourceYield4;
     public int maxSeeds;
 
     public Image uiResourceAmountIndicator;
@@ -30,8 +31,9 @@ public class Resource : InteractableObject
         int yield1 = (int) (uiResourceAmountIndicator.fillAmount * (float) maxResourceYield1);
         int yield2 = (int) (uiResourceAmountIndicator.fillAmount * (float) maxResourceYield2);
         int yield3 = (int) (uiResourceAmountIndicator.fillAmount * (float) maxResourceYield3);
+        int yield4 = (int) (uiResourceAmountIndicator.fillAmount * (float) maxResourceYield4);
 
-        GameStats.Instance.AddResources(yield1, yield2, yield3);
+        GameStats.Instance.AddResources(yield1, yield2, yield3, yield4);
         accumulatedResourcePoints = 0;
 
         audioSource.Play();

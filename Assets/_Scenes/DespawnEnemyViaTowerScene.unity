@@ -2104,6 +2104,7 @@ MonoBehaviour:
   resource1: 0
   resource2: 0
   resource3: 0
+  resource4: 0
   coins: 0
   score: 0
   health: 20
@@ -7147,6 +7148,10 @@ PrefabInstance:
       propertyPath: maxSeeds
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5905224785583719947, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
+      propertyPath: maxResourceYield4
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
 --- !u!1 &1287461785 stripped
@@ -10331,6 +10336,10 @@ PrefabInstance:
       propertyPath: maxSeeds
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5905224785583719947, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
+      propertyPath: maxResourceYield4
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
 --- !u!114 &1871348997 stripped
@@ -10402,6 +10411,10 @@ PrefabInstance:
     - target: {fileID: 5905224785583719947, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
       propertyPath: maxSeeds
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905224785583719947, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
+      propertyPath: maxResourceYield4
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
