@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySpawnManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class EnemySpawnManager : MonoBehaviour
                 enemy.transform.position = transform.position;
                 enemy.transform.rotation = transform.rotation;
                 enemy.SetActive(true);
+
+                enemy.GetComponent<NavMeshAgent>().speed = enemy.GetComponent<EnemyBehaviour>().defaultSpeed;
             }
         }
     }

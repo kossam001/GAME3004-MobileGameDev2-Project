@@ -46,11 +46,11 @@ public class ScareCrowTowerBehaviour : MonoBehaviour
         }
         else
         {
-            //if (target != null)
-            //{
-            //    Debug.Log("Target left scarecrow range");
-            //    target.GetComponent<NavMeshAgent>().speed *= 2.0f;
-            //}
+            if (target != null)
+            {
+                Debug.Log("Target left scarecrow range");
+                target.GetComponent<NavMeshAgent>().speed = target.GetComponent<EnemyBehaviour>().defaultSpeed;
+            }
 
             target = null;
         }
@@ -58,6 +58,9 @@ public class ScareCrowTowerBehaviour : MonoBehaviour
         // NOTE: The invoke will continue to be called even if the GameObject is deactivated. This is here to make sure the invoke is cancelled.
         if (GetComponent<Health>().currentHealth <= 0)
         {
+            // Make sure the speed is reset if the enemy was still in the radius when the tower was destroyed
+            target.GetComponent<NavMeshAgent>().speed = target.GetComponent<EnemyBehaviour>().defaultSpeed;
+
             CancelInvoke();
         }
     }
