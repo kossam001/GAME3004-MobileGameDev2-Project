@@ -87,7 +87,7 @@ public class InventoryController : MonoBehaviour
         {
             itemObject.transform.position = hit.collider.transform.position;
 
-            objectSpawnRadius.transform.position = hit.point;
+            objectSpawnRadius.transform.position = hit.collider.transform.position;
         }
     }
 
@@ -132,7 +132,9 @@ public class InventoryController : MonoBehaviour
             }
         }
 
-        if (results.Count == 0)
+        // The or check is to catch a case where results.Count does not equal to 0, but the item cannot be placed on the tile
+        // Cause by releasing click on an UI object while dragging
+        if (results.Count == 0 || (clicked == false && currentlyMovingItem))
         {
             DragAndUse();
         }
@@ -325,6 +327,7 @@ public class InventoryController : MonoBehaviour
         {
             AddToInventory(cursorIcon.ItemInSlot, 1);
 
+            itemObject.transform.position = new Vector3(0, 100);
             itemObject.SetActive(false);
             itemObject = null;
             objectSpawnRadius.spawnInObject = null;

@@ -12,11 +12,12 @@ TagManager:
   - Waypoint
   - Plant
   - PlantHealth
+  - Plant2
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - TowerTiles
   - Water
   - UI
   - 
