@@ -149,8 +149,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039640365215910276}
   m_LocalRotation: {x: -0.6532815, y: 0.27059805, z: 0.27059805, w: 0.6532815}
-  m_LocalPosition: {x: -0.4, y: 2.9, z: -0.36}
-  m_LocalScale: {x: 0.4, y: 0.6, z: 1}
+  m_LocalPosition: {x: -0.39, y: 1.776, z: -0.35}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.7}
   m_Children: []
   m_Father: {fileID: 4276626594625234408}
   m_RootOrder: 2
@@ -636,7 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968fcb671a1397e41b9a90a9ae56336d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 8
   enemyTag: Enemy
   partToRotate: {fileID: 7796789922190526323}
   turnSpeed: 10
@@ -753,7 +753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 5.98}
+  m_AnchoredPosition: {x: 0, y: 3.87}
   m_SizeDelta: {x: 4.663, y: 1.818}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4276626595258082213
@@ -1408,7 +1408,7 @@ Transform:
   m_GameObject: {fileID: 7455730677782371785}
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 5939224936401988258}
   - {fileID: 501090958288733680}

@@ -59,6 +59,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Waypoint")
         {
+            Debug.Log("Enemy reached waypoint");
             gameObject.SetActive(false);
         }
     }

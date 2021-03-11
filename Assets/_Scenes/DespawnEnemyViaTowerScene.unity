@@ -5522,7 +5522,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5546,7 +5546,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -12.99, y: 11.81, z: -12.25}
+  m_LocalPosition: {x: -12.79, y: 11.65, z: -12.05}
   m_LocalScale: {x: 0.98793185, y: 2.1962328, z: 1.3906989}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12178,18 +12178,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 297854687397974454, guid: ba812269f2bf5cf42ba0bd34f35bd2f6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7550886668435411345, guid: ba812269f2bf5cf42ba0bd34f35bd2f6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 7550886668435411345, guid: ba812269f2bf5cf42ba0bd34f35bd2f6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba812269f2bf5cf42ba0bd34f35bd2f6, type: 3}
 --- !u!1001 &1333529750546035923
@@ -12994,14 +12982,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4589028269350006349, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4589028269350006349, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7853466018981100386, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -13052,22 +13032,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7853466018981100410, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7853466018981100411, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
-      propertyPath: fireRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7853466018981100411, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7853466018981100412, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7853466018981100415, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
-      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
