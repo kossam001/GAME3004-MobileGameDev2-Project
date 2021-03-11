@@ -85,7 +85,7 @@ public class InventoryController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast( ray, out hit, 1000, rayLayer))
         {
-            itemObject.transform.position = hit.point;
+            itemObject.transform.position = hit.collider.transform.position;
 
             objectSpawnRadius.transform.position = hit.point;
         }
@@ -182,10 +182,10 @@ public class InventoryController : MonoBehaviour
             }
         }
         // Has the option to swap held item and slot item, but not part of requirement
-        //else if (itemSlot.HasItem() && cursorIcon.HasItem() && itemSlot.canSetSlot)
-        //{
-        //    SwapHeldItem(itemSlot);
-        //}
+        else if (itemSlot.HasItem() && cursorIcon.HasItem() && itemSlot.canSetSlot)
+        {
+            SwapHeldItem(itemSlot);
+        }
     }
 
     // Allows the player to pickup the entire stack of items.
@@ -209,10 +209,10 @@ public class InventoryController : MonoBehaviour
             }
         }
         // Has the option to swap held item and slot item, but not part of requirement
-        //else if (itemSlot.HasItem() && cursorIcon.HasItem() && itemSlot.canSetSlot)
-        //{
-        //    SwapHeldItem(itemSlot);
-        //}
+        else if (itemSlot.HasItem() && cursorIcon.HasItem() && itemSlot.canSetSlot)
+        {
+            SwapHeldItem(itemSlot);
+        }
     }
 
     // Allows player to drop one item into a slot.
