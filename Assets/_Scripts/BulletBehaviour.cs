@@ -44,12 +44,21 @@ public class BulletBehaviour : MonoBehaviour
             Health enemyHealth = target.GetComponent<Health>();
             enemyHealth.ModifyHealth(-damage);
         }
-        else if (target.gameObject.CompareTag("DelayTower"))
+        else if (target.gameObject.CompareTag("Tower"))
         {
             // Play collision sound
 
-            Health towerHealth = target.GetComponent<Health>();
-            towerHealth.ModifyHealth(-damage);
+            // Not the parent, therefore check this gameobject's parent for the component
+            if (target.gameObject.transform.root != target.gameObject.transform)
+            {
+                Health towerHealth = target.gameObject.GetComponentInParent<Health>();
+                towerHealth.ModifyHealth(-damage);
+            }
+            else if (target.gameObject.transform.root == target.gameObject.transform)
+            {
+                Health towerHealth = target.GetComponent<Health>();
+                towerHealth.ModifyHealth(-damage);
+            }
         }
 
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ScareCrowTowerBehaviour : MonoBehaviour
 {
@@ -36,13 +37,31 @@ public class ScareCrowTowerBehaviour : MonoBehaviour
             }
         }
 
+        // NOTE: This would need to be changed in some way to make sure this doesn't happen multiple times... (ie. continuously raising/lowering the speed value)
         if (nearestEnemy != null && shortestDistance <= range)
         {
+            // Make the enemy "scared"
             target = nearestEnemy.transform;
+            target.GetComponent<NavMeshAgent>().speed = 1;
         }
         else
         {
+            if (target != null)
+            {
+                Debug.Log("Target left scarecrow range");
+                target.GetComponent<NavMeshAgent>().speed = target.GetComponent<EnemyBehaviour>().defaultSpeed;
+            }
+
             target = null;
+        }
+
+        // NOTE: The invoke will continue to be called even if the GameObject is deactivated. This is here to make sure the invoke is cancelled.
+        if (GetComponent<Health>().currentHealth <= 0)
+        {
+            // Make sure the speed is reset if the enemy was still in the radius when the tower was destroyed
+            target.GetComponent<NavMeshAgent>().speed = target.GetComponent<EnemyBehaviour>().defaultSpeed;
+
+            CancelInvoke();
         }
     }
 

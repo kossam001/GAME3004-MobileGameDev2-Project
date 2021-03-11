@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
     // NOTE: These are here right now purely for testing
     public static int numEnemiesWon = 0;
     public static int numEnemiesDefeated = 0;
+
+    [Tooltip("The amount of damage this enemy does when reaching the base.")]
+    [SerializeField]
+    private int damage;
+
+    [Tooltip("This enemy's default speed.")]
+    [SerializeField]
+    public float defaultSpeed;
 
     [SerializeField]
     AudioClip[] audioClips;
@@ -17,6 +26,7 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        GetComponent<NavMeshAgent>().speed = defaultSpeed;
     }
 
     // Update is called once per frame
@@ -59,6 +69,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Waypoint")
         {
+            Debug.Log("Enemy reached waypoint");
+            GameStats.Instance.ModifyBaseHealth(-damage);
             gameObject.SetActive(false);
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameStats : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class GameStats : MonoBehaviour
     [Header("Game Element Values")]
     public int coins;
     public int score;
-    public int health;
+    public int health = 20;
 
     public void AddResources(int yield1, int yield2, int yield3)
     {
@@ -60,5 +61,17 @@ public class GameStats : MonoBehaviour
         resource1Label.text = resource1.ToString();
         resource2Label.text = resource2.ToString();
         resource3Label.text = resource3.ToString();
+    }
+
+    public void ModifyBaseHealth(int damage)
+    {
+        health += damage;
+
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("GameOverScreen");
+        }
+
+        healthLabel.text = health.ToString();
     }
 }
