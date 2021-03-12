@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4589028269350006349}
   m_Layer: 6
   m_Name: WindmillTower
-  m_TagString: Tower
+  m_TagString: AttackTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,6 +247,7 @@ MonoBehaviour:
   turnSpeed: 10
   bulletPrefab: {fileID: 7227911011973543997, guid: 353072ecdf4eb12488a73387cd61cdd4, type: 3}
   firePoint: {fileID: 7853466019731993072}
+  childObjectContainingTheTargetTag: {fileID: 7853466019491642890}
 --- !u!82 &4589028269350006349
 AudioSource:
   m_ObjectHideFlags: 0

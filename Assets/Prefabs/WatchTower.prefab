@@ -166,6 +166,7 @@ MonoBehaviour:
   turnSpeed: 10
   bulletPrefab: {fileID: 6139756966786733414, guid: 46e2a162dc338b74caf524c811f97854, type: 3}
   firePoint: {fileID: 297854687681977386}
+  childObjectContainingTheTargetTag: {fileID: 297854688990205941}
 --- !u!82 &1235879184011752956
 AudioSource:
   m_ObjectHideFlags: 0

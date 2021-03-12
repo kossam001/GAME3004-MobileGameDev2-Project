@@ -640,6 +640,7 @@ MonoBehaviour:
   enemyTag: Enemy
   partToRotate: {fileID: 7796789922190526323}
   turnSpeed: 10
+  childObjectContainingTheTargetTag: {fileID: 4276626595258082222}
 --- !u!1 &4276626594810515374
 GameObject:
   m_ObjectHideFlags: 0
