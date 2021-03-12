@@ -4179,22 +4179,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooledObjects: []
+  pooledEnemies: []
   itemsToPool:
-  - amountToPool: 8
-    objectToPool: {fileID: 226929046147633783, guid: 76b6de62f225e1742a817cc807d8bb0b, type: 3}
-  - amountToPool: 5
+  - amountToPool: 25
     objectToPool: {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
-  - amountToPool: 5
+  - amountToPool: 25
     objectToPool: {fileID: 297854687397974414, guid: ba812269f2bf5cf42ba0bd34f35bd2f6, type: 3}
-  - amountToPool: 5
+  - amountToPool: 25
     objectToPool: {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
-  - amountToPool: 5
+  - amountToPool: 25
     objectToPool: {fileID: 7853466018981100410, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
-  - amountToPool: 5
+  - amountToPool: 25
     objectToPool: {fileID: 1192214139666845764, guid: 929da13ad727383478a8abd2123e107c, type: 3}
-  - amountToPool: 5
+  enemiesToPool:
+  - amountToPool: 7
+    objectToPool: {fileID: 226929046147633783, guid: 76b6de62f225e1742a817cc807d8bb0b, type: 3}
+  - amountToPool: 7
     objectToPool: {fileID: 7640986980144837223, guid: 47ee5152837957849a337abec7f3d380, type: 3}
-  - amountToPool: 5
+  - amountToPool: 7
     objectToPool: {fileID: 2349202938669639512, guid: 69c1e2324d1d53a4a911a9d681ebd833, type: 3}
 --- !u!4 &599560652 stripped
 Transform:
@@ -5558,7 +5560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38b378481a7093488aa1250ccc46a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1235922335}
   waveText: {fileID: 563835446}
 --- !u!23 &915494405
 MeshRenderer:
@@ -6935,11 +6936,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3799812908487953494, guid: f0796583242818e429be29ef9ecd2d6e, type: 3}
   m_PrefabInstance: {fileID: 1230747238}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1235922335 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 226929046147633783, guid: 76b6de62f225e1742a817cc807d8bb0b, type: 3}
-  m_PrefabInstance: {fileID: 102533375}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1235983902
 GameObject:

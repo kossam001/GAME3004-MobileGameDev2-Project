@@ -6,9 +6,6 @@ using TMPro;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    [SerializeField]
-    GameObject enemyPrefab;
-
     public TMP_Text waveText;
     private int waveCounter;
 
@@ -18,7 +15,7 @@ public class EnemySpawnManager : MonoBehaviour
         // Spawns Enemy (Game View Only since spacebar)
         if (Input.GetKeyDown(KeyCode.Space) && !Pause.gameIsPaused)
         {
-            Debug.Log("SpawnManager Heard Space");
+            //Debug.Log("SpawnManager Heard Space");
 
             // Instantiate enemy prefab between the two points
             GameObject enemy = ObjectPooling.SharedInstance.GetPooledObject("Enemy");
@@ -38,8 +35,8 @@ public class EnemySpawnManager : MonoBehaviour
     {
         if (!Pause.gameIsPaused)
         {
-            waveCounter++;
-            waveText.text = "Wave: " + waveCounter;
+            //waveCounter++;
+            //waveText.text = "Wave: " + waveCounter;
             GameObject enemy = ObjectPooling.SharedInstance.GetPooledObject("Enemy");
             if (enemy != null)
             {
