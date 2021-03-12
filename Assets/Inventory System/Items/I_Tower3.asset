@@ -18,7 +18,7 @@ MonoBehaviour:
   category: misc
   icon: {fileID: 21300000, guid: 7831506dba04c61449ce91453d583e87, type: 3}
   type: 1
-  itemObjectTag: Tower
+  itemObjectTag: AttackTower
   resourceCost1: 800
   resourceCost2: 800
   resourceCost3: 800

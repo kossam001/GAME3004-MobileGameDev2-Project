@@ -13,6 +13,7 @@ TagManager:
   - Plant
   - PlantHealth
   - Plant2
+  - AttackTower
   layers:
   - Default
   - TransparentFX

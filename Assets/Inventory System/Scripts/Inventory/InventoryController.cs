@@ -94,6 +94,7 @@ public class InventoryController : MonoBehaviour
     private void SpawnTower(Item item)
     {
         itemObject = ObjectPooling.SharedInstance.GetPooledObject(item.ItemObjectTag);
+        itemObject.transform.GetChild(0).gameObject.tag = "Untagged";
         itemObject.SetActive(true);
     }
 
@@ -319,6 +320,12 @@ public class InventoryController : MonoBehaviour
         if (cursorIcon.HasItem() && !objectSpawnRadius.isObstructed)
         {
             cursorIcon.UseItem();
+
+            if (itemObject.GetComponent<AttackTowerBehaviour>())
+                itemObject.GetComponent<AttackTowerBehaviour>().TurnOn();
+            if (itemObject.GetComponent<ScareCrowTowerBehaviour>())
+                itemObject.GetComponent<ScareCrowTowerBehaviour>().TurnOn();
+
             currentlyMovingItem = false;
             itemObject = null;
             objectSpawnRadius.spawnInObject = null;

@@ -22,14 +22,32 @@ public class AttackTowerBehaviour : MonoBehaviour
 
     private AudioSource audioSource;
 
-
+    private string originalTargetTag;
+    public GameObject childObjectContainingTheTargetTag;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        originalTargetTag = childObjectContainingTheTargetTag.tag;
+    }
+
+    public void TurnOn()
+    {
+        childObjectContainingTheTargetTag.tag = originalTargetTag;
+
         audioSource = GetComponent<AudioSource>();
 
         InvokeRepeating("UpdateTarget", 0.0f, 0.5f);
+    }
+
+    private void OnEnable()
+    {
+        target = null;
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke("UpdateTarget");
     }
 
     void UpdateTarget()

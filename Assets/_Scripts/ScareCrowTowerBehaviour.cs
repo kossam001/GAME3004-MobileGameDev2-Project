@@ -14,9 +14,28 @@ public class ScareCrowTowerBehaviour : MonoBehaviour
     public Transform partToRotate;
     public float turnSpeed = 10.0f;
 
-    // Start is called before the first frame update
-    void Start()
+    private string originalTargetTag;
+    public GameObject childObjectContainingTheTargetTag;
+
+    void Awake()
     {
+        originalTargetTag = childObjectContainingTheTargetTag.tag;
+    }
+
+    private void OnEnable()
+    {
+        target = null;
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke("UpdateTarget");
+    }
+
+    public void TurnOn()
+    {
+        childObjectContainingTheTargetTag.tag = originalTargetTag;
+
         InvokeRepeating("UpdateTarget", 0.0f, 0.5f);
     }
 
