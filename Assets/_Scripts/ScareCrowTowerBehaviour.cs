@@ -22,6 +22,16 @@ public class ScareCrowTowerBehaviour : MonoBehaviour
         originalTargetTag = childObjectContainingTheTargetTag.tag;
     }
 
+    private void OnEnable()
+    {
+        target = null;
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke("UpdateTarget");
+    }
+
     public void TurnOn()
     {
         childObjectContainingTheTargetTag.tag = originalTargetTag;

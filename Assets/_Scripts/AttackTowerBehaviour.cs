@@ -40,6 +40,16 @@ public class AttackTowerBehaviour : MonoBehaviour
         InvokeRepeating("UpdateTarget", 0.0f, 0.5f);
     }
 
+    private void OnEnable()
+    {
+        target = null;
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke("UpdateTarget");
+    }
+
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
