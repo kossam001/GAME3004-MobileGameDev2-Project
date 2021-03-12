@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class EnemySpawnManager : MonoBehaviour
 {
     [SerializeField]
     GameObject enemyPrefab;
 
-    [SerializeField]
-    Transform northSpawnPost;
-    [SerializeField]
-    //Transform southSpawnPost;
+    public TMP_Text waveText;
+    private int waveCounter;
 
     // Update is called once per frame
     void Update()
@@ -39,6 +38,8 @@ public class EnemySpawnManager : MonoBehaviour
     {
         if (!Pause.gameIsPaused)
         {
+            waveCounter++;
+            waveText.text = "Wave: " + waveCounter;
             GameObject enemy = ObjectPooling.SharedInstance.GetPooledObject("Enemy");
             if (enemy != null)
             {
