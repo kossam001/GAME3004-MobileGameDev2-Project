@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !Pause.gameIsPaused)
         {
             
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

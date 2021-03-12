@@ -5,10 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    // NOTE: These are here right now purely for testing
-    public static int numEnemiesWon = 0;
-    public static int numEnemiesDefeated = 0;
-
     [Tooltip("The amount of damage this enemy does when reaching the base.")]
     [SerializeField]
     private int damage;
@@ -27,30 +23,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         GetComponent<NavMeshAgent>().speed = defaultSpeed;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //transform.position += new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
-
-        // Enemy reaches objective
-        //if (transform.position.x <= -12)
-        //{
-        //    Respawn();
-        //    numEnemiesWon++;
-        //}
-
-        //if(health.currentHealth <= 0)
-        //{
-        //    gameObject.SetActive(false);
-        //}
-    }
-
-    public void Respawn()
-    {
-        // NOTE: Because of the current hierarchy/layout of the enemy prefab. The capsule child will likely be offset with the parent. This will likely need to be changed.
-        //transform.position = new Vector3(13, 2, transform.position.z);
     }
 
     public void PlayCollisionSound()
