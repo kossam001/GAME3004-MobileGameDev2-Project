@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45230168, g: 0.48874247, b: 0.53640085, a: 1}
+  m_IndirectSpecularColor: {r: 0.4507749, g: 0.48836273, b: 0.53478, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3044,8 +3044,8 @@ RectTransform:
   - {fileID: 1457323708}
   - {fileID: 560979021}
   - {fileID: 51761659}
-  - {fileID: 879807303}
   - {fileID: 1600132597}
+  - {fileID: 879807303}
   - {fileID: 1455971163}
   - {fileID: 361891216}
   - {fileID: 1535951663}
@@ -5385,7 +5385,7 @@ RectTransform:
   m_Children:
   - {fileID: 1348897195}
   m_Father: {fileID: 417546729}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8697,6 +8697,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1600132592}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1457323710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9232,6 +9244,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 417546729}
     m_Modifications:
+    - target: {fileID: 7116617963848474727, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116617963848474727, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7116617963969187664, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9242,7 +9262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7116617963969187664, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7116617963969187664, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -9319,6 +9339,26 @@ PrefabInstance:
     - target: {fileID: 7116617963969187679, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
       propertyPath: m_Name
       value: Shop UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116617963969187679, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116617964967925159, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116617965133012789, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116617965133012789, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116617965133012789, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
@@ -9464,6 +9504,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7116617963969187679, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
   m_PrefabInstance: {fileID: 1549955850}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1600132593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600132592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9670fe34e4664b45878649b551750ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1600132597 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7116617963969187664, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}

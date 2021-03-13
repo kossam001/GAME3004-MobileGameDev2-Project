@@ -56,14 +56,14 @@ public class InventoryController : MonoBehaviour
     void Update()
     {
         //Check if the left Mouse button is clicked
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !Pause.gameIsPaused)
         {
 
             clicked = true;
             Click();
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0) && clicked)
+        if (Input.GetKeyUp(KeyCode.Mouse0) && clicked && !Pause.gameIsPaused)
         {
             clicked = false;
             Click();
