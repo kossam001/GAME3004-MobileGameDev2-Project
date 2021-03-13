@@ -5646,6 +5646,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5686,8 +5687,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 20
+  orthographic: 0
   orthographic size: 12
   m_Depth: -1
   m_CullingMask:
@@ -5712,7 +5713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -12.79, y: 11.65, z: -12.05}
+  m_LocalPosition: {x: -39, y: 32, z: -44}
   m_LocalScale: {x: 0.98793185, y: 2.1962328, z: 1.3906989}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5733,7 +5734,28 @@ MonoBehaviour:
   musicSource: {fileID: 2088868484}
   mainTheme: {fileID: 8300000, guid: 36e565c1455034841a5f2bc11c1eb7cd, type: 3}
   battleTheme: {fileID: 8300000, guid: 057037f6f543eed4ca0c6c7b852f0c0d, type: 3}
-  test: 0
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a208f62105f5b74e886150092fb85bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingSpeed: 30
+  borderThickness: 10
+  scrollSpeed: 5
+  sensitivity: 1000
+  minY: 10
+  maxY: 80
+  minX: -62
+  maxX: 8
+  minZ: -67
+  maxZ: 3
 --- !u!4 &968344049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 13407020f5064bd4caa6667046874e11, type: 3}
