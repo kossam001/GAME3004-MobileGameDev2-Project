@@ -55,8 +55,11 @@ public class GameStats : MonoBehaviour
         coinsLabel.text = resource4.ToString();
     }
 
-    public void UseResources(int consumption1, int consumption2, int consumption3, int consumption4)
+    public bool UseResources(int consumption1, int consumption2, int consumption3, int consumption4)
     {
+        if (resource1 < consumption1 || resource2 < consumption2 || resource3 < consumption3 || resource4 < consumption4)
+            return false;
+
         resource1 -= consumption1;
         resource2 -= consumption2;
         resource3 -= consumption3;
@@ -66,6 +69,8 @@ public class GameStats : MonoBehaviour
         resource2Label.text = resource2.ToString();
         resource3Label.text = resource3.ToString();
         coinsLabel.text = resource4.ToString();
+
+        return true;
     }
 
     public void ModifyBaseHealth(int damage)

@@ -17,7 +17,9 @@ public class Shop : MonoBehaviour
     [Tooltip("Inventory type")]
     [SerializeField] protected List<ItemType> inventoryType;
     [Tooltip("Item description panel")]
-    [SerializeField] protected ItemDescriptionPanel descriptionPanel; 
+    [SerializeField] protected ItemDescriptionPanel descriptionPanel;
+    [Tooltip("Panel for insufficient funds")]
+    [SerializeField] protected ItemDescriptionPanel insufficientFundsPanel;
 
     private Dictionary<ItemType, GameObject> itemTypeToInventoryTable;
     private Dictionary<ItemType, List<ShopSlot>> itemTypeToSlotTable;
@@ -63,7 +65,9 @@ public class Shop : MonoBehaviour
 
     public void SellItem(Item item)
     {
-        GameStats.Instance.UseResources(item.ResourceCost1, item.ResourceCost2, item.ResourceCost3, item.ResourceCost4);
-        InventoryController.Instance.AddToInventory(item);
+        if (GameStats.Instance.UseResources(item.ResourceCost1, item.ResourceCost2, item.ResourceCost3, item.ResourceCost4))
+            InventoryController.Instance.AddToInventory(item);
+        else
+            insufficientFundsPanel.gameObject.SetActive(true);
     }
 }
