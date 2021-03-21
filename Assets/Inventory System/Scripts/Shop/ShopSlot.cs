@@ -6,6 +6,7 @@ using System;
 public class ShopSlot : ItemSlot
 {
     public Shop shop;
+    public ItemDescriptionPanel descriptionPanel;
 
     /* Gets a reference to the item that is to be bought and 
      * shop takes the reference and determines which inventory to send
@@ -20,5 +21,11 @@ public class ShopSlot : ItemSlot
     public void Buy()
     {
         shop.SellItem(ItemInSlot);
+    }
+
+    public void ShowInfo()
+    {
+        descriptionPanel.itemDescriptionText.text = ItemInSlot.Description;
+        descriptionPanel.gameObject.SetActive(true);
     }
 }

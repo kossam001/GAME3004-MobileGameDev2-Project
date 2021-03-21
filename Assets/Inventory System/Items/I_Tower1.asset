@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 2
   name: I_Tower1
-  description: 'this is an Tower
+  description: 'Slows nearby enemies.
 
 '
   category: misc
@@ -24,3 +24,4 @@ MonoBehaviour:
   resourceCost1: 200
   resourceCost2: 200
   resourceCost3: 200
+  resourceCost4: 0

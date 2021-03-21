@@ -6,6 +6,7 @@ public class SpawnCollider : MonoBehaviour
 {
     public GameObject spawnInObject;
     public bool isObstructed = false;
+    public bool isOnTile = false;
 
     private void OnTriggerEnter(Collider other)
     {

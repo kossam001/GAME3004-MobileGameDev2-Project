@@ -85,6 +85,11 @@ public class InventoryController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast( ray, out hit, 1000, rayLayer))
         {
+            objectSpawnRadius.isOnTile = true;
+
+            if (!itemObject.activeInHierarchy)
+                itemObject.SetActive(true);
+
             itemObject.transform.position = hit.collider.transform.position;
 
             objectSpawnRadius.transform.position = hit.collider.transform.position;
@@ -95,7 +100,6 @@ public class InventoryController : MonoBehaviour
     {
         itemObject = ObjectPooling.SharedInstance.GetPooledObject(item.ItemObjectTag);
         itemObject.transform.GetChild(0).gameObject.tag = "Untagged";
-        itemObject.SetActive(true);
     }
 
     private void Click()
@@ -317,7 +321,7 @@ public class InventoryController : MonoBehaviour
 
     public void DragAndUse()
     {
-        if (cursorIcon.HasItem() && !objectSpawnRadius.isObstructed)
+        if (cursorIcon.HasItem() && !objectSpawnRadius.isObstructed && objectSpawnRadius.isOnTile)
         {
             cursorIcon.UseItem();
 
@@ -329,6 +333,7 @@ public class InventoryController : MonoBehaviour
             currentlyMovingItem = false;
             itemObject = null;
             objectSpawnRadius.spawnInObject = null;
+            objectSpawnRadius.isOnTile = false;
         }
         else if (cursorIcon.HasItem())
         {
@@ -338,7 +343,7 @@ public class InventoryController : MonoBehaviour
             itemObject.SetActive(false);
             itemObject = null;
             objectSpawnRadius.spawnInObject = null;
-            objectSpawnRadius.isObstructed = false;
+            objectSpawnRadius.isOnTile = false;
 
             currentlyMovingItem = false;
             cursorIcon.TryRemoveItems(1);
