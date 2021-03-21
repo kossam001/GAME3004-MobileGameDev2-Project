@@ -16,9 +16,6 @@ MonoBehaviour:
   name: Seed
   description: 'PUMPKIN SEED
 
-
-    Yield:
-
 '
   category: misc
   icon: {fileID: 21300000, guid: f97e6006b999b4b47b423e244f07047e, type: 3}
@@ -28,3 +25,8 @@ MonoBehaviour:
   resourceCost2: 0
   resourceCost3: 0
   resourceCost4: 100
+  yield1: 500
+  yield2: 300
+  yield3: 200
+  yield4: 0
+  growthSpeed: 10

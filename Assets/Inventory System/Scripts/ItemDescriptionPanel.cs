@@ -7,11 +7,8 @@ public class ItemDescriptionPanel : MonoBehaviour
 {
     public TMP_Text itemDescriptionText;
 
-    private void Update()
+    public void Disable()
     {
-        if (Input.anyKeyDown)
-        {
-            gameObject.SetActive(false);
-        }
+        gameObject.SetActive(false);
     }
 }

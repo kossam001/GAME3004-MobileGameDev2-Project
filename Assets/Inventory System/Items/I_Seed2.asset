@@ -23,3 +23,8 @@ MonoBehaviour:
   resourceCost2: 0
   resourceCost3: 0
   resourceCost4: 200
+  yield1: 200
+  yield2: 500
+  yield3: 300
+  yield4: 0
+  growthSpeed: 25
