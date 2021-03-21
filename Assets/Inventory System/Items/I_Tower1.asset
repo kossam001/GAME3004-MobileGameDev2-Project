@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 2
   name: I_Tower1
-  description: 'Slows nearby enemies.
+  description: 'SCARECROW
 
-'
+
+    Slows nearby enemies.'
   category: misc
   icon: {fileID: 21300000, guid: 074d9d348df1c86499f4300b92f704d9, type: 3}
   type: 1
@@ -25,3 +26,8 @@ MonoBehaviour:
   resourceCost2: 200
   resourceCost3: 200
   resourceCost4: 0
+  yield1: 0
+  yield2: 0
+  yield3: 0
+  yield4: 0
+  growthSpeed: 0

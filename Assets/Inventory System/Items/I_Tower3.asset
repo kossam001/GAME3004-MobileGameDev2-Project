@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 4
   name: I_Tower3
-  description: this is an item
+  description: 'WINDMILL
+
+
+    Attacks nearby enemies.'
   category: misc
   icon: {fileID: 21300000, guid: 7831506dba04c61449ce91453d583e87, type: 3}
   type: 1
@@ -23,3 +26,8 @@ MonoBehaviour:
   resourceCost2: 800
   resourceCost3: 800
   resourceCost4: 0
+  yield1: 0
+  yield2: 0
+  yield3: 0
+  yield4: 0
+  growthSpeed: 0
