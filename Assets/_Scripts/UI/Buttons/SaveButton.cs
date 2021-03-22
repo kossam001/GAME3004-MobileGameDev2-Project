@@ -41,6 +41,8 @@ public class SaveButton : MonoBehaviour
 
         SaveCurrentTileValues(sortedObjectTypes, "TileObjectTypes");
 
+        PlayerPrefs.Save();
+
         Debug.Log("GAME SAVED");
     }
 
