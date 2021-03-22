@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
             GameStats.Instance.resource2 = PlayerPrefs.GetInt("NumFood");
             GameStats.Instance.resource3 = PlayerPrefs.GetInt("NumIron");
             GameStats.Instance.resource4 = PlayerPrefs.GetInt("NumCoin");
+            GameStats.Instance.health = PlayerPrefs.GetInt("PlayerHealth");
 
             GameStats.Instance.UpdateResourcesUI();
 

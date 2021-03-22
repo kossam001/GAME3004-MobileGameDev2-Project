@@ -15,6 +15,7 @@ public class SaveButton : MonoBehaviour
         PlayerPrefs.SetInt("NumFood", GameStats.Instance.resource2);
         PlayerPrefs.SetInt("NumIron", GameStats.Instance.resource3);
         PlayerPrefs.SetInt("NumCoins", GameStats.Instance.resource4);
+        PlayerPrefs.SetInt("PlayerHealth", GameStats.Instance.health);
 
         List<TowerTile> unsortedTowerTiles = new List<TowerTile>();
 
