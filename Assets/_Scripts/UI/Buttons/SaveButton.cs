@@ -36,7 +36,7 @@ public class SaveButton : MonoBehaviour
         {
             sortedObjectTypes[i] = sortedTowerTilesArray[i].objectType;
 
-            //Debug.Log(sortedTowerTilesArray[i].name + " " + sortedObjectTypes[i]);
+            Debug.Log(sortedTowerTilesArray[i].name + " " + sortedObjectTypes[i]);
         }
 
         SaveCurrentTileValues(sortedObjectTypes, "TileObjectTypes");

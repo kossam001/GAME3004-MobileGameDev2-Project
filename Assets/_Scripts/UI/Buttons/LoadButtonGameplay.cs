@@ -16,15 +16,15 @@ public class LoadButtonGameplay : MonoBehaviour
 
         // NOTE: Need to make sure the tiles are reset somehow
 
-        //GameObject[] goArray = GetObjectsInLayer(6);
+        GameObject[] goArray = GetObjectsInLayer(6);
 
-        //if (goArray.Length >= 1)
-        //{
-        //    for (int i = 0; i < goArray.Length; i++)
-        //    {
-        //        goArray[i].gameObject.SetActive(false);
-        //    }
-        //}
+        if (goArray.Length >= 1)
+        {
+            for (int i = 0; i < goArray.Length; i++)
+            {
+                goArray[i].gameObject.SetActive(false);
+            }
+        }
 
         // Create list of ObjectTypes
         List<ObjectType> tileObjectTypes = new List<ObjectType>();
