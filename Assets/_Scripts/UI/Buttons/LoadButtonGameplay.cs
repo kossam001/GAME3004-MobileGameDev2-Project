@@ -18,7 +18,7 @@ public class LoadButtonGameplay : MonoBehaviour
 
         GameObject[] goArray = GetObjectsInLayer(6);
 
-        if (goArray.Length >= 1)
+        if (goArray != null)
         {
             for (int i = 0; i < goArray.Length; i++)
             {
