@@ -330,6 +330,41 @@ public class InventoryController : MonoBehaviour
             if (itemObject.GetComponent<ScareCrowTowerBehaviour>())
                 itemObject.GetComponent<ScareCrowTowerBehaviour>().TurnOn();
 
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 1000, rayLayer))
+            {
+                if (hit.transform.gameObject.GetComponent<TowerTile>() != null)
+                {
+                    if (itemObject.GetComponent<AttackTowerBehaviour>() && itemObject.CompareTag("NormalTower"))
+                    {
+                        Debug.Log("You placed an attacktower");
+                        hit.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.WATCHTOWER;
+                    }
+                    else if (itemObject.GetComponent<AttackTowerBehaviour>() && itemObject.CompareTag("AttackTower"))
+                    {
+                        Debug.Log("You placed an attacktower");
+                        hit.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.WINDMILLTOWER;
+                    }
+
+                    if (itemObject.GetComponent<ScareCrowTowerBehaviour>())
+                    {
+                        Debug.Log("You placed a scarecrow tower");
+                        hit.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.SCARECROWTOWER;
+                    }
+
+                    if (itemObject.GetComponent<Resource>())
+                    {
+                        Debug.Log("You placed a plant");
+                        hit.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.PLANT;
+                    }
+                }
+                else
+                {
+                    Debug.Log("TowerTile component does not exist");
+                }
+            }
+
             currentlyMovingItem = false;
             itemObject = null;
             objectSpawnRadius.spawnInObject = null;

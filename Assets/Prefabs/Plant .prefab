@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192214139666845764}
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 2.7391236, y: 1.62, z: -14.071144}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1192214141629091536}
@@ -129,11 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f76847a201e5f499f481bf26b5d233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growthSpeed: 25
-  maxResourceYield1: 500
-  maxResourceYield2: 1000
-  maxResourceYield3: 100
-  maxResourceYield4: 0
   maxSeeds: 2
   uiResourceAmountIndicator: {fileID: 5905224784822986503}
   seed: {fileID: 11400000, guid: 7ca493bf2fa31724592cf92924671357, type: 2}
