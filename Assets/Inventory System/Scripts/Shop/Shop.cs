@@ -16,6 +16,10 @@ public class Shop : MonoBehaviour
     [SerializeField] protected ShopSlot itemTemplate;
     [Tooltip("Inventory type")]
     [SerializeField] protected List<ItemType> inventoryType;
+    [Tooltip("Item description panel")]
+    [SerializeField] protected ItemDescriptionPanel descriptionPanel;
+    [Tooltip("Panel for insufficient funds")]
+    [SerializeField] protected ItemDescriptionPanel insufficientFundsPanel;
 
     private Dictionary<ItemType, GameObject> itemTypeToInventoryTable;
     private Dictionary<ItemType, List<ShopSlot>> itemTypeToSlotTable;
@@ -45,18 +49,6 @@ public class Shop : MonoBehaviour
         foreach (Item item in masterItemTable.items)
         {
             SetupSlot(item, itemTypeToInventoryTable[item.Type], itemTypeToSlotTable[item.Type]);
-
-            //switch (item.Type)
-            //{
-            //    case ItemType.SEED:
-            //        seedCount++;
-            //        SetupSlot(item, itemTypeToInventoryTable[ItemType.SEED], itemTypeToSlotTable[ItemType.SEED], seedCount);
-            //        break;
-            //    case ItemType.TOWER:
-            //        towerCount++;
-            //        SetupSlot(item, itemTypeToInventoryTable[ItemType.TOWER], itemTypeToSlotTable[ItemType.TOWER], towerCount);
-            //        break;
-            //}
         }
     }
 
@@ -64,34 +56,18 @@ public class Shop : MonoBehaviour
     {
         GameObject newObject = Instantiate(itemTemplate.gameObject, parentPanel.transform);
         ShopSlot slot = newObject.GetComponent<ShopSlot>();
+
         slot.shop = this;
         slots.Add(slot);
-
-        slot.shop = this;
         slot.SetContents(item, 1);
-
-        //ShopSlot slot;
-
-        //// Generate more slots as needed
-        //if (slotCount > slots.Count)
-        //{
-        //    GameObject newObject = Instantiate(itemTemplate.gameObject, parentPanel.transform);
-        //    slot = newObject.GetComponent<ShopSlot>();
-        //    slot.shop = this;
-        //    slots.Add(slot);
-        //}
-        //else
-        //{
-        //    slot = slots[slotCount - 1];
-        //}
-
-        //slot.shop = this;
-        //slot.SetContents(item, 1);
+        slot.descriptionPanel = descriptionPanel;
     }
 
     public void SellItem(Item item)
     {
-        GameStats.Instance.UseResources(item.ResourceCost1, item.ResourceCost2, item.ResourceCost3);
-        InventoryController.Instance.AddToInventory(item);
+        if (GameStats.Instance.UseResources(item.ResourceCost1, item.ResourceCost2, item.ResourceCost3, item.ResourceCost4))
+            InventoryController.Instance.AddToInventory(item);
+        else
+            insufficientFundsPanel.gameObject.SetActive(true);
     }
 }

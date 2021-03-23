@@ -5,13 +5,14 @@ using UnityEngine.AI;
 
 public class NavMeshAI : MonoBehaviour
 {
+    // Maybe this entire script can be inside enemy behaviour script instead?
     public NavMeshAgent enemy;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
+    private void OnEnable()
+    {
+        // When Game Object is enabled, set the agent speed to its normal move speed.
+        enemy.speed = 2.5f;
+    }
     // Update is called once per frame
     void Update()
     {

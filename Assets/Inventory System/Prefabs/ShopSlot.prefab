@@ -101,6 +101,7 @@ MonoBehaviour:
   itemCountText: {fileID: 3118639445605381186}
   itemIcon: {fileID: 7120671087116952978}
   shop: {fileID: 0}
+  descriptionPanel: {fileID: 0}
 --- !u!1 &4888338716887663070
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +494,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1607920829673360476}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2184442665435855563}
+        m_TargetAssemblyTypeName: ShopSlot, Assembly-CSharp
+        m_MethodName: ShowInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8102716010941510569
 GameObject:
   m_ObjectHideFlags: 0

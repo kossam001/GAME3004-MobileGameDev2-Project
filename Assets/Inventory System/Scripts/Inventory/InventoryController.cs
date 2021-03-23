@@ -56,14 +56,14 @@ public class InventoryController : MonoBehaviour
     void Update()
     {
         //Check if the left Mouse button is clicked
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !Pause.gameIsPaused)
         {
 
             clicked = true;
             Click();
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0) && clicked)
+        if (Input.GetKeyUp(KeyCode.Mouse0) && clicked && !Pause.gameIsPaused)
         {
             clicked = false;
             Click();
@@ -85,16 +85,21 @@ public class InventoryController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast( ray, out hit, 1000, rayLayer))
         {
-            itemObject.transform.position = hit.point;
+            objectSpawnRadius.isOnTile = true;
 
-            objectSpawnRadius.transform.position = hit.point;
+            if (!itemObject.activeInHierarchy)
+                itemObject.SetActive(true);
+
+            itemObject.transform.position = hit.collider.transform.position;
+
+            objectSpawnRadius.transform.position = hit.collider.transform.position;
         }
     }
 
     private void SpawnTower(Item item)
     {
         itemObject = ObjectPooling.SharedInstance.GetPooledObject(item.ItemObjectTag);
-        itemObject.SetActive(true);
+        itemObject.transform.GetChild(0).gameObject.tag = "Untagged";
     }
 
     private void Click()
@@ -132,7 +137,9 @@ public class InventoryController : MonoBehaviour
             }
         }
 
-        if (results.Count == 0)
+        // The or check is to catch a case where results.Count does not equal to 0, but the item cannot be placed on the tile
+        // Cause by releasing click on an UI object while dragging
+        if (results.Count == 0 || (clicked == false && currentlyMovingItem))
         {
             DragAndUse();
         }
@@ -182,10 +189,10 @@ public class InventoryController : MonoBehaviour
             }
         }
         // Has the option to swap held item and slot item, but not part of requirement
-        //else if (itemSlot.HasItem() && cursorIcon.HasItem() && itemSlot.canSetSlot)
-        //{
-        //    SwapHeldItem(itemSlot);
-        //}
+        else if (itemSlot.HasItem() && cursorIcon.HasItem() && itemSlot.canSetSlot)
+        {
+            SwapHeldItem(itemSlot);
+        }
     }
 
     // Allows the player to pickup the entire stack of items.
@@ -209,10 +216,10 @@ public class InventoryController : MonoBehaviour
             }
         }
         // Has the option to swap held item and slot item, but not part of requirement
-        //else if (itemSlot.HasItem() && cursorIcon.HasItem() && itemSlot.canSetSlot)
-        //{
-        //    SwapHeldItem(itemSlot);
-        //}
+        else if (itemSlot.HasItem() && cursorIcon.HasItem() && itemSlot.canSetSlot)
+        {
+            SwapHeldItem(itemSlot);
+        }
     }
 
     // Allows player to drop one item into a slot.
@@ -314,21 +321,29 @@ public class InventoryController : MonoBehaviour
 
     public void DragAndUse()
     {
-        if (cursorIcon.HasItem() && !objectSpawnRadius.isObstructed)
+        if (cursorIcon.HasItem() && !objectSpawnRadius.isObstructed && objectSpawnRadius.isOnTile)
         {
             cursorIcon.UseItem();
+
+            if (itemObject.GetComponent<AttackTowerBehaviour>())
+                itemObject.GetComponent<AttackTowerBehaviour>().TurnOn();
+            if (itemObject.GetComponent<ScareCrowTowerBehaviour>())
+                itemObject.GetComponent<ScareCrowTowerBehaviour>().TurnOn();
+
             currentlyMovingItem = false;
             itemObject = null;
             objectSpawnRadius.spawnInObject = null;
+            objectSpawnRadius.isOnTile = false;
         }
         else if (cursorIcon.HasItem())
         {
             AddToInventory(cursorIcon.ItemInSlot, 1);
 
+            itemObject.transform.position = new Vector3(0, 100);
             itemObject.SetActive(false);
             itemObject = null;
             objectSpawnRadius.spawnInObject = null;
-            objectSpawnRadius.isObstructed = false;
+            objectSpawnRadius.isOnTile = false;
 
             currentlyMovingItem = false;
             cursorIcon.TryRemoveItems(1);

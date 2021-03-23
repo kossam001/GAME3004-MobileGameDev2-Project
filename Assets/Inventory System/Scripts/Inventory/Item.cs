@@ -100,6 +100,54 @@ public class Item : ScriptableObject
         private set { }
     }
 
+    [SerializeField]
+    private int resourceCost4;
+    public int ResourceCost4
+    {
+        get { return resourceCost4; }
+        private set { }
+    }
+
+    [SerializeField]
+    private int yield1;
+    public int Yield1
+    {
+        get { return yield1; }
+        private set { }
+    }
+
+    [SerializeField]
+    private int yield2;
+    public int Yield2
+    {
+        get { return yield2; }
+        private set { }
+    }
+
+    [SerializeField]
+    private int yield3;
+    public int Yield3
+    {
+        get { return yield3; }
+        private set { }
+    }
+
+    [SerializeField]
+    private int yield4;
+    public int Yield4
+    {
+        get { return yield4; }
+        private set { }
+    }
+
+    [SerializeField]
+    private int growthSpeed;
+    public int GrowthSpeed
+    {
+        get { return growthSpeed; }
+        private set { }
+    }
+
     public void Use()
     {
         

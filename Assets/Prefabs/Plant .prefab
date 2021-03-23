@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5905224785583719947}
   - component: {fileID: 1977107127}
   - component: {fileID: 1997859916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'Plant '
   m_TagString: Plant
   m_Icon: {fileID: 0}
@@ -133,6 +133,7 @@ MonoBehaviour:
   maxResourceYield1: 500
   maxResourceYield2: 1000
   maxResourceYield3: 100
+  maxResourceYield4: 0
   maxSeeds: 2
   uiResourceAmountIndicator: {fileID: 5905224784822986503}
   seed: {fileID: 11400000, guid: 7ca493bf2fa31724592cf92924671357, type: 2}
@@ -259,7 +260,7 @@ GameObject:
   - component: {fileID: 1192214140314820425}
   - component: {fileID: 1192214140314820431}
   - component: {fileID: 1192214140314820424}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +335,7 @@ GameObject:
   - component: {fileID: 1192214141244583329}
   - component: {fileID: 1192214141244583335}
   - component: {fileID: 1192214141244583328}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +412,7 @@ GameObject:
   - component: {fileID: 1192214141629091541}
   - component: {fileID: 1192214141629091542}
   - component: {fileID: 1192214141629091543}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Health
   m_TagString: PlantHealth
   m_Icon: {fileID: 0}
@@ -523,7 +524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8440076125125999519}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlantModelSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +557,7 @@ GameObject:
   - component: {fileID: 5905224784822986496}
   - component: {fileID: 5905224784822986502}
   - component: {fileID: 5905224784822986503}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,7 +634,7 @@ GameObject:
   - component: {fileID: 5905224785439063181}
   - component: {fileID: 5905224785439063182}
   - component: {fileID: 5905224785439063183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Growth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -747,7 +748,7 @@ GameObject:
   - component: {fileID: 5905224785576723152}
   - component: {fileID: 5905224785576723158}
   - component: {fileID: 5905224785576723159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,6 +870,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 13e653536c9754c4c80a777efa0680a7, type: 3}
       propertyPath: m_Name
       value: carrot
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 13e653536c9754c4c80a777efa0680a7, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e653536c9754c4c80a777efa0680a7, type: 3}
