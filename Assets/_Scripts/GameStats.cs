@@ -55,6 +55,16 @@ public class GameStats : MonoBehaviour
         coinsLabel.text = resource4.ToString();
     }
 
+    public void UpdateResourcesUI()
+    {
+        resource1Label.text = resource1.ToString();
+        resource2Label.text = resource2.ToString();
+        resource3Label.text = resource3.ToString();
+        coinsLabel.text = resource4.ToString();
+
+        healthLabel.text = health.ToString();
+    }
+
     public bool UseResources(int consumption1, int consumption2, int consumption3, int consumption4)
     {
         if (resource1 < consumption1 || resource2 < consumption2 || resource3 < consumption3 || resource4 < consumption4)

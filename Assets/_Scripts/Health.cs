@@ -30,8 +30,38 @@ public class Health : MonoBehaviour
         {
             // Maybe play a sound here??
 
+            List<Transform> tileTransforms = new List<Transform>();
+
+            foreach (TowerTile go in GameObject.FindObjectsOfType<TowerTile>())
+            {
+                tileTransforms.Add(go.GetComponent<Transform>());
+            }
+
+            GetClosestTile(tileTransforms.ToArray());
+
             this.gameObject.SetActive(false);
         }
+    }
+
+    Transform GetClosestTile(Transform[] enemies)
+    {
+        Transform bestTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+        foreach (Transform potentialTarget in enemies)
+        {
+            Vector3 directionToTarget = potentialTarget.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                bestTarget = potentialTarget;
+            }
+        }
+
+        bestTarget.gameObject.GetComponent<TowerTile>().objectType = ObjectType.NONE;
+
+        return bestTarget;
     }
 
     private void OnDisable()

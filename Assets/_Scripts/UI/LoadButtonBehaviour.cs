@@ -17,8 +17,13 @@ using UnityEngine.SceneManagement;
 
 public class LoadButtonBehaviour : MonoBehaviour
 {
+    public static bool loadGameOnStartup = false;
+
     public void OnLoadButtonPressed()
     {
         Debug.Log("Load Button Pressed!");
+        loadGameOnStartup = true;
+
+        SceneManager.LoadScene("DespawnEnemyViaTowerScene");
     }
 }
