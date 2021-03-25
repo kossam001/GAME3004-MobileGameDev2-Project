@@ -15,6 +15,7 @@ public class InventoryController : MonoBehaviour
     private bool currentlyMovingItem = false; // Whether or not we are in the process of moving an item
     public ItemSlot cursorIcon; // Visual for moving item
     public GameObject itemObject;
+    public GameObject tileObject;
     public SpawnCollider objectSpawnRadius;
     public LayerMask rayLayer;
 
@@ -90,6 +91,7 @@ public class InventoryController : MonoBehaviour
             if (!itemObject.activeInHierarchy)
                 itemObject.SetActive(true);
 
+            tileObject = hit.collider.gameObject;
             itemObject.transform.position = hit.collider.transform.position;
 
             objectSpawnRadius.transform.position = hit.collider.transform.position;
@@ -330,39 +332,34 @@ public class InventoryController : MonoBehaviour
             if (itemObject.GetComponent<ScareCrowTowerBehaviour>())
                 itemObject.GetComponent<ScareCrowTowerBehaviour>().TurnOn();
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1000, rayLayer))
+            if (tileObject.transform.gameObject.GetComponent<TowerTile>() != null)
             {
-                if (hit.transform.gameObject.GetComponent<TowerTile>() != null)
+                if (itemObject.GetComponent<AttackTowerBehaviour>() && itemObject.CompareTag("NormalTower"))
                 {
-                    if (itemObject.GetComponent<AttackTowerBehaviour>() && itemObject.CompareTag("NormalTower"))
-                    {
-                        Debug.Log("You placed an attacktower");
-                        hit.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.WATCHTOWER;
-                    }
-                    else if (itemObject.GetComponent<AttackTowerBehaviour>() && itemObject.CompareTag("AttackTower"))
-                    {
-                        Debug.Log("You placed an attacktower");
-                        hit.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.WINDMILLTOWER;
-                    }
-
-                    if (itemObject.GetComponent<ScareCrowTowerBehaviour>())
-                    {
-                        Debug.Log("You placed a scarecrow tower");
-                        hit.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.SCARECROWTOWER;
-                    }
-
-                    if (itemObject.GetComponent<Resource>())
-                    {
-                        Debug.Log("You placed a plant");
-                        hit.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.PLANT;
-                    }
+                    Debug.Log("You placed an attacktower");
+                    tileObject.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.WATCHTOWER;
                 }
-                else
+                else if (itemObject.GetComponent<AttackTowerBehaviour>() && itemObject.CompareTag("AttackTower"))
                 {
-                    Debug.Log("TowerTile component does not exist");
+                    Debug.Log("You placed an attacktower");
+                    tileObject.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.WINDMILLTOWER;
                 }
+
+                if (itemObject.GetComponent<ScareCrowTowerBehaviour>())
+                {
+                    Debug.Log("You placed a scarecrow tower");
+                    tileObject.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.SCARECROWTOWER;
+                }
+
+                if (itemObject.GetComponent<Resource>())
+                {
+                    Debug.Log("You placed a plant");
+                    tileObject.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.PLANT;
+                }
+            }
+            else
+            {
+                Debug.Log("TowerTile component does not exist");
             }
 
             currentlyMovingItem = false;
