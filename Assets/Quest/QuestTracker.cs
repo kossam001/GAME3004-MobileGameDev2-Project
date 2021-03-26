@@ -38,7 +38,6 @@ public class QuestTracker : MonoBehaviour
             TMP_Text questText = questDescription.GetComponentInChildren<TMP_Text>();
 
             quest.questObject = questDescription;
-
             quest.SetDisplay(quest);
 
             if (quest.completed)
@@ -58,6 +57,22 @@ public class QuestTracker : MonoBehaviour
         // Place completed quests lower in the list
         foreach (Quest quest in completed)
             quest.questObject.transform.SetParent(questPanel.transform);
+    }
+
+    private void Start()
+    {
+        foreach (Quest quest in quests.allQuests)
+        {
+            Statistics stat = StatisticsTracker.Instance.GetStatistic(quest.associatedStatID);
+            stat.OnProgressUpdated += quest.UpdateProgress;
+            quest.UpdateProgress(stat.progress);
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        foreach (Quest quest in completed)
+            StatisticsTracker.Instance.GetStatistic(quest.associatedStatID).OnProgressUpdated -= quest.UpdateProgress;
     }
 
     public void UpdateQuest(int questID, int progressAmount)

@@ -68,7 +68,7 @@ public class Shop : MonoBehaviour
         if (GameStats.Instance.UseResources(item.ResourceCost1, item.ResourceCost2, item.ResourceCost3, item.ResourceCost4))
         {
             InventoryController.Instance.AddToInventory(item);
-            QuestTracker.Instance.UpdateQuest(0, 1);
+            StatisticsTracker.Instance.UpdateStats(0, 1);
         }
         else
             insufficientFundsPanel.gameObject.SetActive(true);

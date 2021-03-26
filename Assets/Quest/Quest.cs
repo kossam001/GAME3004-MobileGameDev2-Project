@@ -7,6 +7,7 @@ using TMPro;
 public class Quest : ScriptableObject
 {
     public int id;
+    public int associatedStatID;
     public string questName;
     public string objective;
     public int progress;
@@ -17,17 +18,25 @@ public class Quest : ScriptableObject
 
     public void UpdateProgress(int progressMade)
     {
+        if (progress > progressMade)
+        {
+            progress = progressMade;
+            SetDisplay(this);
+            return;
+        }
         if (progress == completionAmount) return;
 
         progress += progressMade;
         progress = Mathf.Clamp(progress, 0, completionAmount);
+
+        SetDisplay(this);
     }
 
     public void SetDisplay(Quest quest)
     {
         TMP_Text questText = questObject.GetComponentInChildren<TMP_Text>();
 
-        questText.text = quest.name + "\n";
+        questText.text = quest.questName + "\n";
         questText.text += quest.objective + " ";
         questText.text += "Progress: " + quest.progress + " / " + quest.completionAmount + "\n";
     }
