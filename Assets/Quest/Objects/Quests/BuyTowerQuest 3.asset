@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3d1c85e786b08b41a36fbb2229349c0, type: 3}
-  m_Name: BuyTowerQuest 2
+  m_Name: BuyTowerQuest 3
   m_EditorClassIdentifier: 
   id: 2
   associatedStatID: 0
   questName: Buy A Tower 3
   objective: Go to shop and buy 3 towers
-  progress: 0
-  completionAmount: 1
+  progress: 1
+  completionAmount: 3
   completed: 0
   questObject: {fileID: 0}

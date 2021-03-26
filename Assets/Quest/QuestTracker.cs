@@ -65,7 +65,7 @@ public class QuestTracker : MonoBehaviour
         {
             Statistics stat = StatisticsTracker.Instance.GetStatistic(quest.associatedStatID);
             stat.OnProgressUpdated += quest.UpdateProgress;
-            quest.UpdateProgress(stat.progress);
+            quest.Initialize(stat.progress);
         }
     }
 

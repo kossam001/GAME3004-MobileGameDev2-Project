@@ -16,18 +16,34 @@ public class Quest : ScriptableObject
 
     public GameObject questObject;
 
+    public void Initialize(int loadedProgress)
+    {
+        progress = loadedProgress;
+
+        if (progress == completionAmount)
+        {
+            questObject.GetComponentInChildren<TMP_Text>().color *= 0.5f;
+        }
+    }
+
     public void UpdateProgress(int progressMade)
     {
         if (progress > progressMade)
         {
             progress = progressMade;
             SetDisplay(this);
+
             return;
         }
         if (progress == completionAmount) return;
 
         progress += progressMade;
         progress = Mathf.Clamp(progress, 0, completionAmount);
+
+        if (progress == completionAmount)
+        {
+            questObject.GetComponentInChildren<TMP_Text>().color *= 0.5f;
+        }
 
         SetDisplay(this);
     }

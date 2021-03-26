@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TowersBoughtStat
   m_EditorClassIdentifier: 
   id: 0
-  progress: 0
+  progress: 1
