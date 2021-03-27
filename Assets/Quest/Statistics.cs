@@ -11,9 +11,12 @@ public class Statistics : ScriptableObject
     public delegate void ProgressUpdated(int progressMade);
     public ProgressUpdated OnProgressUpdated;
 
-    public void UpdateProgress(int progressMade)
+    private void UpdateProgress(int progressMade)
     {
         progress += progressMade;
+
+        if (OnProgressUpdated == null) return;
+
         OnProgressUpdated(progress);
     }
 
