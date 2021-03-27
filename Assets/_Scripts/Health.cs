@@ -28,6 +28,9 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            if (GetComponent<EnemyBehaviour>())
+                StatisticsTracker.Instance.UpdateStats(4, 1);
+
             // Maybe play a sound here??
 
             List<Transform> tileTransforms = new List<Transform>();

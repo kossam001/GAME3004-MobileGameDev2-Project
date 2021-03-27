@@ -38,7 +38,16 @@ public class StatisticsTracker : MonoBehaviour
         {
             statTable[stat.id] = stat;
             stat.SetProgress(0);
-        }
+
+            foreach (Quest quest in QuestTracker.Instance.getQuests())
+            {
+                if (quest.associatedStatID == stat.id)
+                {
+                    stat.OnProgressUpdated += quest.UpdateProgress;
+                    quest.Initialize(0);
+                }
+            }
+        } 
 
         if (LoadButtonBehaviour.loadGameOnStartup == true) Load();
     }
@@ -61,7 +70,7 @@ public class StatisticsTracker : MonoBehaviour
         foreach (Statistics stat in statTable.Values)
         {
             saveStr += stat.id.ToString() + ",";
-            saveStr += stat.GetProgress().ToString();
+            saveStr += stat.GetProgress().ToString() + ",";
         }
 
         PlayerPrefs.SetString("GameStatistics", saveStr);

@@ -54,6 +54,6 @@ public class Quest : ScriptableObject
 
         questText.text = quest.questName + "\n";
         questText.text += quest.objective + " ";
-        questText.text += "Progress: " + quest.progress + " / " + quest.completionAmount + "\n";
+        questText.text += "\nProgress: " + quest.progress + " / " + quest.completionAmount + "\n";
     }
 }

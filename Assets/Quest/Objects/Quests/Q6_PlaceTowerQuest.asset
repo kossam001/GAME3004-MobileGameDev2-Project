@@ -9,8 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33608530e4d8aa14f9d37481185e11a2, type: 3}
-  m_Name: TowersBoughtStat
+  m_Script: {fileID: 11500000, guid: b3d1c85e786b08b41a36fbb2229349c0, type: 3}
+  m_Name: Q6_PlaceTowerQuest
   m_EditorClassIdentifier: 
-  id: 0
+  id: 6
+  associatedStatID: 1
+  questName: Place a Tower
+  objective: Place a tower on the map
   progress: 0
+  completionAmount: 1
+  completed: 0
+  questObject: {fileID: 0}

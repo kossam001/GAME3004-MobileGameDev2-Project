@@ -58,14 +58,6 @@ public class QuestTracker : MonoBehaviour
 
     private void Start()
     {
-        foreach (Quest quest in quests.allQuests)
-        {
-            Statistics stat = StatisticsTracker.Instance.GetStatistic(quest.associatedStatID);
-            stat.OnProgressUpdated += quest.UpdateProgress;
-            //quest.Initialize(stat.GetProgress());
-            quest.Initialize(0);
-        }
-
         gameObject.SetActive(false);
     }
 

@@ -325,6 +325,11 @@ public class InventoryController : MonoBehaviour
     {
         if (cursorIcon.HasItem() && !objectSpawnRadius.isObstructed && objectSpawnRadius.isOnTile)
         {
+            if (cursorIcon.ItemInSlot.Type == ItemType.TOWER)
+                StatisticsTracker.Instance.UpdateStats(1, 1);
+            else
+                StatisticsTracker.Instance.UpdateStats(3, 1);
+
             cursorIcon.UseItem();
 
             if (itemObject.GetComponent<AttackTowerBehaviour>())

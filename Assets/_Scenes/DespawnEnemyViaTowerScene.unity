@@ -10162,6 +10162,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - {fileID: 11400000, guid: 3b0eb955a2b26584995ea18e28275b37, type: 2}
+  - {fileID: 11400000, guid: 99c3afb972cfcea4aa95d1eae9eed834, type: 2}
+  - {fileID: 11400000, guid: fa5281a0245c572468eb3ca164aa4888, type: 2}
+  - {fileID: 11400000, guid: c94b29965dbad1e4ab1c8865d064cdff, type: 2}
+  - {fileID: 11400000, guid: 66e7e4b9b56e43847beaaae9e6699838, type: 2}
+  - {fileID: 11400000, guid: 552c75f714b0c0b45af41410c92dfd20, type: 2}
 --- !u!4 &1430903615 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 108507113624698413, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
@@ -11830,9 +11835,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1212519460}
+      - m_Target: {fileID: 1683804212}
         m_TargetAssemblyTypeName: LoadSceneScript, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: LoadSceneMode
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
