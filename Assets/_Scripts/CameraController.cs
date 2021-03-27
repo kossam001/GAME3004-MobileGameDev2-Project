@@ -3,10 +3,11 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("References")]
-    public JoystickOption joystickOption;
+    //public JoystickOption joystickOption;
     public Joystick leftJoystick;
     public Joystick rightJoystick;
     private Joystick camJoystick;
+    private int switchState;
 
     private bool doMovement = true;
 
@@ -37,8 +38,18 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerPrefs.HasKey("SwitchState"))
+        {
+            switchState = PlayerPrefs.GetInt("SwitchState");
+        }
+        else
+        {
+            switchState = (int)JoyStick.LEFT;
+        }
+
         mainCam = GetComponent<Camera>();
-        camJoystick = (joystickOption.joystick == JoyStick.LEFT ) ? leftJoystick : rightJoystick;
+        //camJoystick = (joystickOption.joystick == JoyStick.LEFT ) ? leftJoystick : rightJoystick;
+        camJoystick = (switchState == (int)JoyStick.LEFT ) ? leftJoystick : rightJoystick;
         camJoystick.gameObject.SetActive(true);
     }
 

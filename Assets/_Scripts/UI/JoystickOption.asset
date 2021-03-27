@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a67e4f3a59b1e4eaba0eacc217495d, type: 3}
   m_Name: JoystickOption
   m_EditorClassIdentifier: 
-  joystick: -1
+  joystick: 1
