@@ -20,6 +20,27 @@ public class StatisticsTracker : MonoBehaviour
         {
             instance = this;
         }
+
+        statTable = new Dictionary<int, Statistics>();
+
+        // Wait for QuestTracker to initialize first
+        StartCoroutine(Initialize());
+    }
+
+    private IEnumerator Initialize()
+    {
+        while (QuestTracker.Instance == null && QuestTracker.Instance.getQuests().Count <= 0)
+        {
+            yield return null;
+        }
+
+        foreach (Statistics stat in stats)
+        {
+            statTable[stat.id] = stat;
+            stat.SetProgress(0);
+        }
+
+        if (LoadButtonBehaviour.loadGameOnStartup == true) Load();
     }
 
     public void UpdateStats(int ID, int progress)
@@ -32,7 +53,7 @@ public class StatisticsTracker : MonoBehaviour
         return stats[ID];
     }
 
-    private void OnDisable()
+    public void Save()
     {
         // Format: id,progress...
         string saveStr = "";
@@ -40,22 +61,15 @@ public class StatisticsTracker : MonoBehaviour
         foreach (Statistics stat in statTable.Values)
         {
             saveStr += stat.id.ToString() + ",";
-            saveStr += stat.progress.ToString();
+            saveStr += stat.GetProgress().ToString();
         }
 
         PlayerPrefs.SetString("GameStatistics", saveStr);
         PlayerPrefs.Save();
     }
 
-    private void OnEnable()
+    public void Load()
     {
-        statTable = new Dictionary<int, Statistics>();
-
-        foreach (Statistics stat in stats)
-        {
-            statTable[stat.id] = stat;
-        }
-
         string loadedData = PlayerPrefs.GetString("GameStatistics", "");
 
         if (loadedData == "") return;
@@ -70,7 +84,7 @@ public class StatisticsTracker : MonoBehaviour
             int id = int.Parse(splitData[dataIdx]);
             int progress = int.Parse(splitData[dataIdx + 1]);
 
-            statTable[id].progress = progress;
+            statTable[id].SetProgress(progress);
         }
     }
 }

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
+  m_HorizontalFit: 2
   m_VerticalFit: 2
 --- !u!114 &455110824
 MonoBehaviour:
@@ -66,8 +66,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests: {fileID: 11400000, guid: f74d6ad1addcf27418365f33df761f13, type: 2}
   questDescriptionPrefab: {fileID: 6660851837280455932, guid: 676ea0b002fb2084aa9a82d9e2cd6b56, type: 3}
-  inprogress: []
-  completed: []
   questPanel: {fileID: 2159537533345132195}
 --- !u!114 &455110827
 MonoBehaviour:

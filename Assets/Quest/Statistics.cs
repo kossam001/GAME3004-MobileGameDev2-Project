@@ -6,7 +6,7 @@ using UnityEngine;
 public class Statistics : ScriptableObject
 {
     public int id;
-    public int progress;
+    [SerializeField] private int progress;
 
     public delegate void ProgressUpdated(int progressMade);
     public ProgressUpdated OnProgressUpdated;
@@ -15,5 +15,19 @@ public class Statistics : ScriptableObject
     {
         progress += progressMade;
         OnProgressUpdated(progress);
+    }
+
+    public void SetProgress(int desiredProgress)
+    {
+        progress = desiredProgress;
+
+        if (OnProgressUpdated == null) return;
+        
+        OnProgressUpdated(progress);
+    }
+
+    public int GetProgress()
+    {
+        return progress;
     }
 }

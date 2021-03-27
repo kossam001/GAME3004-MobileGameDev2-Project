@@ -11,9 +11,9 @@ public class QuestTracker : MonoBehaviour
 
     [SerializeField] private QuestLog quests;
     [SerializeField] private GameObject questDescriptionPrefab;
-    [SerializeField] private List<Quest> inprogress;
-    [SerializeField] private List<Quest> completed;
     [SerializeField] private GameObject questPanel;
+
+    private List<Quest> allQuests;
 
     // Start is called before the first frame update
     void Awake()
@@ -32,31 +32,28 @@ public class QuestTracker : MonoBehaviour
 
     public void SetupQuestTracker()
     {
+        allQuests = new List<Quest>();
+
         foreach (Quest quest in quests.allQuests)
         {
-            GameObject questDescription = Instantiate(questDescriptionPrefab);
+            GameObject questDescription = Instantiate(questDescriptionPrefab, questPanel.transform);
             TMP_Text questText = questDescription.GetComponentInChildren<TMP_Text>();
 
             quest.questObject = questDescription;
             quest.SetDisplay(quest);
 
-            if (quest.completed)
-            {
-                completed.Add(quest);
-            }
-            else
-            {
-                inprogress.Add(quest);
-            }
+            allQuests.Add(quest);
         }
 
-        // Place inprogress quests higher up on the list of quests
-        foreach (Quest quest in inprogress)
-            quest.questObject.transform.SetParent(questPanel.transform);
+        if (StatisticsTracker.Instance == null) return;
 
-        // Place completed quests lower in the list
-        foreach (Quest quest in completed)
-            quest.questObject.transform.SetParent(questPanel.transform);
+        //foreach (Quest quest in quests.allQuests)
+        //{
+            //Statistics stat = StatisticsTracker.Instance.GetStatistic(quest.associatedStatID);
+            //stat.OnProgressUpdated += quest.UpdateProgress;
+            //quest.Initialize(stat.GetProgress());
+            //quest.Initialize(0);
+        //}
     }
 
     private void Start()
@@ -65,13 +62,16 @@ public class QuestTracker : MonoBehaviour
         {
             Statistics stat = StatisticsTracker.Instance.GetStatistic(quest.associatedStatID);
             stat.OnProgressUpdated += quest.UpdateProgress;
-            quest.Initialize(stat.progress);
+            //quest.Initialize(stat.GetProgress());
+            quest.Initialize(0);
         }
+
+        gameObject.SetActive(false);
     }
 
     private void OnApplicationQuit()
     {
-        foreach (Quest quest in completed)
+        foreach (Quest quest in allQuests)
             StatisticsTracker.Instance.GetStatistic(quest.associatedStatID).OnProgressUpdated -= quest.UpdateProgress;
     }
 
@@ -81,5 +81,10 @@ public class QuestTracker : MonoBehaviour
         quest.UpdateProgress(progressAmount);
 
         quest.SetDisplay(quest);
+    }
+
+    public List<Quest> getQuests()
+    {
+        return allQuests;
     }
 }
