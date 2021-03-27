@@ -18,7 +18,17 @@ public class SwitchHandler : MonoBehaviour
     {
         switchImage = switchBtn.gameObject.GetComponent<RawImage>();
 
-        switchState = (int)joystickOption.joystick;
+        if(PlayerPrefs.HasKey("SwitchState"))
+        {
+            switchState = PlayerPrefs.GetInt("SwitchState");
+            Debug.Log(switchState);
+        }
+        else
+        {
+            switchState = (int)JoyStick.LEFT;
+        }
+
+        
 
         switchBtn.transform.localPosition = (switchState == (int)JoyStick.LEFT)
             ? new Vector3(-40.0f, switchBtn.transform.localPosition.y, switchBtn.transform.localPosition.z)
@@ -31,9 +41,9 @@ public class SwitchHandler : MonoBehaviour
     {
         switchBtn.transform.DOLocalMoveX(-switchBtn.transform.localPosition.x, 0.2f);
         switchState = Math.Sign(-switchBtn.transform.localPosition.x);
-        //Debug.Log(switchState);
 
-        joystickOption.joystick = (switchState == (int)JoyStick.LEFT) ? JoyStick.LEFT : JoyStick.RIGHT;
+        //joystickOption.joystick = (switchState == (int)JoyStick.LEFT) ? JoyStick.LEFT : JoyStick.RIGHT;
+        PlayerPrefs.SetInt("SwitchState", (switchState == (int)JoyStick.LEFT) ? (int)JoyStick.LEFT : (int)JoyStick.RIGHT);
 
         switchImage.color = (switchState == (int)JoyStick.LEFT) ? Color.green : Color.red;
     }
