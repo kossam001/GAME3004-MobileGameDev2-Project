@@ -21,13 +21,10 @@ public class Inventory : MonoBehaviour, ISaveHandler
     [SerializeField]
     protected List<Item> startingItems;
 
-    /// <summary>
-    /// Private key used for saving with playerprefs
-    /// </summary>
-    private string saveKey = "";
+    [SerializeField]
+    protected ItemType inventoryType;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         InitItemSlots();
         InitSaveInfo();
@@ -39,7 +36,11 @@ public class Inventory : MonoBehaviour, ISaveHandler
             if (startingItems[i] != null)
                 itemSlots[i].SetContents(startingItems[i], 16);
         }
+
+        if (LoadButtonBehaviour.loadGameOnStartup == true)
+            OnLoad();
     }
+
 
     protected void InitItemSlots()
     {
@@ -106,7 +107,7 @@ public class Inventory : MonoBehaviour, ISaveHandler
         //If there is not an item, write -1 and 0 
 
         //File format:
-        //ID,Count,ID,Count,ID,Count
+        //Inventory Type,ID,Count,ID,Count,ID,Count
 
         string saveStr = "";
 
@@ -119,12 +120,12 @@ public class Inventory : MonoBehaviour, ISaveHandler
             {
                 id = itemSlot.ItemInSlot.ItemID;
                 count = itemSlot.ItemCount;
-            }
+            } 
 
             saveStr += id.ToString() + ',' + count.ToString() + ',';
         }
 
-        PlayerPrefs.SetString(saveKey, saveStr);
+        PlayerPrefs.SetString(inventoryType.ToString() + "inventory", saveStr);
     }
 
     public void OnLoad()
@@ -135,9 +136,7 @@ public class Inventory : MonoBehaviour, ISaveHandler
         //If ID is -1, replace itemSlot's item with null
         //Otherwise, replace itemSlot with the corresponding item from the itemTable, and set its count to the parsed count
 
-        string loadedData = PlayerPrefs.GetString(saveKey, "");
-
-        Debug.Log(loadedData);
+        string loadedData = PlayerPrefs.GetString(inventoryType.ToString() + "inventory", "");
 
         char[] delimiters = new char[] { ',' };
         string[] splitData = loadedData.Split(delimiters);
