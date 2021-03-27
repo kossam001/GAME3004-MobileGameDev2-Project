@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d1c85e786b08b41a36fbb2229349c0, type: 3}
   m_Name: Q9_DefeatEnemyQuest
   m_EditorClassIdentifier: 
-  id: 0
-  associatedStatID: 0
-  questName: 
-  objective: 
+  id: 9
+  associatedStatID: 4
+  questName: Defeat an Enemy
+  objective: Defeat an enemy
   progress: 0
-  completionAmount: 0
+  completionAmount: 1
   completed: 0
   questObject: {fileID: 0}
