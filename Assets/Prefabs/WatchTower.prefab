@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 297854687397974454}
   - component: {fileID: 297854687397974449}
   - component: {fileID: 1235879184011752956}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: WatchTower
   m_TagString: NormalTower
   m_Icon: {fileID: 0}

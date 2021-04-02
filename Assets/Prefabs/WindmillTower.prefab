@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7853466018981100412}
   - component: {fileID: 7853466018981100411}
   - component: {fileID: 4589028269350006349}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: WindmillTower
   m_TagString: AttackTower
   m_Icon: {fileID: 0}

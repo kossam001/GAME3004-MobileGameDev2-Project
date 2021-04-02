@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 4276626594625234411}
   - component: {fileID: 4276626594625234413}
   - component: {fileID: 4276626594625234387}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: ScareCrowTower
   m_TagString: DelayTower
   m_Icon: {fileID: 0}
