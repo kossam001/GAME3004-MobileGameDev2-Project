@@ -18,6 +18,9 @@ public class UpgradeMenu : MonoBehaviour
     public float strengthIncrease = 1;
     public float rangeIncrease = 1;
 
+    [Tooltip("Panel for insufficient funds")]
+    [SerializeField] protected ItemDescriptionPanel insufficientFundsPanel;
+
     public void Activate(Tower _tower)
     {
         tower = _tower;
@@ -33,6 +36,8 @@ public class UpgradeMenu : MonoBehaviour
 
     public void UpgradeStrength()
     {
+        if (!UseResources()) return;
+
         tower.strength += strengthIncrease;
 
         if (tower.IsMaxStrength())
@@ -44,6 +49,8 @@ public class UpgradeMenu : MonoBehaviour
 
     public void UpgradeFireRate()
     {
+        if (!UseResources()) return;
+
         tower.fireRate += fireRateIncrease;
 
         if (tower.IsMaxFireRate())
@@ -55,6 +62,8 @@ public class UpgradeMenu : MonoBehaviour
 
     public void UpgradeRange()
     {
+        if (!UseResources()) return;
+
         tower.range += rangeIncrease;
 
         if (tower.IsMaxRange())
@@ -62,5 +71,19 @@ public class UpgradeMenu : MonoBehaviour
 
         if (tower.IsMaxStats())
             message.text = "MAXED";
+    }
+
+    private bool UseResources()
+    {
+        if (GameStats.Instance.UseResources(tower.upgradeCost[0], tower.upgradeCost[1], tower.upgradeCost[2], tower.upgradeCost[3]))
+        {
+            return true;
+        }
+        else
+        {
+            insufficientFundsPanel.gameObject.SetActive(true);
+
+            return false;
+        }
     }
 }
