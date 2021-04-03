@@ -229,6 +229,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &18434242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,6 +331,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &38752702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -431,6 +433,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &45707070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -947,6 +950,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &73720607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1396,7 +1400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1771,6 +1775,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &168821849 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 108507113624698413, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
@@ -2134,6 +2139,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &205614110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2235,6 +2241,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &210366359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,6 +2424,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &216486234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 297854687397974451, guid: ba812269f2bf5cf42ba0bd34f35bd2f6, type: 3}
@@ -2626,6 +2634,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &284803708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2779,6 +2788,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &329479162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3446,6 +3456,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &387948507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3612,6 +3623,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &403618172
 GameObject:
   m_ObjectHideFlags: 0
@@ -4002,6 +4014,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &453457709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4178,6 +4191,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &455110821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4571,6 +4585,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &519571552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4672,6 +4687,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &525823690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4773,6 +4789,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &560979020
 GameObject:
   m_ObjectHideFlags: 0
@@ -5555,6 +5572,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &692118279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 108507113624698413, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
@@ -5661,6 +5679,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &700681671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5762,6 +5781,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -6017,6 +6037,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &730335123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3799812908487953494, guid: f0796583242818e429be29ef9ecd2d6e, type: 3}
@@ -6262,6 +6283,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &809996306
 GameObject:
   m_ObjectHideFlags: 0
@@ -7044,6 +7066,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &910676634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3799812908487953494, guid: f0796583242818e429be29ef9ecd2d6e, type: 3}
@@ -7430,6 +7453,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &982417586
 GameObject:
   m_ObjectHideFlags: 0
@@ -7702,6 +7726,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &1094703799
 GameObject:
   m_ObjectHideFlags: 0
@@ -7985,6 +8010,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &1108566582
 GameObject:
   m_ObjectHideFlags: 0
@@ -8253,6 +8279,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &1148494871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8534,6 +8561,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &1212519460 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3334907565711777011, guid: 4d92cd9794401ea4a9de98fcc25fd817, type: 3}
@@ -8655,6 +8683,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &1235983902
 GameObject:
   m_ObjectHideFlags: 0
@@ -8938,6 +8967,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &1252101621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9241,6 +9271,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &1320792468
 GameObject:
   m_ObjectHideFlags: 0
@@ -9516,6 +9547,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &1342400512
 GameObject:
   m_ObjectHideFlags: 0
@@ -9894,6 +9926,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &1360658165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10199,6 +10232,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &1385310621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5c8543cad51b004488673353503abd6b, type: 3}
@@ -11011,6 +11045,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &1474102113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11112,6 +11147,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &1482813284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11213,6 +11249,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &1494826770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3799812908487953494, guid: f0796583242818e429be29ef9ecd2d6e, type: 3}
@@ -11480,6 +11517,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &1533762548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 108507113624698413, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
@@ -11546,7 +11584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1539838559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11966,6 +12004,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &1558513008 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 43be2336507ced84f89bd3fa8e921311, type: 3}
@@ -12072,6 +12111,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &1600132592 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7116617963969187679, guid: a8224f1c7c855bc43849bc54b791530a, type: 3}
@@ -12266,6 +12306,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &1683804210
 GameObject:
   m_ObjectHideFlags: 0
@@ -12792,8 +12833,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13394,6 +13435,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &1837218275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8a7e7826328cd0c4a94e47687a45d0ae, type: 3}
@@ -13888,6 +13930,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &1905175060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 8edf1a08abb5cb342a2a608b289c1f91, type: 3}
@@ -14130,6 +14173,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &1934375405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14231,6 +14275,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &1939215222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 880970725214738984, guid: c60edd51c065ceb46b345849a03bc106, type: 3}
@@ -14483,6 +14528,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &1967935861
 GameObject:
   m_ObjectHideFlags: 0
@@ -14623,6 +14669,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &1995719434
 GameObject:
   m_ObjectHideFlags: 0
@@ -14800,6 +14847,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!4 &2023559827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 108507113624698413, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
@@ -14958,6 +15006,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &2046875421
 GameObject:
   m_ObjectHideFlags: 0
@@ -15162,9 +15211,9 @@ RectTransform:
   m_Father: {fileID: 126395638}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 231.7303, y: -149.55655}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2073815386
@@ -15210,7 +15259,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2073815387}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 834435856}
+        m_TargetAssemblyTypeName: TowerManagement, Assembly-CSharp
+        m_MethodName: RemoveTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2073815387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15231,7 +15292,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: a24331652574b3e479d00a8c0c41d820, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15350,6 +15411,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1 &2088868483
 GameObject:
   m_ObjectHideFlags: 0
@@ -17033,6 +17095,7 @@ MonoBehaviour:
   - {fileID: 4276626594625234389, guid: 509c5b7dac270ed4f9293ab1d23a956d, type: 3}
   - {fileID: 1192214139666845764, guid: 154b007665f7aff48869a2c3e86001d3, type: 3}
   objectType: 0
+  towerOnTile: {fileID: 0}
 --- !u!1001 &7853466020396606064
 PrefabInstance:
   m_ObjectHideFlags: 0

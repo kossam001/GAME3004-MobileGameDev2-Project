@@ -363,6 +363,7 @@ public class InventoryController : MonoBehaviour
                 }
 
                 tileObject.transform.gameObject.GetComponent<TowerTile>().towerOnTile = itemObject;
+                itemObject.GetComponent<Tower>().tile = tileObject.transform.gameObject.GetComponent<TowerTile>();
             }
             else
             {

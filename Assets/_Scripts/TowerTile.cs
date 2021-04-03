@@ -23,6 +23,11 @@ public class TowerTile : MonoBehaviour
 
     public void UpdateTile()
     {
+        if (hasObject)
+        {
+            Destroy(towerOnTile);
+        }
+
         switch (objectType)
         {
             case ObjectType.NONE:
@@ -62,7 +67,6 @@ public class TowerTile : MonoBehaviour
                 hasObject = true;
                 break;
             case ObjectType.SCARECROWTOWER:
-                Instantiate(prefabs[2], transform);
                 towerOnTile = Instantiate(prefabs[2], transform);
                 towerOnTile.GetComponent<ScareCrowTowerBehaviour>().tileName = name;
                 towerOnTile.GetComponent<ScareCrowTowerBehaviour>().TurnOn();
@@ -74,5 +78,11 @@ public class TowerTile : MonoBehaviour
                 hasObject = true;
                 break;
         }
+    }
+
+    public void RemoveTower()
+    {
+        towerOnTile.SetActive(false);
+        towerOnTile = null;
     }
 }

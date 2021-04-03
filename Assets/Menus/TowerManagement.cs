@@ -12,7 +12,7 @@ public class TowerManagement : MonoBehaviour
     public GameObject towerMenu;
     public LayerMask rayLayer;
 
-    private bool clicked = false;
+    private Tower tower;
 
     private void Awake()
     {
@@ -38,12 +38,23 @@ public class TowerManagement : MonoBehaviour
 
     private void Click()
     {
+        if (towerMenu.activeInHierarchy) return;
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 1000, rayLayer))
         {
             MenuManagement.Instance.SetActiveMenu(towerMenu);
             GameObject targetTower = hit.collider.gameObject;
+            tower = targetTower.GetComponent<Tower>();
         }
+    }
+
+    public void RemoveTower()
+    {
+        tower.tile.RemoveTower();
+        towerMenu.SetActive(false);
+
+        tower = null;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public string tileName;
+    public TowerTile tile;
 
     [Header("Attributes")]
     public float range = 10.0f;
