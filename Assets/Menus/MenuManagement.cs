@@ -23,10 +23,15 @@ public class MenuManagement : MonoBehaviour
 
     public void SetActiveMenu(GameObject menu)
     {
-        if (activeMenu)
-            activeMenu.SetActive(false);
+        CloseMenu();
 
         activeMenu = menu;
         activeMenu.SetActive(true);
+    }
+
+    public void CloseMenu()
+    {
+        if (activeMenu)
+            activeMenu.SetActive(false);
     }
 }
