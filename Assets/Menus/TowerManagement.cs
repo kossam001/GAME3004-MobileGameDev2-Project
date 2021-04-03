@@ -43,6 +43,7 @@ public class TowerManagement : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 1000, rayLayer))
         {
             MenuManagement.Instance.SetActiveMenu(towerMenu);
+            GameObject targetTower = hit.collider.gameObject;
         }
     }
 }

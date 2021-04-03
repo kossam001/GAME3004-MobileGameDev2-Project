@@ -361,6 +361,8 @@ public class InventoryController : MonoBehaviour
                     Debug.Log("You placed a plant");
                     tileObject.transform.gameObject.GetComponent<TowerTile>().objectType = ObjectType.PLANT;
                 }
+
+                tileObject.transform.gameObject.GetComponent<TowerTile>().towerOnTile = itemObject;
             }
             else
             {

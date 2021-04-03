@@ -17,6 +17,7 @@ public class TowerTile : MonoBehaviour
     private GameObject[] prefabs;
 
     public ObjectType objectType = ObjectType.NONE;
+    public GameObject towerOnTile;
 
     private bool hasObject = false;
 
@@ -49,23 +50,27 @@ public class TowerTile : MonoBehaviour
                 //}
                 break;
             case ObjectType.WATCHTOWER:
-                GameObject test = Instantiate(prefabs[0], transform);
-                test.GetComponent<AttackTowerBehaviour>().TurnOn();
+                towerOnTile = Instantiate(prefabs[0], transform);
+                towerOnTile.GetComponent<AttackTowerBehaviour>().tileName = name;
+                towerOnTile.GetComponent<AttackTowerBehaviour>().TurnOn();
                 hasObject = true;
                 break;
             case ObjectType.WINDMILLTOWER:
-                GameObject test2 = Instantiate(prefabs[1], transform);
-                test2.GetComponent<AttackTowerBehaviour>().TurnOn();
+                towerOnTile = Instantiate(prefabs[1], transform);
+                towerOnTile.GetComponent<AttackTowerBehaviour>().tileName = name;
+                towerOnTile.GetComponent<AttackTowerBehaviour>().TurnOn();
                 hasObject = true;
                 break;
             case ObjectType.SCARECROWTOWER:
                 Instantiate(prefabs[2], transform);
-                GameObject test3 = Instantiate(prefabs[2], transform);
-                test3.GetComponent<ScareCrowTowerBehaviour>().TurnOn();
+                towerOnTile = Instantiate(prefabs[2], transform);
+                towerOnTile.GetComponent<ScareCrowTowerBehaviour>().tileName = name;
+                towerOnTile.GetComponent<ScareCrowTowerBehaviour>().TurnOn();
                 hasObject = true;
                 break;
             case ObjectType.PLANT:
-                Instantiate(prefabs[3], transform);
+                towerOnTile = Instantiate(prefabs[3], transform);
+                towerOnTile.GetComponent<Tower>().tileName = name;
                 hasObject = true;
                 break;
         }
