@@ -16,6 +16,8 @@ public class Tower : MonoBehaviour
     public float maxFireRate = 5.0f;
     public float maxStrength = 5.0f;
 
+    public int[] upgradeCost = { 100, 100, 100, 100 };
+
     public bool IsMaxStats()
     {
         if (IsMaxRange() &&

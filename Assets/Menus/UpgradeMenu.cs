@@ -27,6 +27,8 @@ public class UpgradeMenu : MonoBehaviour
 
         if (tower.IsMaxStats())
             message.text = "MAXED";
+        else
+            message.text = "Cost\n\n" + "Wood: " + tower.upgradeCost[0] + "\nMeat: " + tower.upgradeCost[1] + "\nMetal: " + tower.upgradeCost[2] + "\nCoins: " + tower.upgradeCost[3];
     }
 
     public void UpgradeStrength()
