@@ -258,9 +258,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: 
+  tile: {fileID: 0}
   range: 10
   fireRate: 1
   strength: 1
+  maxRange: -1
+  maxFireRate: -1
+  maxStrength: -1
 --- !u!1 &1192214140314820426
 GameObject:
   m_ObjectHideFlags: 0

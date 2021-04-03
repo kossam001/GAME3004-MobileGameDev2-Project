@@ -41,7 +41,7 @@ public class Healthbar : MonoBehaviour
 
     private void HandleHealthChanged(float pct)
     {
-        if (healthbarCanvas != null)
+        if (healthbarCanvas != null && healthbarCanvas.gameObject.activeInHierarchy)
         {
             StartCoroutine(ChangeToPct(pct));
         }

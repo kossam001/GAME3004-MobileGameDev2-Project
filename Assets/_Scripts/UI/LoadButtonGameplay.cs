@@ -111,9 +111,9 @@ public class LoadButtonGameplay : MonoBehaviour
                 tile.UpdateTile();
 
                 Tower towerData = tile.towerOnTile.GetComponent<Tower>();
-                towerData.range = Int32.Parse(parsedData[1]);
-                towerData.fireRate = Int32.Parse(parsedData[2]);
-                towerData.strength = Int32.Parse(parsedData[3]);
+                towerData.range = float.Parse(parsedData[1]);
+                towerData.fireRate = float.Parse(parsedData[2]);
+                towerData.strength = float.Parse(parsedData[3]);
                 towerData.tile = tile;
             }
         }

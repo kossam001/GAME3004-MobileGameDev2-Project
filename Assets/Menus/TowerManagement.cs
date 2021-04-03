@@ -9,7 +9,10 @@ public class TowerManagement : MonoBehaviour
     private static TowerManagement instance;
     public static TowerManagement Instance { get { return instance; } }
 
+    [Header("Menus")]
     public GameObject towerMenu;
+    public GameObject upgradeMenu;
+
     public LayerMask rayLayer;
 
     private Tower tower;
@@ -44,7 +47,7 @@ public class TowerManagement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 1000, rayLayer))
         {
-            MenuManagement.Instance.SetActiveMenu(towerMenu);
+            SetActiveMenu(towerMenu);
             GameObject targetTower = hit.collider.gameObject;
             tower = targetTower.GetComponent<Tower>();
         }
@@ -56,5 +59,15 @@ public class TowerManagement : MonoBehaviour
         towerMenu.SetActive(false);
 
         tower = null;
+    }
+
+    public void SetActiveMenu(GameObject menu)
+    {
+        MenuManagement.Instance.SetActiveMenu(menu);
+
+        if (ReferenceEquals(upgradeMenu, MenuManagement.Instance.activeMenu))
+        {
+            upgradeMenu.GetComponent<UpgradeMenu>().Activate(tower);
+        }
     }
 }

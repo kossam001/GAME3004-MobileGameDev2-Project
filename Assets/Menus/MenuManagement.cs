@@ -7,7 +7,7 @@ public class MenuManagement : MonoBehaviour
     private static MenuManagement instance;
     public static MenuManagement Instance { get { return instance; } }
 
-    private GameObject activeMenu;
+    public GameObject activeMenu;
 
     private void Awake()
     {
