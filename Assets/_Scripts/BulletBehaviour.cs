@@ -42,7 +42,8 @@ public class BulletBehaviour : MonoBehaviour
             target.GetComponent<EnemyBehaviour>().PlayCollisionSound();
 
             Health enemyHealth = target.GetComponent<Health>();
-            enemyHealth.ModifyHealth(-damage);
+            if (enemyHealth != null)
+                enemyHealth.ModifyHealth(-damage);
         }
         else if (target.gameObject.CompareTag("Tower"))
         {
@@ -52,12 +53,14 @@ public class BulletBehaviour : MonoBehaviour
             if (target.gameObject.transform.root != target.gameObject.transform)
             {
                 Health towerHealth = target.gameObject.GetComponentInParent<Health>();
-                towerHealth.ModifyHealth(-damage);
+                if (towerHealth != null)
+                    towerHealth.ModifyHealth(-damage);
             }
             else if (target.gameObject.transform.root == target.gameObject.transform)
             {
                 Health towerHealth = target.GetComponent<Health>();
-                towerHealth.ModifyHealth(-damage);
+                if (towerHealth != null)
+                    towerHealth.ModifyHealth(-damage);
             }
         }
 
