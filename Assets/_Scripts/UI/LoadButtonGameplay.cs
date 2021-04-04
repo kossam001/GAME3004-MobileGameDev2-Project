@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,61 +29,94 @@ public class LoadButtonGameplay : MonoBehaviour
         }
 
         // Create list of ObjectTypes
-        List<ObjectType> tileObjectTypes = new List<ObjectType>();
+        //List<ObjectType> tileObjectTypes = new List<ObjectType>();
 
         // For each TowerTile in the scene
-        foreach (TowerTile go in GameObject.FindObjectsOfType<TowerTile>())
-        {
-            // Add the scene's TowerTile's ObjectTypes to our list of ObjectTypes
-            tileObjectTypes.Add(go.GetComponent<TowerTile>().objectType);
-        }
+        //foreach (TowerTile go in GameObject.FindObjectsOfType<TowerTile>())
+        //{
+        //    // Add the scene's TowerTile's ObjectTypes to our list of ObjectTypes
+        //    tileObjectTypes.Add(go.GetComponent<TowerTile>().objectType);
+        //}
 
-        // Create Tower Tile Array with correct size (number of TowerTiles in scene)
-        TowerTile[] towerTileArray = new TowerTile[tileObjectTypes.Count];
-        // Create List of TowerTiles
-        List<TowerTile> towerTiles = new List<TowerTile>();
+        TowerTile[] towerTileList = GameObject.FindObjectsOfType<TowerTile>();
+        LoadTowers(towerTileList);
 
-        // Create ObjectType array with correct size (number of TowerTiles in scene)
-        ObjectType[] tileObjectTypesArray = new ObjectType[tileObjectTypes.Count];
 
-        // Create array of loaded TowerTile Object Types
-        tileObjectTypesArray = GetSavedObjectTypeFromString("TileObjectTypes");
+        //// Create Tower Tile Array with correct size (number of TowerTiles in scene)
+        //TowerTile[] towerTileArray = new TowerTile[tileObjectTypes.Count];
+        //// Create List of TowerTiles
+        //List<TowerTile> towerTiles = new List<TowerTile>();
+
+        //// Create ObjectType array with correct size (number of TowerTiles in scene)
+        //ObjectType[] tileObjectTypesArray = new ObjectType[tileObjectTypes.Count];
+
+        //// Create array of loaded TowerTile Object Types
+        //tileObjectTypesArray = GetSavedObjectTypeFromString("TileObjectTypes");
 
         // For each TowerTile in the scene
-        foreach (TowerTile go in GameObject.FindObjectsOfType<TowerTile>())
-        {
-            // Add the scene's TowerTiles to the TowerTile list
-            towerTiles.Add(go);
-        }
+        //foreach (TowerTile go in GameObject.FindObjectsOfType<TowerTile>())
+        //{
+        //    // Add the scene's TowerTiles to the TowerTile list
+        //    towerTiles.Add(go);
+        //}
 
         // Put the TowerTile list into the TowerTile array
-        towerTileArray = towerTiles.ToArray();
+        //towerTileArray = towerTiles.ToArray();
 
-        TowerTile[] towerTileTestArray = towerTileArray.OrderBy(go => go.name).ToArray();
+        //TowerTile[] towerTileTestArray = towerTileArray.OrderBy(go => go.name).ToArray();
 
-        for (int i = 0; i < tileObjectTypesArray.Length; i++)
-        {
-            towerTileTestArray[i].objectType = tileObjectTypesArray[i];
+        //for (int i = 0; i < tileObjectTypesArray.Length; i++)
+        //{
+        //    towerTileTestArray[i].objectType = tileObjectTypesArray[i];
 
-            // Update the TowerTile to display/instantiate the appropriate object on it
-            towerTileTestArray[i].UpdateTile();
+        //    // Update the TowerTile to display/instantiate the appropriate object on it
+        //    towerTileTestArray[i].UpdateTile();
 
-            //Debug.Log(towerTileArray[i]);
-        }
+        //    //Debug.Log(towerTileArray[i]);
+        //}
 
         Debug.Log("GAME LOADED");
     }
 
-    public ObjectType[] GetSavedObjectTypeFromString(string baseSaveName)
+    //public ObjectType[] GetSavedObjectTypeFromString(string baseSaveName)
+    //{
+    //    ObjectType[] ReconstructedArrayFromName = new ObjectType[PlayerPrefs.GetInt(baseSaveName + "TotalLength")];
+
+    //    for (int i = 0; i < ReconstructedArrayFromName.Length; i++)
+    //    {
+    //        ReconstructedArrayFromName[i] = (ObjectType)PlayerPrefs.GetInt(baseSaveName + i);
+    //    }
+
+    //    return ReconstructedArrayFromName;
+    //}
+
+    public void LoadTowers(TowerTile[] tiles)
     {
-        ObjectType[] ReconstructedArrayFromName = new ObjectType[PlayerPrefs.GetInt(baseSaveName + "TotalLength")];
+        // key: tilename; value: ObjectType,range,firerate,strength,etc.
 
-        for (int i = 0; i < ReconstructedArrayFromName.Length; i++)
+        foreach (TowerTile tile in tiles)
         {
-            ReconstructedArrayFromName[i] = (ObjectType)PlayerPrefs.GetInt(baseSaveName + i);
-        }
+            string loadedData = PlayerPrefs.GetString(tile.name, "");
 
-        return ReconstructedArrayFromName;
+            if (loadedData == "")
+            {
+                tile.objectType = ObjectType.NONE;
+                tile.UpdateTile();
+            }
+            else
+            {
+                string[] parsedData = loadedData.Split(',');
+
+                tile.objectType = (ObjectType)Int32.Parse(parsedData[0]);
+                tile.UpdateTile();
+
+                Tower towerData = tile.towerOnTile.GetComponent<Tower>();
+                towerData.range = float.Parse(parsedData[1]);
+                towerData.fireRate = float.Parse(parsedData[2]);
+                towerData.strength = float.Parse(parsedData[3]);
+                towerData.tile = tile;
+            }
+        }
     }
 
     GameObject[] GetObjectsInLayer(int layer)

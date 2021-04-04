@@ -15,6 +15,7 @@ TagManager:
   - Plant2
   - AttackTower
   - DescriptionPanel
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Water
   - UI
   - Object
-  - 
+  - Tower
   - 
   - 
   - 

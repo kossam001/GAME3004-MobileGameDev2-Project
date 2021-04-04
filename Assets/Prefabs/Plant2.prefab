@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 5905224785583719947}
   - component: {fileID: 1977107127}
   - component: {fileID: 1997859916}
-  m_Layer: 6
+  - component: {fileID: -1209091035375192235}
+  m_Layer: 7
   m_Name: Plant2
   m_TagString: Plant2
   m_Icon: {fileID: 0}
@@ -129,11 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f76847a201e5f499f481bf26b5d233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growthSpeed: 25
-  maxResourceYield1: 500
-  maxResourceYield2: 1000
-  maxResourceYield3: 100
-  maxResourceYield4: 0
   maxSeeds: 2
   uiResourceAmountIndicator: {fileID: 5905224784822986503}
   seed: {fileID: 11400000, guid: 7ca493bf2fa31724592cf92924671357, type: 2}
@@ -249,6 +245,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-1209091035375192235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192214139666845764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06702017bbbeb414b8c6b05d38e9f975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 
+  tile: {fileID: 0}
+  range: 10
+  fireRate: 1
+  strength: 1
+  maxRange: -1
+  maxFireRate: -1
+  maxStrength: -1
 --- !u!1 &1192214140314820426
 GameObject:
   m_ObjectHideFlags: 0

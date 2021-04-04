@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 5905224785583719947}
   - component: {fileID: 1977107127}
   - component: {fileID: 1997859916}
-  m_Layer: 6
+  - component: {fileID: 3239480339226151113}
+  m_Layer: 7
   m_Name: 'Plant '
   m_TagString: Plant
   m_Icon: {fileID: 0}
@@ -244,6 +245,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3239480339226151113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192214139666845764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06702017bbbeb414b8c6b05d38e9f975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 
+  tile: {fileID: 0}
+  range: 10
+  fireRate: 1
+  strength: 1
+  maxRange: -1
+  maxFireRate: -1
+  maxStrength: -1
 --- !u!1 &1192214140314820426
 GameObject:
   m_ObjectHideFlags: 0

@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7853466018981100412}
   - component: {fileID: 7853466018981100411}
   - component: {fileID: 4589028269350006349}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: WindmillTower
   m_TagString: AttackTower
   m_Icon: {fileID: 0}
@@ -240,8 +240,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b5eb8136066e146873e4145b4aa9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileName: 
+  tile: {fileID: 0}
   range: 10
   fireRate: 1
+  strength: 1
+  maxRange: 20
+  maxFireRate: 5
+  maxStrength: 10
   enemyTag: Enemy
   partToRotate: {fileID: 7853466019327852141}
   turnSpeed: 10

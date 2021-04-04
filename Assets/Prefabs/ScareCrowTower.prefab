@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 4276626594625234411}
   - component: {fileID: 4276626594625234413}
   - component: {fileID: 4276626594625234387}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: ScareCrowTower
   m_TagString: DelayTower
   m_Icon: {fileID: 0}
@@ -636,7 +636,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968fcb671a1397e41b9a90a9ae56336d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileName: 
+  tile: {fileID: 0}
   range: 8
+  fireRate: 1
+  strength: 1
+  maxRange: 20
+  maxFireRate: -1
+  maxStrength: 5
   enemyTag: Enemy
   partToRotate: {fileID: 7796789922190526323}
   turnSpeed: 10

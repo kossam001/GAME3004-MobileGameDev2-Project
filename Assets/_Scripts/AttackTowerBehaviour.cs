@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackTowerBehaviour : MonoBehaviour
+public class AttackTowerBehaviour : Tower
 {
 
     private Transform target;
 
-    [Header("Attributes")]
-    public float range = 10.0f;
-    public float fireRate = 1.0f;
     private float fireCountDown = 0.0f;
 
     [Header("Unity Setup")]
@@ -108,6 +105,7 @@ public class AttackTowerBehaviour : MonoBehaviour
         GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
         BulletBehaviour bullet = bulletGO.GetComponent<BulletBehaviour>();
+        bullet.damage = (int) ((float)bullet.damage * strength);
 
         if(bullet != null)
         {

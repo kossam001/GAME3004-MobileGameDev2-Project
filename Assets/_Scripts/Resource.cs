@@ -41,6 +41,8 @@ public class Resource : InteractableObject
         int seedsGenerated = (int) (uiResourceAmountIndicator.fillAmount * (float) maxSeeds);
 
         InventoryController.Instance.AddToInventory(Instantiate(seed), seedsGenerated);
+
+        StatisticsTracker.Instance.UpdateStats(5, 1);
     }
 
     private void Update()

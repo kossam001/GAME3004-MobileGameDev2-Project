@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ScareCrowTowerBehaviour : MonoBehaviour
+public class ScareCrowTowerBehaviour : Tower
 {
 
     private Transform target;
-    public float range = 10.0f;
 
     public string enemyTag = "Enemy";
 
@@ -61,7 +60,7 @@ public class ScareCrowTowerBehaviour : MonoBehaviour
         {
             // Make the enemy "scared"
             target = nearestEnemy.transform;
-            target.GetComponent<NavMeshAgent>().speed = 1;
+            target.GetComponent<NavMeshAgent>().speed = strength;
         }
         else
         {

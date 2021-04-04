@@ -84,9 +84,12 @@ public class GameController : MonoBehaviour
             }
 
             Debug.Log("GAME LOADED");
-
-            LoadButtonBehaviour.loadGameOnStartup = false;
         }
+    }
+
+    private void Start()
+    {
+        LoadButtonBehaviour.loadGameOnStartup = false;
     }
 
     // Update is called once per frame

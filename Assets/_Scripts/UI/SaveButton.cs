@@ -27,34 +27,51 @@ public class SaveButton : MonoBehaviour
             //Debug.Log(go.GetComponent<TowerTile>().objectType);
         }
 
-        TowerTile[] unsortedTowerTilesArray = unsortedTowerTiles.ToArray();
+        //TowerTile[] unsortedTowerTilesArray = unsortedTowerTiles.ToArray();
 
-        TowerTile[] sortedTowerTilesArray = unsortedTowerTilesArray.OrderBy(go => go.name).ToArray();
+        //TowerTile[] sortedTowerTilesArray = unsortedTowerTilesArray.OrderBy(go => go.name).ToArray();
 
-        ObjectType[] sortedObjectTypes = new ObjectType[sortedTowerTilesArray.Length];
+        //ObjectType[] sortedObjectTypes = new ObjectType[sortedTowerTilesArray.Length];
 
-        for (int i = 0; i < sortedTowerTilesArray.Length; i++)
-        {
-            sortedObjectTypes[i] = sortedTowerTilesArray[i].objectType;
+        //for (int i = 0; i < sortedTowerTilesArray.Length; i++)
+        //{
+        //    //sortedObjectTypes[i] = sortedTowerTilesArray[i].objectType;
 
-            //Debug.Log(sortedTowerTilesArray[i].name + " " + sortedObjectTypes[i]);
-        }
+        //    //Debug.Log(sortedTowerTilesArray[i].name + " " + sortedObjectTypes[i]);
+        //}
 
-        SaveCurrentTileValues(sortedObjectTypes, "TileObjectTypes");
+
+
+        //SaveCurrentTileValues(sortedObjectTypes, "TileObjectTypes");
+        SaveCurrentTileValues(unsortedTowerTiles);
 
         PlayerPrefs.Save();
 
         Debug.Log("GAME SAVED");
     }
 
-    void SaveCurrentTileValues(ObjectType[] arrayToSave, string SaveName)
+    void SaveCurrentTileValues(List<TowerTile> arrayToSave)
     {
-        for (int i = 0; i < arrayToSave.Length; i++)
+        // key: tilename; value: ObjectType,range,firerate,strength,etc.
+        for (int i = 0; i < arrayToSave.Count; i++)
         {
+            GameObject tower = arrayToSave[i].towerOnTile;
 
-            PlayerPrefs.SetInt(SaveName + i, (int)arrayToSave[i]);
+            if (!tower)
+            {
+                // Just to overwrite previous tile data
+                PlayerPrefs.SetString(arrayToSave[i].name, "");
+            }
+            else
+            {
+                Tower towerData = tower.GetComponent<Tower>();
 
-            PlayerPrefs.SetInt(SaveName + "TotalLength", arrayToSave.Length);
+                string saveString = ((int)arrayToSave[i].objectType).ToString() + "," + towerData.range + "," + towerData.fireRate + "," + towerData.strength + ",";
+
+                PlayerPrefs.SetString(arrayToSave[i].name, saveString);
+            }
+
+            //PlayerPrefs.SetInt(SaveName + "TotalLength", arrayToSave.Length);
         }
     }
 }
