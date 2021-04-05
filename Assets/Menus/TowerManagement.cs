@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class TowerManagement : MonoBehaviour
 {
@@ -12,10 +13,19 @@ public class TowerManagement : MonoBehaviour
     [Header("Menus")]
     public GameObject towerMenu;
     public GameObject upgradeMenu;
+    public GameObject repairMenu;
+
+    [Header("Tower specific buttons")]
+    public GameObject repairButton;
+    public GameObject upgradeButton;
+
+    public TMP_Text towerNameLabel;
 
     public LayerMask rayLayer;
 
     private Tower tower;
+
+    [SerializeField] private float refundRatio;
 
     private void Awake()
     {
@@ -48,8 +58,21 @@ public class TowerManagement : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 1000, rayLayer))
         {
             SetActiveMenu(towerMenu);
+
             GameObject targetTower = hit.collider.gameObject;
             tower = targetTower.GetComponent<Tower>();
+            towerNameLabel.text = tower.towerName;
+
+            if (tower.GetComponent<Resource>())
+            {
+                repairButton.SetActive(false);
+                upgradeButton.SetActive(false);
+            }
+            else
+            {
+                repairButton.SetActive(true);
+                upgradeButton.SetActive(true);
+            }
         }
     }
 
@@ -58,16 +81,32 @@ public class TowerManagement : MonoBehaviour
         tower.tile.RemoveTower();
         towerMenu.SetActive(false);
 
+        if (tower.GetComponent<Resource>())
+        {
+            GameStats.Instance.AddResources(0, 0, 0, (int)tower.GetComponent<Resource>().GetValue(tower.resourceCost[3]));
+        }
+        else
+        {
+            GameStats.Instance.AddResources((int)((float)tower.resourceCost[0] * refundRatio),
+                                        (int)((float)tower.resourceCost[1] * refundRatio),
+                                        (int)((float)tower.resourceCost[2] * refundRatio),
+                                        tower.SellPrice);
+        }
+
         tower = null;
     }
 
     public void SetActiveMenu(GameObject menu)
     {
         MenuManagement.Instance.SetActiveMenu(menu);
-
+        
         if (ReferenceEquals(upgradeMenu, MenuManagement.Instance.activeMenu))
         {
             upgradeMenu.GetComponent<UpgradeMenu>().Activate(tower);
+        }
+        if (ReferenceEquals(repairMenu, MenuManagement.Instance.activeMenu))
+        {
+            repairMenu.GetComponent<RepairMenu>().Activate(tower);
         }
     }
 }

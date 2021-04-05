@@ -330,6 +330,8 @@ public class InventoryController : MonoBehaviour
             else
                 StatisticsTracker.Instance.UpdateStats(3, 1);
 
+            int[] resourceCosts = { cursorIcon.ItemInSlot.ResourceCost1, cursorIcon.ItemInSlot.ResourceCost2, cursorIcon.ItemInSlot.ResourceCost3, cursorIcon.ItemInSlot.ResourceCost4 };
+
             cursorIcon.UseItem();
 
             if (itemObject.GetComponent<AttackTowerBehaviour>())
@@ -364,6 +366,8 @@ public class InventoryController : MonoBehaviour
 
                 tileObject.transform.gameObject.GetComponent<TowerTile>().towerOnTile = itemObject;
                 itemObject.GetComponent<Tower>().tile = tileObject.transform.gameObject.GetComponent<TowerTile>();
+
+                itemObject.GetComponent<Tower>().SetResourceCost(resourceCosts);
             }
             else
             {

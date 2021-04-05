@@ -71,4 +71,14 @@ public class Health : MonoBehaviour
     {
         currentHealth = 0;
     }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+    }
+
+    public bool IsMaxHealth()
+    {
+        return currentHealth == maxHealth;
+    }
 }

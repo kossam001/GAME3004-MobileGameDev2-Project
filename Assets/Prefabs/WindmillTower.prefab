@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: 
+  towerName: Windmill
   tile: {fileID: 0}
   range: 10
   fireRate: 1
@@ -248,6 +249,10 @@ MonoBehaviour:
   maxRange: 20
   maxFireRate: 5
   maxStrength: 10
+  upgradeCost: 64000000640000006400000064000000
+  repairCost: 64000000640000006400000064000000
+  resourceCost: 64000000640000006400000064000000
+  SellPrice: 0
   enemyTag: Enemy
   partToRotate: {fileID: 7853466019327852141}
   turnSpeed: 10
