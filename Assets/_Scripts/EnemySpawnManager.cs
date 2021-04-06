@@ -6,29 +6,21 @@ using TMPro;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    public TMP_Text waveText;
-    private int waveCounter = 0;
-
-    // Update is called once per frame
-    void Update()
-    {     
-
-    }
+    public float enemySpawnWaitTime = 1.5f;
 
     // For Spawn Enemy button
     public void SpawnEnemy()
     {
+        GameStats.Instance.StartWave();
         if (!Pause.gameIsPaused)
         {
-            StartCoroutine(SpawnWave());
-            waveText.text = "Wave: " + waveCounter;
-         
+            StartCoroutine(SpawnWave());        
         }
     }
 
     IEnumerator SpawnWave()
     {
-        for (int i = 0; i < waveCounter; i++)
+        for (int i = 0; i < GameStats.Instance.waveCount; i++)
         {
             GameObject enemy = ObjectPooling.SharedInstance.GetPooledObject("Enemy");
             if (enemy != null)
@@ -37,8 +29,7 @@ public class EnemySpawnManager : MonoBehaviour
                 enemy.transform.rotation = transform.rotation;
                 enemy.SetActive(true);
             }
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(enemySpawnWaitTime);
         }
-        waveCounter++; 
     }
 }

@@ -30,6 +30,7 @@ public class GameStats : MonoBehaviour
     [Header("Game Elements Labels")]
     public TMP_Text scoreLabel;
     public TMP_Text healthLabel;
+    public TMP_Text waveLabel;
 
     [Header("Resource Values")]
     public int resource1;
@@ -41,6 +42,7 @@ public class GameStats : MonoBehaviour
     public int coins;
     public int score;
     public int health = 20;
+    public int waveCount;
 
     public void AddResources(int yield1, int yield2, int yield3, int yield4)
     {
@@ -63,6 +65,7 @@ public class GameStats : MonoBehaviour
         coinsLabel.text = resource4.ToString();
 
         healthLabel.text = health.ToString();
+        waveLabel.text = "Wave: " + waveCount.ToString();
     }
 
     public bool UseResources(int consumption1, int consumption2, int consumption3, int consumption4)
@@ -93,5 +96,11 @@ public class GameStats : MonoBehaviour
         }
 
         healthLabel.text = health.ToString();
+    }  
+
+    public void StartWave()
+    {
+        waveCount++;
+        waveLabel.text = "Wave: " + waveCount.ToString();
     }
 }
