@@ -7,7 +7,7 @@
 // Date last Modified: Feb 03 2021
 // Rev: 1.0
 //  
-// Copyright © 2021 Team Dynamyte. All rights reserved.
+// Copyright Â© 2021 Team Dynamyte. All rights reserved.
 --------------------------------------------------------------*/
 
 using System.Collections;
@@ -20,6 +20,7 @@ public class MainMenuButtonBehaviour : MonoBehaviour
     public void OnMainMenuButtonPressed()
     {
         Time.timeScale = 1f;
+        Pause.gameIsPaused = false;
         Debug.Log("Main Menu!");
         StartCoroutine(LoadLevel("MainMenuScreen", 0.3f));
     }
