@@ -8,7 +8,7 @@ public class EnemySpawnManager : MonoBehaviour
 {
     public float enemySpawnWaitTime = 1.5f;
 
-    // For Spawn Enemy button
+    // For Spawn Enemy button.
     public void SpawnEnemy()
     {
         GameStats.Instance.StartWave();
@@ -20,6 +20,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
+        // Spawns enemies based on the wave count.
         for (int i = 0; i < GameStats.Instance.waveCount; i++)
         {
             GameObject enemy = ObjectPooling.SharedInstance.GetPooledObject("Enemy");
