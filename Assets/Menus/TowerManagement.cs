@@ -56,7 +56,7 @@ public class TowerManagement : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if ((Physics.Raycast(ray, out hit, 1000, rayLayer)) && EventSystem.current.IsPointerOverGameObject() == false)
+        if ((Physics.Raycast(ray, out hit, 1000, rayLayer)) && EventSystem.current.IsPointerOverGameObject(0) == false)
         {
             SetActiveMenu(towerMenu);
 
