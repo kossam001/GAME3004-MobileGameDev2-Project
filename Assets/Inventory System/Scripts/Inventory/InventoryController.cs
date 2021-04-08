@@ -32,6 +32,11 @@ public class InventoryController : MonoBehaviour
 
     private bool clicked = false;
 
+    [Header("Tower Prefabs")]
+    [SerializeField] private List<GameObject> TowerPrefabs;
+
+    private Dictionary<string, GameObject> towerTable = new Dictionary<string, GameObject>();
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -41,6 +46,11 @@ public class InventoryController : MonoBehaviour
         else
         {
             instance = this;
+        }
+
+        foreach (GameObject prefab in TowerPrefabs)
+        {
+            towerTable[prefab.tag] = prefab;
         }
     }
 
@@ -100,7 +110,8 @@ public class InventoryController : MonoBehaviour
 
     private void SpawnTower(Item item)
     {
-        itemObject = ObjectPooling.SharedInstance.GetPooledObject(item.ItemObjectTag);
+        GameObject objectToClone = towerTable[item.ItemObjectTag];
+        itemObject = Instantiate(objectToClone, new Vector3(0, -1000, 0), objectToClone.transform.rotation);
         itemObject.transform.GetChild(0).gameObject.tag = "Untagged";
     }
 
