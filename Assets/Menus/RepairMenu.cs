@@ -25,6 +25,8 @@ public class RepairMenu : MonoBehaviour
         if (!UseResources()) return;
 
         tower.GetComponent<Health>().ResetHealth();
+
+        StatisticsTracker.Instance.UpdateStats(8, 1);
     }
 
     private bool UseResources()

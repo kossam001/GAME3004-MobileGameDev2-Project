@@ -40,6 +40,8 @@ public class UpgradeMenu : MonoBehaviour
 
         tower.strength += strengthIncrease;
 
+        StatisticsTracker.Instance.UpdateStats(7, 1);
+
         if (tower.IsMaxStrength())
             strengthButton.gameObject.SetActive(false);
 
@@ -53,6 +55,8 @@ public class UpgradeMenu : MonoBehaviour
 
         tower.fireRate += fireRateIncrease;
 
+        StatisticsTracker.Instance.UpdateStats(7, 1);
+
         if (tower.IsMaxFireRate())
             fireRateButton.gameObject.SetActive(false);
 
@@ -65,6 +69,8 @@ public class UpgradeMenu : MonoBehaviour
         if (!UseResources()) return;
 
         tower.range += rangeIncrease;
+
+        StatisticsTracker.Instance.UpdateStats(7, 1);
 
         if (tower.IsMaxRange())
             rangeButton.gameObject.SetActive(false);

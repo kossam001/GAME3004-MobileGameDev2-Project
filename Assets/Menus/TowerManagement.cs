@@ -95,6 +95,8 @@ public class TowerManagement : MonoBehaviour
         }
 
         tower = null;
+
+        StatisticsTracker.Instance.UpdateStats(6, 1);
     }
 
     public void SetActiveMenu(GameObject menu)
