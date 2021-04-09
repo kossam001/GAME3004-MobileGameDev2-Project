@@ -6,6 +6,11 @@ using System;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Bullets Related")]
+    public int MaxFireballs;
+    public BulletType bucketType;
+    public BulletType pumpkinType;
+
     private static GameController instance;
     public static GameController Instance { get { return instance; } }
     private void Awake()
@@ -81,6 +86,9 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         LoadButtonBehaviour.loadGameOnStartup = false;
+
+        // Prepare Bullet pool using by Towers
+        BulletPooling.Instance().Init(MaxFireballs, bucketType, pumpkinType);
     }
 
     // Update is called once per frame

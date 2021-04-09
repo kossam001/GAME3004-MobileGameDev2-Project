@@ -70,10 +70,21 @@ public class EnemyShooting : MonoBehaviour
 
     private void Shoot()
     {
+        //GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+        GameObject bulletGO = new GameObject();
+
+        if (BulletPooling.Instance().HasBullets(BulletType.BUCKET_BULLET))
+        {
+            bulletGO = BulletPooling.Instance().GetBullet(firePoint.position, firePoint.rotation, BulletType.BUCKET_BULLET);
+        }
+        else
+        {
+            return;
+        }
+
         Debug.Log("Enemy Shooting");
         audioSource.Play();
-
-        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
         BulletBehaviour bullet = bulletGO.GetComponent<BulletBehaviour>();
 

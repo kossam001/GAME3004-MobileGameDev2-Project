@@ -23,7 +23,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &297854687397974451
 Transform:
   m_ObjectHideFlags: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   turnSpeed: 10
   bulletPrefab: {fileID: 6139756966786733414, guid: 46e2a162dc338b74caf524c811f97854, type: 3}
   firePoint: {fileID: 297854687681977386}
+  bulletType: 1
   childObjectContainingTheTargetTag: {fileID: 297854688990205941}
 --- !u!82 &1235879184011752956
 AudioSource:
