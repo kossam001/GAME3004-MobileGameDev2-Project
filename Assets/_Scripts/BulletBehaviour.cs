@@ -9,6 +9,7 @@ public class BulletBehaviour : MonoBehaviour
 
     public float speed = 70.0f;
     public GameObject impactEffect;
+    public BulletType bulletType;
 
     public int damage = 0;
 
@@ -67,7 +68,8 @@ public class BulletBehaviour : MonoBehaviour
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 2.0f);
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        BulletPooling.Instance().ReturnBullet(gameObject, bulletType);
     }
 
     public void Seek(Transform _target)

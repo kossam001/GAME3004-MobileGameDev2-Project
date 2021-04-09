@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45230168, g: 0.48874247, b: 0.53640085, a: 1}
+  m_IndirectSpecularColor: {r: 0.4507749, g: 0.48836273, b: 0.53478, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1439,10 +1439,6 @@ PrefabInstance:
     - target: {fileID: 226929046147633783, guid: 76b6de62f225e1742a817cc807d8bb0b, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 226929046147633783, guid: 76b6de62f225e1742a817cc807d8bb0b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76b6de62f225e1742a817cc807d8bb0b, type: 3}
@@ -6572,6 +6568,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c90b0ab56e1bab4399841c1c081701f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxFireballs: 5
+  bucketType: 2
+  pumpkinType: 1
 --- !u!4 &595351538
 Transform:
   m_ObjectHideFlags: 0
@@ -6633,9 +6632,9 @@ MonoBehaviour:
   pooledObjects: []
   pooledEnemies: []
   itemsToPool:
-  - amountToPool: 25
+  - amountToPool: 0
     objectToPool: {fileID: 7227911011973543997, guid: 353072ecdf4eb12488a73387cd61cdd4, type: 3}
-  - amountToPool: 25
+  - amountToPool: 0
     objectToPool: {fileID: 6139756966786733414, guid: 46e2a162dc338b74caf524c811f97854, type: 3}
   enemiesToPool:
   - amountToPool: 7
@@ -21120,10 +21119,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FastEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 7640986980144837223, guid: 47ee5152837957849a337abec7f3d380, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ee5152837957849a337abec7f3d380, type: 3}
 --- !u!1001 &297854688328787474
@@ -21136,10 +21131,6 @@ PrefabInstance:
     - target: {fileID: 297854687397974414, guid: ba812269f2bf5cf42ba0bd34f35bd2f6, type: 3}
       propertyPath: m_Name
       value: WatchTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 297854687397974414, guid: ba812269f2bf5cf42ba0bd34f35bd2f6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 297854687397974451, guid: ba812269f2bf5cf42ba0bd34f35bd2f6, type: 3}
       propertyPath: m_RootOrder
@@ -21302,10 +21293,6 @@ PrefabInstance:
     - target: {fileID: 2349202938669639512, guid: 69c1e2324d1d53a4a911a9d681ebd833, type: 3}
       propertyPath: m_Name
       value: SlowEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349202938669639512, guid: 69c1e2324d1d53a4a911a9d681ebd833, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69c1e2324d1d53a4a911a9d681ebd833, type: 3}
@@ -22275,14 +22262,6 @@ PrefabInstance:
     - target: {fileID: 7853466018981100410, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
       propertyPath: m_Name
       value: WindmillTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 7853466018981100410, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7853466019491642890, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bcbd37c308c97646bcfcab67494b6bc, type: 3}

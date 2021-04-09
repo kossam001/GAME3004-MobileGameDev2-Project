@@ -16,6 +16,7 @@ public class AttackTowerBehaviour : Tower
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public BulletType bulletType;
 
     private AudioSource audioSource;
 
@@ -99,10 +100,21 @@ public class AttackTowerBehaviour : Tower
 
     private void Shoot()
     {
+        //GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletGO = new GameObject();
+
+        if(BulletPooling.Instance().HasBullets(bulletType))
+        {
+            bulletGO = BulletPooling.Instance().GetBullet(firePoint.position, firePoint.rotation, bulletType);
+        }
+        else
+        {
+            return;
+        }
+
         Debug.Log("Shooting");
         audioSource.Play();
 
-        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
         BulletBehaviour bullet = bulletGO.GetComponent<BulletBehaviour>();
         bullet.damage = (int) ((float)bullet.damage * strength);
