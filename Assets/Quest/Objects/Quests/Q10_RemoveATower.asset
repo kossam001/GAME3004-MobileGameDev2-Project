@@ -15,7 +15,8 @@ MonoBehaviour:
   id: 10
   associatedStatID: 6
   questName: Remove A Tower
-  objective: Remove a tower or plant
+  objective: Remove a tower or plant.  Access menu by tapping and holding down a
+    tower or plant.
   progress: 0
   completionAmount: 1
   completed: 0

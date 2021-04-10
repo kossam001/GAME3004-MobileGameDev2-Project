@@ -11,7 +11,7 @@ public class LoadButtonGameplay : MonoBehaviour
         GameStats.Instance.resource1 = PlayerPrefs.GetInt("NumWood");
         GameStats.Instance.resource2 = PlayerPrefs.GetInt("NumFood");
         GameStats.Instance.resource3 = PlayerPrefs.GetInt("NumIron");
-        GameStats.Instance.resource4 = PlayerPrefs.GetInt("NumCoin");
+        GameStats.Instance.resource4 = PlayerPrefs.GetInt("NumCoins");
         GameStats.Instance.health = PlayerPrefs.GetInt("PlayerHealth");
         GameStats.Instance.waveCount = PlayerPrefs.GetInt("NumWaveCount");
 

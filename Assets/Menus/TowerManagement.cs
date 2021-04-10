@@ -28,6 +28,9 @@ public class TowerManagement : MonoBehaviour
 
     [SerializeField] private float refundRatio;
 
+    private float holdCounter = 0;
+    private float requiredHoldTime = 0.1f;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -46,6 +49,28 @@ public class TowerManagement : MonoBehaviour
         //Check if the left Mouse button is clicked
         if (Input.GetKeyDown(KeyCode.Mouse0) && !Pause.gameIsPaused)
         {
+            if (!IsInvoking(nameof(HoldClick)))
+                InvokeRepeating(nameof(HoldClick), 0, 0.05f);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0) && !Pause.gameIsPaused)
+        {
+            if (IsInvoking(nameof(HoldClick)))
+            {
+                CancelInvoke(nameof(HoldClick));
+                holdCounter = 0;
+            }
+        }
+    }
+
+    private void HoldClick()
+    {
+        holdCounter += Time.deltaTime;
+
+        if (holdCounter >= requiredHoldTime)
+        {
+            CancelInvoke(nameof(HoldClick));
+            holdCounter = 0;
             Click();
         }
     }

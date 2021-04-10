@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 11
   associatedStatID: 7
   questName: Upgrade Tower
-  objective: Upgrade a tower's stat
+  objective: Upgrade a tower's stat.  Access menu by tapping and holding down a tower.
   progress: 0
   completionAmount: 1
   completed: 0
