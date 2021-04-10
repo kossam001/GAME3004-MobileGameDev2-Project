@@ -24,7 +24,7 @@ public class AttackTowerBehaviour : Tower
     public GameObject childObjectContainingTheTargetTag;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         originalTargetTag = childObjectContainingTheTargetTag.tag;
     }
