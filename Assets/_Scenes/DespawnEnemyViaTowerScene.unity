@@ -11848,6 +11848,10 @@ MonoBehaviour:
   - {fileID: 47385569}
   - {fileID: 822579374}
   - {fileID: 1235983902}
+  enemies:
+  - {fileID: 226929046147633783, guid: 76b6de62f225e1742a817cc807d8bb0b, type: 3}
+  - {fileID: 7640986980144837223, guid: 47ee5152837957849a337abec7f3d380, type: 3}
+  - {fileID: 2349202938669639512, guid: 69c1e2324d1d53a4a911a9d681ebd833, type: 3}
 --- !u!1001 &1336554563
 PrefabInstance:
   m_ObjectHideFlags: 0

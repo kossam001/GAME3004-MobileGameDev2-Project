@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class HideButtonDuringWave : MonoBehaviour
 {
-   
-    private EnemyBehaviour[] enemy;
     public GameObject[] buttons;
     EnemySpawnManager enemySpawnManager;
 
@@ -16,8 +14,7 @@ public class HideButtonDuringWave : MonoBehaviour
 
     void Update()
     {
-        enemy = FindObjectsOfType<EnemyBehaviour>();
-        if (enemy.Length > 0 && !enemySpawnManager.allEnemiesSpawned)
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length > 0 && !enemySpawnManager.allEnemiesSpawned)
         {
             for (int i = 0; i < buttons.Length; i++)
             {
@@ -25,7 +22,7 @@ public class HideButtonDuringWave : MonoBehaviour
             }
         }
 
-        if (enemy.Length <= 0 && enemySpawnManager.allEnemiesSpawned)
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0 && enemySpawnManager.allEnemiesSpawned)
         {
             for (int i = 0; i < buttons.Length; i++)
             {

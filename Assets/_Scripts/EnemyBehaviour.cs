@@ -22,7 +22,8 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        GetComponent<NavMeshAgent>().speed = defaultSpeed;
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.speed = defaultSpeed;
     }
 
     public void PlayCollisionSound()
