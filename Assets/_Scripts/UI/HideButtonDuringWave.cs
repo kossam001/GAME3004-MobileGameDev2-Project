@@ -7,11 +7,17 @@ public class HideButtonDuringWave : MonoBehaviour
    
     private EnemyBehaviour[] enemy;
     public GameObject[] buttons;
+    EnemySpawnManager enemySpawnManager;
+
+    private void Start()
+    {
+        enemySpawnManager = (EnemySpawnManager)FindObjectOfType(typeof(EnemySpawnManager));
+    }
 
     void Update()
     {
         enemy = FindObjectsOfType<EnemyBehaviour>();
-        if (enemy.Length > 0)
+        if (enemy.Length > 0 && !enemySpawnManager.allEnemiesSpawned)
         {
             for (int i = 0; i < buttons.Length; i++)
             {
@@ -19,7 +25,7 @@ public class HideButtonDuringWave : MonoBehaviour
             }
         }
 
-        else
+        if (enemy.Length <= 0 && enemySpawnManager.allEnemiesSpawned)
         {
             for (int i = 0; i < buttons.Length; i++)
             {

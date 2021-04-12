@@ -7,10 +7,11 @@ using TMPro;
 public class EnemySpawnManager : MonoBehaviour
 {
     public float enemySpawnWaitTime = 1.5f;
-
+    public bool allEnemiesSpawned;
     // For Spawn Enemy button.
     public void SpawnEnemy()
     {
+        allEnemiesSpawned = false;
         GameStats.Instance.StartWave();
         if (!Pause.gameIsPaused)
         {
@@ -32,5 +33,6 @@ public class EnemySpawnManager : MonoBehaviour
             }
             yield return new WaitForSeconds(enemySpawnWaitTime);
         }
+        allEnemiesSpawned = true;
     }
 }
