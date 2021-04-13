@@ -6,37 +6,24 @@ using TMPro;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    public TMP_Text waveText;
-    private int waveCounter;
-
-    // Update is called once per frame
-    void Update()
-    {     
-        // Spawns Enemy (Game View Only since spacebar)
-        if (Input.GetKeyDown(KeyCode.Space) && !Pause.gameIsPaused)
+    public float enemySpawnWaitTime = 1.5f;
+    public bool allEnemiesSpawned;
+    // For Spawn Enemy button.
+    public void SpawnEnemy()
+    {
+        allEnemiesSpawned = false;
+        GameStats.Instance.StartWave();
+        if (!Pause.gameIsPaused)
         {
-            //Debug.Log("SpawnManager Heard Space");
-
-            // Instantiate enemy prefab between the two points
-            GameObject enemy = ObjectPooling.SharedInstance.GetPooledObject("Enemy");
-            if (enemy != null)
-            {
-                enemy.transform.position = transform.position;
-                enemy.transform.rotation = transform.rotation;
-                enemy.SetActive(true);
-
-                enemy.GetComponent<NavMeshAgent>().speed = enemy.GetComponent<EnemyBehaviour>().defaultSpeed;
-            }
+            StartCoroutine(SpawnWave());        
         }
     }
 
-    // For Spawn Enemy button
-    public void SpawnEnemy()
+    IEnumerator SpawnWave()
     {
-        if (!Pause.gameIsPaused)
+        // Spawns enemies based on the wave count.
+        for (int i = 0; i < GameStats.Instance.waveCount; i++)
         {
-            //waveCounter++;
-            //waveText.text = "Wave: " + waveCounter;
             GameObject enemy = ObjectPooling.SharedInstance.GetPooledObject("Enemy");
             if (enemy != null)
             {
@@ -44,6 +31,8 @@ public class EnemySpawnManager : MonoBehaviour
                 enemy.transform.rotation = transform.rotation;
                 enemy.SetActive(true);
             }
+            yield return new WaitForSeconds(enemySpawnWaitTime);
         }
+        allEnemiesSpawned = true;
     }
 }

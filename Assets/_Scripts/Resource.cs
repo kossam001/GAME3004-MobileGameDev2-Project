@@ -18,6 +18,8 @@ public class Resource : InteractableObject
     public Image uiResourceAmountIndicator;
     public Item seed;
 
+    public int maxValueMultiplier = 1;
+
     // Maybe AudioClip array can be added in the future to add additional sounds...
     private AudioSource audioSource;
 
@@ -53,5 +55,16 @@ public class Resource : InteractableObject
 
             uiResourceAmountIndicator.fillAmount = (float)accumulatedResourcePoints / 100.0f;
         }
+    }
+
+    public float GetMaturity()
+    {
+        return uiResourceAmountIndicator.fillAmount;
+    }
+
+    // base value will be cost
+    public float GetValue(int baseValue)
+    {
+        return baseValue * maxValueMultiplier * GetMaturity();
     }
 }

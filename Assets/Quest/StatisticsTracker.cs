@@ -54,7 +54,7 @@ public class StatisticsTracker : MonoBehaviour
 
     public void UpdateStats(int ID, int progress)
     {
-        stats[ID].SetProgress(progress);
+        stats[ID].UpdateProgress(progress);
     }
 
     public Statistics GetStatistic(int ID)

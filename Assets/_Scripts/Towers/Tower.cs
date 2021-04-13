@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public string tileName;
+    public string towerName;
     public TowerTile tile;
 
     [Header("Attributes")]
@@ -16,7 +17,19 @@ public class Tower : MonoBehaviour
     public float maxFireRate = 5.0f;
     public float maxStrength = 5.0f;
 
-    public int[] upgradeCost = { 10000, 100, 100, 100 };
+    public int[] upgradeCost = { 100, 100, 100, 100 };
+    public int[] repairCost = { 100, 100, 100, 100 };
+    public int[] resourceCost = { 100, 100, 100, 100 };
+
+    public int SellPrice;
+
+    public void SetResourceCost(int[] costs)
+    {
+        for (int i = 0; i < costs.Length; i++)
+        {
+            resourceCost[i] = costs[i];
+        }
+    }
 
     public bool IsMaxStats()
     {

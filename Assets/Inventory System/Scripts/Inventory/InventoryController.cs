@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,6 +32,11 @@ public class InventoryController : MonoBehaviour
 
     private bool clicked = false;
 
+    [Header("Tower Prefabs")]
+    [SerializeField] private List<GameObject> TowerPrefabs;
+
+    private Dictionary<string, GameObject> towerTable = new Dictionary<string, GameObject>();
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -41,6 +46,11 @@ public class InventoryController : MonoBehaviour
         else
         {
             instance = this;
+        }
+
+        foreach (GameObject prefab in TowerPrefabs)
+        {
+            towerTable[prefab.tag] = prefab;
         }
     }
 
@@ -100,7 +110,8 @@ public class InventoryController : MonoBehaviour
 
     private void SpawnTower(Item item)
     {
-        itemObject = ObjectPooling.SharedInstance.GetPooledObject(item.ItemObjectTag);
+        GameObject objectToClone = towerTable[item.ItemObjectTag];
+        itemObject = Instantiate(objectToClone, new Vector3(0, -1000, 0), objectToClone.transform.rotation);
         itemObject.transform.GetChild(0).gameObject.tag = "Untagged";
     }
 
@@ -325,20 +336,22 @@ public class InventoryController : MonoBehaviour
     {
         if (cursorIcon.HasItem() && !objectSpawnRadius.isObstructed && objectSpawnRadius.isOnTile)
         {
-            if (cursorIcon.ItemInSlot.Type == ItemType.TOWER)
-                StatisticsTracker.Instance.UpdateStats(1, 1);
-            else
-                StatisticsTracker.Instance.UpdateStats(3, 1);
-
-            cursorIcon.UseItem();
-
-            if (itemObject.GetComponent<AttackTowerBehaviour>())
-                itemObject.GetComponent<AttackTowerBehaviour>().TurnOn();
-            if (itemObject.GetComponent<ScareCrowTowerBehaviour>())
-                itemObject.GetComponent<ScareCrowTowerBehaviour>().TurnOn();
-
-            if (tileObject.transform.gameObject.GetComponent<TowerTile>() != null)
+            if (tileObject.gameObject.GetComponent<TowerTile>().objectType == ObjectType.NONE)
             {
+                if (cursorIcon.ItemInSlot.Type == ItemType.TOWER)
+                    StatisticsTracker.Instance.UpdateStats(1, 1);
+                else
+                    StatisticsTracker.Instance.UpdateStats(3, 1);
+
+                int[] resourceCosts = { cursorIcon.ItemInSlot.ResourceCost1, cursorIcon.ItemInSlot.ResourceCost2, cursorIcon.ItemInSlot.ResourceCost3, cursorIcon.ItemInSlot.ResourceCost4 };
+
+                cursorIcon.UseItem();
+
+                if (itemObject.GetComponent<AttackTowerBehaviour>())
+                    itemObject.GetComponent<AttackTowerBehaviour>().TurnOn();
+                if (itemObject.GetComponent<ScareCrowTowerBehaviour>())
+                    itemObject.GetComponent<ScareCrowTowerBehaviour>().TurnOn();
+
                 if (itemObject.GetComponent<AttackTowerBehaviour>() && itemObject.CompareTag("NormalTower"))
                 {
                     Debug.Log("You placed an attacktower");
@@ -364,29 +377,39 @@ public class InventoryController : MonoBehaviour
 
                 tileObject.transform.gameObject.GetComponent<TowerTile>().towerOnTile = itemObject;
                 itemObject.GetComponent<Tower>().tile = tileObject.transform.gameObject.GetComponent<TowerTile>();
+
+                itemObject.GetComponent<Tower>().SetResourceCost(resourceCosts);
+
+                currentlyMovingItem = false;
+                itemObject = null;
+                objectSpawnRadius.spawnInObject = null;
+                objectSpawnRadius.isOnTile = false;
             }
             else
             {
-                Debug.Log("TowerTile component does not exist");
+                // The tile already had an item
+                ReturnToInventory();
             }
 
-            currentlyMovingItem = false;
-            itemObject = null;
-            objectSpawnRadius.spawnInObject = null;
-            objectSpawnRadius.isOnTile = false;
         }
         else if (cursorIcon.HasItem())
         {
-            AddToInventory(cursorIcon.ItemInSlot, 1);
-
-            itemObject.transform.position = new Vector3(0, 100);
-            itemObject.SetActive(false);
-            itemObject = null;
-            objectSpawnRadius.spawnInObject = null;
-            objectSpawnRadius.isOnTile = false;
-
-            currentlyMovingItem = false;
-            cursorIcon.TryRemoveItems(1);
+            // The item wasn't placed on a tile
+            ReturnToInventory();
         }
+    }
+
+    private void ReturnToInventory()
+    {
+        AddToInventory(cursorIcon.ItemInSlot, 1);
+
+        itemObject.transform.position = new Vector3(0, 100);
+        itemObject.SetActive(false);
+        itemObject = null;
+        objectSpawnRadius.spawnInObject = null;
+        objectSpawnRadius.isOnTile = false;
+
+        currentlyMovingItem = false;
+        cursorIcon.TryRemoveItems(1);
     }
 }

@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: 
+  towerName: Watch Tower
   tile: {fileID: 0}
   range: 10
   fireRate: 1
@@ -167,11 +168,16 @@ MonoBehaviour:
   maxRange: 20
   maxFireRate: 5
   maxStrength: 10
+  upgradeCost: 64000000640000006400000064000000
+  repairCost: 64000000640000006400000064000000
+  resourceCost: 64000000640000006400000064000000
+  SellPrice: 0
   enemyTag: Enemy
   partToRotate: {fileID: 148016089826431762}
   turnSpeed: 10
   bulletPrefab: {fileID: 6139756966786733414, guid: 46e2a162dc338b74caf524c811f97854, type: 3}
   firePoint: {fileID: 297854687681977386}
+  bulletType: 1
   childObjectContainingTheTargetTag: {fileID: 297854688990205941}
 --- !u!82 &1235879184011752956
 AudioSource:

@@ -133,6 +133,7 @@ MonoBehaviour:
   maxSeeds: 2
   uiResourceAmountIndicator: {fileID: 5905224784822986503}
   seed: {fileID: 11400000, guid: 7ca493bf2fa31724592cf92924671357, type: 2}
+  maxValueMultiplier: 3
 --- !u!82 &1977107127
 AudioSource:
   m_ObjectHideFlags: 0
@@ -258,6 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: 
+  towerName: Pumpkin
   tile: {fileID: 0}
   range: 10
   fireRate: 1
@@ -265,6 +267,10 @@ MonoBehaviour:
   maxRange: -1
   maxFireRate: -1
   maxStrength: -1
+  upgradeCost: 64000000640000006400000064000000
+  repairCost: 64000000640000006400000064000000
+  resourceCost: 64000000640000006400000064000000
+  SellPrice: 0
 --- !u!1 &1192214140314820426
 GameObject:
   m_ObjectHideFlags: 0
