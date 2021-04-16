@@ -19,6 +19,7 @@ public class TowerManagement : MonoBehaviour
     [Header("Tower specific buttons")]
     public GameObject repairButton;
     public GameObject upgradeButton;
+    public GameObject removeButton;
 
     public TMP_Text towerNameLabel;
 
@@ -83,21 +84,26 @@ public class TowerManagement : MonoBehaviour
         RaycastHit hit;
         if ((Physics.Raycast(ray, out hit, 1000, rayLayer)) && EventSystem.current.IsPointerOverGameObject(0) == false)
         {
-            SetActiveMenu(towerMenu);
-
             GameObject targetTower = hit.collider.gameObject;
             tower = targetTower.GetComponent<Tower>();
+
+            if (tower.tile == null) return;
+
+            SetActiveMenu(towerMenu);
+
             towerNameLabel.text = tower.towerName;
 
             if (tower.GetComponent<Resource>())
             {
                 repairButton.SetActive(false);
                 upgradeButton.SetActive(false);
+                removeButton.SetActive(false);
             }
             else
             {
                 repairButton.SetActive(true);
                 upgradeButton.SetActive(true);
+                removeButton.SetActive(true);
             }
         }
     }
@@ -116,12 +122,34 @@ public class TowerManagement : MonoBehaviour
             GameStats.Instance.AddResources((int)((float)tower.resourceCost[0] * refundRatio),
                                         (int)((float)tower.resourceCost[1] * refundRatio),
                                         (int)((float)tower.resourceCost[2] * refundRatio),
-                                        tower.SellPrice);
+                                        0);
         }
 
         tower = null;
 
         StatisticsTracker.Instance.UpdateStats(6, 1);
+    }
+
+    public void SellTower()
+    {
+        tower.tile.RemoveTower();
+        towerMenu.SetActive(false);
+
+        if (tower.GetComponent<Resource>())
+        {
+            GameStats.Instance.AddResources(0, 0, 0, (int)tower.GetComponent<Resource>().GetValue(tower.resourceCost[3]));
+        }
+        else
+        {
+            GameStats.Instance.AddResources(0,
+                                            0,
+                                            0,
+                                            tower.SellPrice);
+        }
+
+        tower = null;
+
+        StatisticsTracker.Instance.UpdateStats(9, 1);
     }
 
     public void SetActiveMenu(GameObject menu)

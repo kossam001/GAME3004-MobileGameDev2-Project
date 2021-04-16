@@ -84,5 +84,7 @@ public class TowerTile : MonoBehaviour
     {
         towerOnTile.SetActive(false);
         towerOnTile = null;
+        hasObject = false;
+        objectType = ObjectType.NONE;
     }
 }

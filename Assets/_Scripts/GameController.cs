@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
                 Tower towerData = tile.towerOnTile.GetComponent<Tower>();
                 towerData.range = float.Parse(parsedData[1]);
                 towerData.fireRate = float.Parse(parsedData[2]);
-                towerData.strength = float.Parse(parsedData[3]);
+                towerData.strength = int.Parse(parsedData[3]);
                 towerData.tile = tile;
             }
         }

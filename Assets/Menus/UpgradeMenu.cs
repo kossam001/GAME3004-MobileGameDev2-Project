@@ -15,7 +15,7 @@ public class UpgradeMenu : MonoBehaviour
     public TMP_Text message;
 
     public float fireRateIncrease = 0.5f;
-    public float strengthIncrease = 1;
+    public int strengthIncrease = 1;
     public float rangeIncrease = 1;
 
     [Tooltip("Panel for insufficient funds")]

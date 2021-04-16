@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  enemyCoinDrop: 100
   currentHealth: 0
 --- !u!135 &297854687397974454
 SphereCollider:
@@ -171,7 +172,7 @@ MonoBehaviour:
   upgradeCost: 64000000640000006400000064000000
   repairCost: 64000000640000006400000064000000
   resourceCost: 64000000640000006400000064000000
-  SellPrice: 0
+  SellPrice: 100
   enemyTag: Enemy
   partToRotate: {fileID: 148016089826431762}
   turnSpeed: 10

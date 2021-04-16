@@ -65,6 +65,6 @@ public class Resource : InteractableObject
     // base value will be cost
     public float GetValue(int baseValue)
     {
-        return baseValue * maxValueMultiplier * GetMaturity();
+        return baseValue * maxValueMultiplier * GetMaturity() * 0.25f;
     }
 }

@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     [SerializeField]
     private int maxHealth = 100;
 
+    [SerializeField] private int enemyCoinDrop = 100;
+
     public int currentHealth;
 
     public event Action<float> OnHealthPctChanged = delegate { };
@@ -29,7 +31,10 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             if (GetComponent<EnemyBehaviour>())
+            {
                 StatisticsTracker.Instance.UpdateStats(4, 1);
+                GameStats.Instance.AddResources(0, 0, 0, enemyCoinDrop);
+            }
 
             // Maybe play a sound here??
 

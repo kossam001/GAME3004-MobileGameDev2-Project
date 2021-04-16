@@ -11,11 +11,11 @@ public class Tower : MonoBehaviour
     [Header("Attributes")]
     public float range = 10.0f;
     public float fireRate = 1.0f;
-    public float strength = 1.0f;
+    public int strength = 1;
 
     public float maxRange = 20.0f;
     public float maxFireRate = 5.0f;
-    public float maxStrength = 5.0f;
+    public int maxStrength = 5;
 
     public int[] upgradeCost = { 100, 100, 100, 100 };
     public int[] repairCost = { 100, 100, 100, 100 };

@@ -12,6 +12,12 @@ public class BulletBehaviour : MonoBehaviour
     public BulletType bulletType;
 
     public int damage = 0;
+    private int baseDamage;
+
+    private void Awake()
+    {
+        baseDamage = damage;
+    }
 
     // Update is called once per frame
     void Update()
@@ -69,6 +75,7 @@ public class BulletBehaviour : MonoBehaviour
         Destroy(effectIns, 2.0f);
 
         //Destroy(gameObject);
+        damage = baseDamage;
         BulletPooling.Instance().ReturnBullet(gameObject, bulletType);
     }
 

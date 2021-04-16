@@ -7,7 +7,7 @@ public class StatisticsTracker : MonoBehaviour
     private static StatisticsTracker instance;
     public static StatisticsTracker Instance { get { return instance; } }
 
-    public List<Statistics> stats;
+    public StatTable stats;
     public Dictionary<int, Statistics> statTable;
 
     void Awake()
@@ -34,7 +34,7 @@ public class StatisticsTracker : MonoBehaviour
             yield return null;
         }
 
-        foreach (Statistics stat in stats)
+        foreach (Statistics stat in stats.allStats)
         {
             statTable[stat.id] = stat;
             stat.SetProgress(0);
@@ -54,12 +54,12 @@ public class StatisticsTracker : MonoBehaviour
 
     public void UpdateStats(int ID, int progress)
     {
-        stats[ID].UpdateProgress(progress);
+        stats.getStat(ID).UpdateProgress(progress);
     }
 
     public Statistics GetStatistic(int ID)
     {
-        return stats[ID];
+        return stats.getStat(ID);
     }
 
     public void Save()
