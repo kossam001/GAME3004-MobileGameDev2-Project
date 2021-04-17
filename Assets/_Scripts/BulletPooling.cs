@@ -111,7 +111,7 @@ public class BulletPooling
     // Get a Bullet from pool to process
     public GameObject GetBullet(Vector3 position, Quaternion rotation, BulletType type = BulletType.RANDOM)
     {
-        GameObject newBullet = new GameObject();
+        GameObject newBullet;// = new GameObject();
 
         switch (type)
         {
