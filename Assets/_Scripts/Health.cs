@@ -80,6 +80,7 @@ public class Health : MonoBehaviour
     public void ResetHealth()
     {
         currentHealth = maxHealth;
+        OnHealthPctChanged(1);
     }
 
     public bool IsMaxHealth()
