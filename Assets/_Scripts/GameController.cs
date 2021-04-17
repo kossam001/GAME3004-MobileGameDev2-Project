@@ -26,31 +26,39 @@ public class GameController : MonoBehaviour
 
         if (LoadButtonBehaviour.loadGameOnStartup == true)
         {
-            GameStats.Instance.resource1 = PlayerPrefs.GetInt("NumWood");
-            GameStats.Instance.resource2 = PlayerPrefs.GetInt("NumFood");
-            GameStats.Instance.resource3 = PlayerPrefs.GetInt("NumIron");
-            GameStats.Instance.resource4 = PlayerPrefs.GetInt("NumCoins");
-            GameStats.Instance.health = PlayerPrefs.GetInt("PlayerHealth");
-            GameStats.Instance.waveCount = PlayerPrefs.GetInt("NumWaveCount");
-
-            GameStats.Instance.UpdateResourcesUI();
-
-            // Need to make sure the tiles are reset somehow
-
-            GameObject[] goArray = GetObjectsInLayer(6);
-
-            if (goArray != null)
+            if(PlayerPrefs.HasKey("NumWood") 
+                && PlayerPrefs.HasKey("NumFood") 
+                && PlayerPrefs.HasKey("NumIron") 
+                && PlayerPrefs.HasKey("NumCoins") 
+                && PlayerPrefs.HasKey("PlayerHealth") 
+                && PlayerPrefs.HasKey("NumWaveCount"))
             {
-                for (int i = 0; i < goArray.Length; i++)
+                GameStats.Instance.resource1 = PlayerPrefs.GetInt("NumWood");
+                GameStats.Instance.resource2 = PlayerPrefs.GetInt("NumFood");
+                GameStats.Instance.resource3 = PlayerPrefs.GetInt("NumIron");
+                GameStats.Instance.resource4 = PlayerPrefs.GetInt("NumCoins");
+                GameStats.Instance.health = PlayerPrefs.GetInt("PlayerHealth");
+                GameStats.Instance.waveCount = PlayerPrefs.GetInt("NumWaveCount");
+
+                GameStats.Instance.UpdateResourcesUI();
+
+                // Need to make sure the tiles are reset somehow
+
+                GameObject[] goArray = GetObjectsInLayer(6);
+
+                if (goArray != null)
                 {
-                    goArray[i].gameObject.SetActive(false);
+                    for (int i = 0; i < goArray.Length; i++)
+                    {
+                        goArray[i].gameObject.SetActive(false);
+                    }
                 }
+
+                TowerTile[] towerTileList = GameObject.FindObjectsOfType<TowerTile>();
+                LoadTowers(towerTileList);
+
+                Debug.Log("GAME LOADED");
             }
-
-            TowerTile[] towerTileList = GameObject.FindObjectsOfType<TowerTile>();
-            LoadTowers(towerTileList);
-
-            Debug.Log("GAME LOADED");
         }
     }
 

@@ -18,12 +18,34 @@ using UnityEngine.SceneManagement;
 public class LoadButtonBehaviour : MonoBehaviour
 {
     public static bool loadGameOnStartup = false;
+    public GameObject Alert;
 
     public void OnLoadButtonPressed()
     {
-        Debug.Log("Load Button Pressed!");
-        loadGameOnStartup = true;
+        if (PlayerPrefs.HasKey("NumWood")
+                && PlayerPrefs.HasKey("NumFood")
+                && PlayerPrefs.HasKey("NumIron")
+                && PlayerPrefs.HasKey("NumCoins")
+                && PlayerPrefs.HasKey("PlayerHealth")
+                && PlayerPrefs.HasKey("NumWaveCount"))
+        {
+            Debug.Log("Load Button Pressed!");
+            loadGameOnStartup = true;
 
-        SceneManager.LoadScene("DespawnEnemyViaTowerScene");
+            SceneManager.LoadScene("DespawnEnemyViaTowerScene");
+        }
+        else
+        {
+            Alert.SetActive(true);
+            StartCoroutine(ShowAlert());
+        }
+
+
+    }
+
+    IEnumerator ShowAlert()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Alert.SetActive(false);
     }
 }
