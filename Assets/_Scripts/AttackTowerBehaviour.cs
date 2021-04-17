@@ -23,6 +23,7 @@ public class AttackTowerBehaviour : Tower
     private string originalTargetTag;
     public GameObject childObjectContainingTheTargetTag;
 
+
     void Awake()
     {
         originalTargetTag = childObjectContainingTheTargetTag.tag;
@@ -99,28 +100,24 @@ public class AttackTowerBehaviour : Tower
 
     private void Shoot()
     {
-        //GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        GameObject bulletGO = new GameObject();
-
         if(BulletPooling.Instance().HasBullets(bulletType))
         {
-            bulletGO = BulletPooling.Instance().GetBullet(firePoint.position, firePoint.rotation, bulletType);
+            GameObject bulletGO = BulletPooling.Instance().GetBullet(firePoint.position, firePoint.rotation, bulletType);
+
+            BulletBehaviour bullet = bulletGO.GetComponent<BulletBehaviour>();
+            bullet.damage = (int)((float)bullet.damage * strength);
+
+            Debug.Log("Shooting");
+            audioSource.Play();
+
+            if (bullet != null)
+            {
+                bullet.Seek(target);
+            }
         }
         else
         {
             return;
-        }
-
-        Debug.Log("Shooting");
-        audioSource.Play();
-
-
-        BulletBehaviour bullet = bulletGO.GetComponent<BulletBehaviour>();
-        bullet.damage = (int) ((float)bullet.damage * strength);
-
-        if(bullet != null)
-        {
-            bullet.Seek(target);
         }
     }
 
