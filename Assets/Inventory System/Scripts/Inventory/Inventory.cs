@@ -136,25 +136,29 @@ public class Inventory : MonoBehaviour, ISaveHandler
         //If ID is -1, replace itemSlot's item with null
         //Otherwise, replace itemSlot with the corresponding item from the itemTable, and set its count to the parsed count
 
-        string loadedData = PlayerPrefs.GetString(inventoryType.ToString() + "inventory", "");
-
-        char[] delimiters = new char[] { ',' };
-        string[] splitData = loadedData.Split(delimiters);
-
-        for(int i = 0; i < itemSlots.Count; i++)
+        if(PlayerPrefs.HasKey(inventoryType.ToString() + "inventory"))
         {
-            int dataIdx = i * 2;
+            string loadedData = PlayerPrefs.GetString(inventoryType.ToString() + "inventory", "");
 
-            int id = int.Parse(splitData[dataIdx]);
-            int count = int.Parse(splitData[dataIdx + 1]);
+            char[] delimiters = new char[] { ',' };
+            string[] splitData = loadedData.Split(delimiters);
 
-            if(id < 0)
+            for (int i = 0; i < itemSlots.Count; i++)
             {
-                itemSlots[i].ClearSlot();
-            } else
-            {
-                itemSlots[i].SetContents(masterItemTable.GetItem(id), count);
+                int dataIdx = i * 2;
+
+                int id = int.Parse(splitData[dataIdx]);
+                int count = int.Parse(splitData[dataIdx + 1]);
+
+                if (id < 0)
+                {
+                    itemSlots[i].ClearSlot();
+                }
+                else
+                {
+                    itemSlots[i].SetContents(masterItemTable.GetItem(id), count);
+                }
             }
-        }
+        }    
     }
 }
