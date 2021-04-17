@@ -72,25 +72,26 @@ public class EnemyShooting : MonoBehaviour
     {
         //GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
-        GameObject bulletGO = new GameObject();
+        //GameObject bulletGO;// = new GameObject();
 
         if (BulletPooling.Instance().HasBullets(BulletType.BUCKET_BULLET))
         {
-            bulletGO = BulletPooling.Instance().GetBullet(firePoint.position, firePoint.rotation, BulletType.BUCKET_BULLET);
+            GameObject bulletGO = BulletPooling.Instance().GetBullet(firePoint.position, firePoint.rotation, BulletType.BUCKET_BULLET);
+
+            Debug.Log("Enemy Shooting");
+            audioSource.Play();
+
+            BulletBehaviour bullet = bulletGO.GetComponent<BulletBehaviour>();
+
+            if (bullet != null)
+            {
+                bullet.Seek(target);
+            }
         }
         else
         {
             return;
         }
 
-        Debug.Log("Enemy Shooting");
-        audioSource.Play();
-
-        BulletBehaviour bullet = bulletGO.GetComponent<BulletBehaviour>();
-
-        if (bullet != null)
-        {
-            bullet.Seek(target);
-        }
     }
 }
