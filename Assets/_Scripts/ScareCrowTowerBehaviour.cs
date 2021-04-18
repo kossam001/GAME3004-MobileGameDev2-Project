@@ -66,7 +66,7 @@ public class ScareCrowTowerBehaviour : Tower
                 {
                     // Slow enemy
                     target = nearestEnemy.transform;
-                    enemy.GetComponent<NavMeshAgent>().speed = 1 / ((float) strength * 0.5f);
+                    enemy.GetComponent<NavMeshAgent>().speed = Mathf.Clamp(1 / ((float) strength * 0.5f), 0.1f, 1.0f);
                 }
                 else
                 {
