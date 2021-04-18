@@ -72,11 +72,17 @@ public class ScareCrowTowerBehaviour : Tower
                 {
                     if (target != null)
                     {
-                        Debug.Log("Target left scarecrow range");
-                        enemy.GetComponent<NavMeshAgent>().speed = target.GetComponent<EnemyBehaviour>().defaultSpeed;
+                        enemy.GetComponent<NavMeshAgent>().speed = enemy.GetComponent<EnemyBehaviour>().defaultSpeed;
                     }
 
                     target = null;
+                }
+            }
+            else if (distanceToEnemy > range)
+            {
+                if (enemy != null)
+                {
+                    enemy.GetComponent<NavMeshAgent>().speed = enemy.GetComponent<EnemyBehaviour>().defaultSpeed;
                 }
             }
         }
